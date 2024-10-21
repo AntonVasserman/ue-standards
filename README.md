@@ -577,6 +577,8 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
         |   |-- Characters
         |   |-- Engine
         |   |-- <a href="#2.1.2">GameModes</a>
+        |   |-- Inputs
+        |   |   |-- Actions
         |   |-- Interactables
         |   |-- Pickups
         |   |-- Weapons
@@ -584,8 +586,6 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
         |   |-- Electrical
         |   |-- Fire
         |   |-- Weather
-        |-- Inputs
-        |   |-- Actions
         |-- <a href="#2.4">Maps</a>
         |   |-- Campaign1
         |   |-- Campaign2

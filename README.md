@@ -59,16 +59,16 @@ If you have made a notable fork or translation that is not suitable for a pull r
     - [1.2.1 Animations](#anc-animations)
     - [1.2.2 Artificial Intelligence](#anc-ai)
     - [1.2.3 Blueprints](#anc-bp)
-    - [1.2.12 Effects](#anc-effects)
-    - [1.2.4 Materials](#anc-materials)
-    - [1.2.6 Miscellaneous](#anc-misc)
-    - [1.2.7 Paper 2D](#anc-paper2d)
-    - [1.2.8 Paper ZD](#anc-paperzd)
-    - [1.2.9 Physics](#anc-physics)
-    - [1.2.10 Sounds](#anc-sounds)
-    - [1.2.5 Textures](#anc-textures)
-      - [1.2.5.1 Texture Packing](#anc-textures-packing)
+    - [1.2.4 Effects](#anc-effects)
+    - [1.2.5 Materials](#anc-materials)
+    - [1.2.6 Paper 2D](#anc-paper2d)
+    - [1.2.7 Paper ZD](#anc-paperzd)
+    - [1.2.8 Physics](#anc-physics)
+    - [1.2.9 Sounds](#anc-sounds)
+    - [1.2.10 Textures](#anc-textures)
+      - [1.2.10.1 Texture Packing](#anc-textures-packing)
     - [1.2.11 User Interface](#anc-ui)
+    - [1.2.12 Miscellaneous](#anc-misc)
 - [2. Content Directory Structure](#structure)
   - [2e1 Example Project Content Structure](#2e1)
   - [2.1 Folder Names](#structure-folder-names)
@@ -115,13 +115,14 @@ If you have made a notable fork or translation that is not suitable for a pull r
     - [3.2.5 Advanced Display](#bp-vars-advanced)
     - [3.2.6 Transient Variables](#bp-vars-transient)
     - [3.2.8 Config Variables](#bp-vars-config)
-  - [3.3 Functions, Events, and Event Dispatchers](#bp-functions)
+  - [3.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-functions)
     - [3.3.1 Function Naming](#bp-funcs-naming)
     - [3.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
     - [3.3.1.2 Property RepNotify Functions Always `OnRep_Variable`](#bp-funcs-naming-onrep)
     - [3.3.1.3 Info Functions Returning Bool Should Ask Questions](#bp-funcs-naming-bool)
-    - [3.3.1.4 Event Handlers and Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
-    - [3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
+    - [3.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
+    - [3.3.1.5 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#bp-funcs-naming-internal-delegates)
+    - [3.3.1.6 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
     - [3.3.2 All Functions Must Have Return Nodes](#bp-funcs-return)
     - [3.3.3 No Function Should Have More Than 50 Nodes](#bp-graphs-funcs-node-limit)
     - [3.3.4 All Public Functions Should Have A Description](#bp-graphs-funcs-description)
@@ -382,8 +383,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Widget Blueprint           | WBP_       |            |                                  |
 
 <a name="anc-effects"></a>
-<a name="1.2.12"></a>
-### 1.2.12 Effects
+<a name="1.2.4"></a>
+### 1.2.4 Effects
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -393,8 +394,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Particle System         | PS_        |            |                                  |
 
 <a name="anc-materials"></a>
-<a name="1.2.4"></a>
-### 1.2.4 Materials
+<a name="1.2.5"></a>
+### 1.2.5 Materials
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
@@ -403,13 +404,109 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Material Instance             | MI_        |            |                                  |
 | Material Parameter Collection | MPC_       |            |                                  |
 | Subsurface Profile            | SP_        |            |                                  |
-| Physical Materials            | PM_        |            |                                  |
 | Post Process Material         | PPM_       |            |                                  |
 | Decal                         | M_, MI_    | _Decal     |                                  |
 
-<a name="anc-misc"></a>
+<a name="anc-paper2d"></a>
 <a name="1.2.6"></a>
-### 1.2.6 Miscellaneous
+### 1.2.6 Paper 2D
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Paper Flipbook          | PFB_       |            |                                  |
+| Sprite                  | SPR_       |            |                                  |
+| Sprite Atlas Group      | SPRG_      |            |                                  |
+| Sprite Sheet            | SS_        |            |                                  |
+| Tile Map                | TM_        |            |                                  |
+| Tile Set                | TS_        |            |                                  |
+
+<a name="anc-paperzd"></a>
+<a name="1.2.7"></a>
+### 1.2.7 Paper ZD
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Animation Blueprint     | ABP_       | _2D        |                                  |
+| Animation Sequence      | AS_        | _2D        |                                  |
+| Animation Source        | ASRC_      |            |                                  |
+
+<a name="anc-physics"></a>
+<a name="1.2.8"></a>
+### 1.2.8 Physics
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Physical Material       | PM_        |            |                                  |
+| Physics Asset           | PHYS_      |            |                                  |
+| Destructible Mesh       | DM_        |            |                                  |
+
+<a name="anc-sounds"></a>
+<a name="1.2.9"></a>
+### 1.2.9 Sounds
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Dialogue Voice          | DV_        |            |                                  |
+| Dialogue Wave           | DW_        |            |                                  |
+| Media Output            | MO_        |            |                                  |
+| Media Player            | MP_        |            |                                  |
+| Media Profile           | MPR_       |            |                                  |
+| Media Sound Wave        | MSW_       |            |                                  |
+| Media Source            | MS_        |            |                                  |
+| Reverb Effect           | Reverb_    |            |                                  |
+| Sound Attenuation       | ATT_       |            |                                  |
+| Sound Class             |            |            | No prefix/suffix. Should be put in a folder called SoundClasses |
+| Sound Concurrency       |            | _SC        | Should be named after a SoundClass |
+| Sound Cue               | A_         | _Cue       |                                  |
+| Sound Mix               | Mix_       |            |                                  |
+| Sound Wave              | A_         |            |                                  |
+
+<a name="anc-textures"></a>
+<a name="1.2.10"></a>
+### 1.2.10 Textures
+
+| Asset Type                          | Prefix        | Suffix     | Notes                            |
+| ----------------------------------- | ------------- | ---------- | -------------------------------- |
+| Texture                             | T_            |            |                                  |
+| Texture (Diffuse/Albedo/Base Color) | T_            | _D         |                                  |
+| Texture (Normal)                    | T_            | _N         |                                  |
+| Texture (Roughness)                 | T_            | _R         |                                  |
+| Texture (Alpha/Opacity)             | T_            | _A         |                                  |
+| Texture (Ambient Occlusion)         | T_            | _O         |                                  |
+| Texture (Bump)                      | T_            | _B         |                                  |
+| Texture (Emissive)                  | T_            | _E         |                                  |
+| Texture (Mask)                      | T_            | _M         |                                  |
+| Texture (Specular)                  | T_            | _S         |                                  |
+| Texture (Metallic)                  | T_            | _M         |                                  |
+| Texture (Packed)                    | T_            | _*         | See notes below about [packing](#anc-textures-packing). |
+| Texture Cube                        | TC_           |            |                                  |
+| Media Texture                       | MT_           |            |                                  |
+| Render Target                       | RT_           |            |                                  |
+| Cube Render Target                  | RTC_          |            |                                  |
+| Texture Light Profile               | TLP           |            |                                  |
+
+<a name="anc-textures-packing"></a>
+<a name="1.2.10.1"></a>
+#### 1.2.10.1 Texture Packing
+It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
+
+> It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
+
+Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
+
+<a name="anc-ui"></a>
+<a name="1.2.11"></a>
+### 1.2.11 User Interface
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Font                    | Font_      |            |                                  |
+| Slate Brush             | Brush_     |            |                                  |
+| Slate Widget Style      | Style_     |            |                                  |
+
+<a name="anc-misc"></a>
+<a name="1.2.12"></a>
+### 1.2.12 Miscellaneous
 
 | Asset Type                 | Prefix     | Suffix     | Notes                            |
 | -------------------------- | ---------- | ---------- | -------------------------------- |
@@ -445,103 +542,6 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Substance Instance Factory | SIF_       |            |                                  |
 | Touch Interface Setup      | TI_        |            |                                  |
 | Vector Curve               | Curve_     | _Vector    |                                  |
-
-<a name="anc-paper2d"></a>
-<a name="1.2.7"></a>
-### 1.2.7 Paper 2D
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Paper Flipbook          | PFB_       |            |                                  |
-| Sprite                  | SPR_       |            |                                  |
-| Sprite Atlas Group      | SPRG_      |            |                                  |
-| Sprite Sheet            | SS_        |            |                                  |
-| Tile Map                | TM_        |            |                                  |
-| Tile Set                | TS_        |            |                                  |
-
-<a name="anc-paperzd"></a>
-<a name="1.2.8"></a>
-### 1.2.8 Paper ZD
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Animation Blueprint     | ABP_       | _2D        |                                  |
-| Animation Sequence      | AS_        | _2D        |                                  |
-| Animation Source        | ASRC_      |            |                                  |
-
-<a name="anc-physics"></a>
-<a name="1.2.9"></a>
-### 1.2.9 Physics
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Physical Material       | PM_        |            |                                  |
-| Physics Asset           | PHYS_      |            |                                  |
-| Destructible Mesh       | DM_        |            |                                  |
-
-<a name="anc-sounds"></a>
-<a name="1.2.10"></a>
-### 1.2.10 Sounds
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Dialogue Voice          | DV_        |            |                                  |
-| Dialogue Wave           | DW_        |            |                                  |
-| Media Output            | MO_        |            |                                  |
-| Media Player            | MP_        |            |                                  |
-| Media Profile           | MPR_       |            |                                  |
-| Media Sound Wave        | MSW_       |            |                                  |
-| Media Source            | MS_        |            |                                  |
-| Reverb Effect           | Reverb_    |            |                                  |
-| Sound Attenuation       | ATT_       |            |                                  |
-| Sound Class             |            |            | No prefix/suffix. Should be put in a folder called SoundClasses |
-| Sound Concurrency       |            | _SC        | Should be named after a SoundClass |
-| Sound Cue               | A_         | _Cue       |                                  |
-| Sound Mix               | Mix_       |            |                                  |
-| Sound Wave              | A_         |            |                                  |
-
-<a name="anc-textures"></a>
-<a name="1.2.5"></a>
-### 1.2.5 Textures
-
-| Asset Type                          | Prefix        | Suffix     | Notes                            |
-| ----------------------------------- | ------------- | ---------- | -------------------------------- |
-| Texture                             | T_            |            |                                  |
-| Texture (Diffuse/Albedo/Base Color) | T_            | _D         |                                  |
-| Texture (Normal)                    | T_            | _N         |                                  |
-| Texture (Roughness)                 | T_            | _R         |                                  |
-| Texture (Alpha/Opacity)             | T_            | _A         |                                  |
-| Texture (Ambient Occlusion)         | T_            | _O         |                                  |
-| Texture (Bump)                      | T_            | _B         |                                  |
-| Texture (Emissive)                  | T_            | _E         |                                  |
-| Texture (Mask)                      | T_            | _M         |                                  |
-| Texture (Specular)                  | T_            | _S         |                                  |
-| Texture (Metallic)                  | T_            | _M         |                                  |
-| Texture (Packed)                    | T_            | _*         | See notes below about [packing](#anc-textures-packing). |
-| Texture Cube                        | TC_           |            |                                  |
-| Media Texture                       | MT_           |            |                                  |
-| Render Target                       | RT_           |            |                                  |
-| Cube Render Target                  | RTC_          |            |                                  |
-| Texture Light Profile               | TLP           |            |                                  |
-
-<a name="anc-textures-packing"></a>
-<a name="1.2.5.1"></a>
-#### 1.2.5.1 Texture Packing
-It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
-
-> It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
-
-Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
-
-<a name="anc-ui"></a>
-<a name="1.2.11"></a>
-### 1.2.11 User Interface
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Font                    | Font_      |            |                                  |
-| Slate Brush             | Brush_     |            |                                  |
-| Slate Widget Style      | Style_     |            |                                  |
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -1046,9 +1046,9 @@ Do not use the `Config Variable` flag. This makes it harder for designers to con
 
 <a name="3.3"></a>
 <a name="bp-functions"></a>
-### 3.3 Functions, Events, and Event Dispatchers
+### 3.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers
 
-This section describes how you should author functions, events, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
+This section describes how you should author functions, delegates, events, event handlers, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
 
 <a name="3.3.1"></a>
 <a name="bp-funcs-naming"></a>
@@ -1128,7 +1128,21 @@ Bad examples:
 
 <a name="3.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 3.3.1.4 Event Handlers and Dispatchers Should Start With `On`
+#### 3.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
+
+Delegate Declarations as well as exposed Events should start with `FOn`.
+
+For example:
+
+* `DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAwaitingDuel);`
+* `DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPhaseChanged, EPhase, Phase);`
+
+Exposed Events (as in events that can be registered by other classes) should start with `On`.
+
+For example:
+
+* `FOnAwaitingDuel OnAwaitingDuel;`
+* `FOnPhaseChanged OnPhaseChanged;`
 
 Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
 
@@ -1154,8 +1168,21 @@ Bad examples:
 * `HandleDeath`
 
 <a name="3.3.1.5"></a>
+<a name="bp-funcs-naming-internal-delegates"></a>
+#### Internal Delegates Should Not Start With `On` and Should End With `Delegate`
+
+Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
+
+Hence we suffix with a `Delegate` to clarify that this is a wrapping delegate.
+
+For example:
+
+* `FOnTimelineFloat AttackPostUpdateDelegate;`
+* `FOnTimelineEvent AttackEventDelegate;`
+
+<a name="3.3.1.6"></a>
 <a name="bp-funcs-naming-rpcs"></a>
-#### 3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target
+#### 3.3.1.6 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
 

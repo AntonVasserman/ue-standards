@@ -561,6 +561,7 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
 |-- Content
     |-- <a href="#2.2">GenericShooter</a>
         |-- Art
+        |-- Audio
         |   |-- Industrial
         |   |   |-- Ambient
         |   |   |-- Machinery

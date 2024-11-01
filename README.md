@@ -584,6 +584,7 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
         |   |-- Controllers
         |   |-- Engine
         |   |-- <a href="#2.1.2">GameModes</a>
+        |   |   |-- GameStates
         |   |-- Inputs
         |   |   |-- Actions
         |   |-- Interactables

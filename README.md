@@ -516,6 +516,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Curve Table                | Curve_     | _Table     |                                  |
 | Data Asset                 | *_         |            | Prefix should be based on class. |
 | Data Table                 | DT_        |            |                                  |
+| File Media Source          | FMS_       |            |                                  |
 | Float Curve                | Curve_     | _Float     |                                  |
 | Foliage Type               | FT_        |            |                                  |
 | Force Feedback Effect      | FFE_       |            |                                  |
@@ -528,12 +529,13 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Level (Geometry)           | LVL_       | _Geo       |                                  |
 | Level (Lighting)           | LVL_       | _Lighting  |                                  |
 | Level (Persistent)         | LVL_       | _P         |                                  |
+| Level Instance             | ????_      |            |                                  | TODO
 | Level Snapshot             | SNAP_      |            |                                  |
 | Matinee Data               | Matinee_   |            |                                  |
 | NDisplay Configuration     | NDC_       |            |                                  |
-| File Media Source          | FMS_       |            |                                  |
 | Object Library             | OL_        |            |                                  |
 | OCIO Profile               | OCIO_      |            |                                  |
+| Packed Level Actor         | ????_      |            |                                  | TODO
 | Redirector                 |            |            | These should be fixed up ASAP.   |
 | Remote Conrtol Preset      | RCP_       |            |                                  |
 | Static Mesh                | SM_        |            |                                  |

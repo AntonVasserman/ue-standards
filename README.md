@@ -141,6 +141,8 @@ For example, if you want to send someone to the first principle of this style gu
 
 The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
+> **_NOTE_:** With that being said, the Levels/Maps folder will be named `Maps` (to align with most projects and conventions) while the Levels will be prefixed with `LVL_` (to align with UE Standards).
+
 <a name="terms-identifiers"></a>
 ##### Identifiers
 An `Identifier` is anything that resembles or serves as a "name". For example, the name of an asset, or the name of a material later, or a blueprint property, a variable, or a folder name, or for a data table row name, etc...
@@ -161,6 +163,8 @@ There are a few different ways you can `CaseWordsWhenNaming`. Here are some comm
 > ###### Snake_case
 >
 > Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. `desert_Eagle`, `Style_Guide`, `a_Series_of_Words`.
+
+> **_NOTE_:** Aligning with the UE Standards, 99% of the time we will be using `PascalCase`.
 
 <a name="terms-var-prop"></a>
 ##### Variables / Properties

@@ -1350,10 +1350,7 @@ This section will focus on Niagara assets and their internals.
 <a name="ng-rules"></a>
 ### 6.1 No Spaces, Ever
 
-As mentioned in [00.1 Forbidden Identifiers](#00), spaces and all white space characters are forbidden in identifiers. This is especially true for Niagara systems as it makes working with things significantly harder if not impossible when working with HLSL or other means of scripting within Niagara and trying to reference an identifier.
-
-(Original Contribution by [@dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58))
-
+As mentioned in [1.1 Forbidden Identifiers](#1.1), spaces and all white space characters are forbidden in identifiers. This is especially true for Niagara systems as it makes working with things significantly harder if not impossible when working with HLSL or other means of scripting within Niagara and trying to reference an identifier.
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -1374,8 +1371,6 @@ This section will focus on Level assets and their internals.
 All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.
 
 You can run a map check on an open level in the editor by using the console command "map check".
-
-Please note: Linter is even more strict on this than the editor is currently, and will catch load errors that the editor will resolve on its own.
 
 <a name="7.2"></a>
 <a name="levels-lighting-should-be-built"></a>
@@ -1455,21 +1450,19 @@ Every texture has a Texture Group property used for LODing, and this should be s
 **[⬆ Back to Top](#table-of-contents)**
 
 
-## License & Contributors Credits
+## License & Credits
 
 Copyright (c) 2016 Gamemakin LLC
 
 See [LICENSE](/LICENSE)
 
+Original Author:
 * [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar), [Twitter](https://twitter.com/michaelallar)
-* [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
-* [billymcguffin](https://github.com/billymcguffin)
-* [akenatsu](https://github.com/akenatsu)
 
+Additional Contributors:
+* [akenatsu](https://github.com/akenatsu)
+* [billymcguffin](https://github.com/billymcguffin)
+* [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
+* [dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58)
 
 **[⬆ Back to Top](#table-of-contents)**
-
-
-## Amendments
-
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.

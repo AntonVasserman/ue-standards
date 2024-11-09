@@ -74,15 +74,15 @@ For example, if you want to send someone to the first principle of this style gu
       - [4.2.1.1 Nouns](#bp-var-naming-nouns)
       - [4.2.1.2 PascalCase](#bp-var-naming-case)
         - [4.2.1.2e Examples](#4.2.1.2e)
-      - [4.2.1.3 Boolean `b` Prefix](#bp-var-bool-prefix)
-      - [4.2.1.4 Boolean Names](#bp-var-bool-names)
-        - [4.2.1.4.1 General And Independent State Information](#4.2.1.4.1)
-        - [4.2.1.4.2 Complex States](#4.2.1.4.2)
-      - [4.2.1.5 Considered Context](#bp-vars-naming-context)
-        - [4.2.1.5e Examples](#4.2.1.5e)
-      - [4.2.1.6 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
-      - [4.2.1.7 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
-      - [4.2.1.8 Arrays](#bp-vars-naming-arrays)
+      - [4.2.1.3 Boolean Names](#bp-var-bool-names)
+        - [4.2.1.3.1 Boolean `b` Prefix](#4.2.1.3.1)
+        - [4.2.1.3.2 General And Independent State Information](#4.2.1.3.2)
+        - [4.2.1.3.3 Complex States](#4.2.1.3.3)
+      - [4.2.1.4 Considered Context](#bp-vars-naming-context)
+        - [4.2.1.4e Examples](#4.2.1.4e)
+      - [4.2.1.5 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
+      - [4.2.1.6 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
+      - [4.2.1.7 Arrays](#bp-vars-naming-arrays)
     - [4.2.2 Editable Variables](#bp-vars-editable)
       - [4.2.2.1 Tooltips](#bp-vars-editable-tooltips)
       - [4.2.2.2 Slider And Value Ranges](#bp-vars-editable-ranges)
@@ -108,9 +108,11 @@ For example, if you want to send someone to the first principle of this style gu
     - [4.4.1 No Spaghetti](#bp-graphs-spaghetti)
     - [4.4.2 Align Wires Not Nodes](#bp-graphs-align-wires)
     - [4.4.3 White Exec Lines Are Top Priority](#bp-graphs-exec-first-class)
-    - [4.4.4 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
-    - [4.4.5 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
-    - [4.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
+    - [4.4.4 Place All Parameters Under The Node They Go To](#bp-graphs-parameters-under-node)
+    - [4.4.5 Do Not Favor Property Reuse, Favor Additional Getters](#bp-graphs-no-property-reuse)
+    - [4.4.6 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
+    - [4.4.7 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
+    - [4.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
 - [5. Static Meshes](#5)
   - [5.1 Static Mesh UVs](#s-uvs)
     - [5.1.1 All Meshes Must Have UVs](#s-uvs-no-missing)
@@ -771,15 +773,13 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
-Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](http://github.com/KorkuVeren))
-
 <a name="4.1"></a>
 <a name="bp-compiling"></a>
 ### 4.1 Compiling
 
 All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.
 
-Do *not* submit broken blueprints to source control. If you must store them on source control, shelve them instead.
+Do *not* submit broken blueprints to source control. If you must store them on source control, shelve them instead (or use the [Developers Folder](#3.3)).
 
 Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.
 
@@ -816,8 +816,11 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 * `AbilityID`
 
 <a name="4.2.1.3"></a>
-<a name="bp-var-bool-prefix"></a>
-##### 4.2.1.3 Boolean `b` Prefix
+<a name="bp-var-bool-names"></a>
+##### 4.2.1.3 Boolean Names
+
+<a name="4.2.1.3.1"></a>
+###### 4.2.1.3.1 Boolean `b` Prefix
 
 All booleans should be named in PascalCase but prefixed with a lowercase `b`.
 
@@ -825,12 +828,8 @@ Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
 
 UE5 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
 
-<a name="4.2.1.4"></a>
-<a name="bp-var-bool-names"></a>
-##### 4.2.1.4 Boolean Names
-
-<a name="4.2.1.4.1"></a>
-###### 4.2.1.4.1 General And Independent State Information
+<a name="4.2.1.3.2"></a>
+###### 4.2.1.3.2 General And Independent State Information
 
 All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
 
@@ -838,8 +837,8 @@ Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
 
 Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
 
-<a name="4.2.1.4.2"></a>
-###### 4.2.1.4.2 Complex States
+<a name="4.2.1.3.3"></a>
+###### 4.2.1.3.3 Complex States
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
@@ -847,14 +846,14 @@ Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if
 
 Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
 
-<a name="4.2.1.5"></a>
+<a name="4.2.1.4"></a>
 <a name="bp-vars-naming-context"></a>
-##### 4.2.1.5 Considered Context
+##### 4.2.1.4 Considered Context
 
 All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
 
-<a name="4.2.1.5e"></a>
-###### 4.2.1.5e Examples
+<a name="4.2.1.4e"></a>
+###### 4.2.1.4e Examples
 
 Consider a Blueprint called `BP_PlayerCharacter`.
 
@@ -878,9 +877,9 @@ All of these variables are named redundantly. It is implied that the variable is
 * `Skills`
 * `Skin`
 
-<a name="4.2.1.6"></a>
+<a name="4.2.1.5"></a>
 <a name="bp-vars-naming-atomic"></a>
-##### 4.2.1.6 Do _Not_ Include Atomic Type Names
+##### 4.2.1.5 Do _Not_ Include Atomic Type Names
 
 Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
 
@@ -898,9 +897,9 @@ The only exception to this rule is when a variable represents 'a number of' some
 
 Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
 
-<a name="4.2.1.7"></a>
+<a name="4.2.1.6"></a>
 <a name="bp-vars-naming-complex"></a>
-##### 4.2.1.7 Do Include Non-Atomic Type Names
+##### 4.2.1.6 Do Include Non-Atomic Type Names
 
 Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
 
@@ -916,15 +915,13 @@ If a class does not own the value a complex variable represents, you should use 
 
 Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
 
-
-<a name="4.2.1.8"></a>
+<a name="4.2.1.7"></a>
 <a name="bp-vars-naming-arrays"></a>
-##### 4.2.1.8 Arrays
+##### 4.2.1.7 Arrays
 
 Arrays follow the same naming rules as above, but should be named as a plural noun.
 
 Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
-
 
 <a name="4.2.2"></a>
 <a name="bp-vars-editable"></a>
@@ -1218,21 +1215,21 @@ If your project includes a plugin that defines `static` `BlueprintCallable` func
 
 For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
 
-<a name="3.4"></a>
+<a name="4.3.4"></a>
 <a name="bp-graphs"></a>
-### 3.4 Blueprint Graphs
+### 4.3.4 Blueprint Graphs
 
 This section covers things that apply to all Blueprint graphs.
 
-<a name="3.4.1"></a>
+<a name="4.4.1"></a>
 <a name="bp-graphs-spaghetti"></a>
-#### 3.4.1 No Spaghetti
+#### 4.4.1 No Spaghetti
 
 Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
 
-<a name="3.4.2"></a>
+<a name="4.4.2"></a>
 <a name="bp-graphs-align-wires"></a>
-#### 3.4.2 Align Wires Not Nodes
+#### 4.4.2 Align Wires Not Nodes
 
 Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
 
@@ -1245,29 +1242,45 @@ Bad Example: The tops of the nodes are aligned creating a wiggly white exec line
 Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
 ![Acceptable](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png?raw=true "Acceptable")
 
-<a name="3.4.3"></a>
+<a name="4.4.3"></a>
 <a name="bp-graphs-exec-first-class"></a>
-#### 3.4.3 White Exec Lines Are Top Priority
+#### 4.4.3 White Exec Lines Are Top Priority
 
 If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
 
-<a name="3.4.4"></a>
+<a name="4.4.4"></a>
+<a name="bp-graphs-parameters-under-node"></a>
+#### 4.4.4 Place All Parameters Under The Node They Go To
+
+When providing parameters to a certain Node (wheter it's a Pure Function or an Exec line) prefer stacking the parameters vertically under the Node instead of spreading them horizontally elsewhere.
+
+I find this method easier to follow, it provides a clear structure, it helps easily find the used parameters, and it removes the need to follow lines backward in the flow, allowing to stay concentrated at the current flow.
+
+<a name="4.4.5"></a>
+<a name="bp-graphs-no-property-reuse"></a>
+#### 4.4.5 Do Not Favor Property Reuse, Favor Additional Getters
+
+Following on 4.4.4, for similar reasons favor calling a getter again, and pulling a function parameter explicitly instead of dragging their lines from previous nodes.
+
+This (as mentioned) removes the need to follow lines backward in the flow and searchfing for the relevant parameters.
+
+<a name="4.4.6"></a>
 <a name="bp-graphs-block-comments"></a>
-#### 3.4.4 Graphs Should Be Reasonably Commented
+#### 4.4.6 Graphs Should Be Reasonably Commented
 
-Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and  description should suffice.
+Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and description should suffice.
 
-<a name="3.4.5"></a>
+<a name="4.4.7"></a>
 <a name="bp-graphs-cast-error-handling"></a>
-#### 3.4.5 Graphs Should Handle Casting Errors Where Appropriate
+#### 4.4.7 Graphs Should Handle Casting Errors Where Appropriate
 
 If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recover after a failed cast if it's known that the reference being casted could ever fail to be casted.
 
 This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
 
-<a name="3.4.6"></a>
+<a name="4.4.8"></a>
 <a name="bp-graphs-dangling-nodes"></a>
-#### 3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
+#### 4.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
 
 All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
 

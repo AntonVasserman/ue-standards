@@ -455,7 +455,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 <a name="anc-textures-packing"></a>
 <a name="2.2.10.1"></a>
 #### 2.2.10.1 Texture Packing
-It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. `_ERO`.
+It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack (in lexicographic order) the given suffix letters from above together, e.g. `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
 
@@ -490,7 +490,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | HDRI                       | HDR_       |            |                                  |
 | Landscape Grass Type       | LG_        |            |                                  |
 | Landscape Layer            | LL_        |            |                                  |
-| Level / Map                | LVL_       |            | [Should be in a folder called Maps.](#2.4) |
+| Level / Map                | LVL_       |            | [Should be in a folder called Maps.](#3.4) |
 | Level (Audio)              | LVL_       | _Audio     |                                  |
 | Level (Gameplay)           | LVL_       | _Gameplay  |                                  |
 | Level (Geometry)           | LVL_       | _Geo       |                                  |

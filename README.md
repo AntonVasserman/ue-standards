@@ -2,13 +2,16 @@
 
 *A mostly reasonable approach to coding and management standards in Unreal Engine 5.*
 
-*Originally created by [Allar](https://github.com/Allar), and can be viewed here: [ue5-style-guide](https://github.com/Allar/ue5-style-guide).* <br>
+*Originally created by [Allar](https://github.com/Allar), and can be viewed here: [ue5-style-guide](https://github.com/Allar/ue5-style-guide).*
+
 *Edited by me to fit my needs and standards and serve as a coding standard reference during personal development using Unreal Engine 5.*
 
 ## Linking To This Document
 
-Every section of this style guide is numbered for both easy reference and easy linking. <br>
-You can link to any section directly by simply append a hash tag and the section number to the end of https://github.com/AntonVasserman/ue5-standards. <br>
+Every section of this style guide is numbered for both easy reference and easy linking.
+
+You can link to any section directly by simply append a hash tag and the section number to the end of https://github.com/AntonVasserman/ue5-standards.
+
 For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in https://github.com/AntonVasserman/ue5-standards#0.1.
 
 ## Table of contents
@@ -207,6 +210,9 @@ If you are helping someone whose work conforms to a different but consistent and
 
 When joining an Unreal Engine 5 team, one of your first questions should be "Do you have a style guide?". If the answer is no, you should suggest them one. If they don't want to use a style guide, be skeptical about their ability to work as a team.
 
+**[⬆ Back to Top](#table-of-contents)**
+
+
 <a name="1"></a>
 ## 1. Globally Enforced Opinions
 
@@ -233,8 +239,11 @@ Any `Identifier` should strive to only have the following characters when possib
 
 The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don't control.
 
-<a name="anc"></a>
+**[⬆ Back to Top](#table-of-contents)**
+
+
 <a name="2"></a>
+<a name="anc"></a>
 ## 2. Asset Naming Conventions
 
 Naming conventions should be treated as law. A project that conforms to a naming convention is able to have its assets managed, searched, parsed, and maintained with incredible ease.
@@ -502,6 +511,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Vector Curve               | Curve_     | _Vector    |                                  |
 
 **[⬆ Back to Top](#table-of-contents)**
+
 
 <a name="3"></a>
 <a name="structure"></a>
@@ -1432,18 +1442,17 @@ Every texture has a Texture Group property used for LODing, and this should be s
 **[⬆ Back to Top](#table-of-contents)**
 
 
-## Major Contributors
+## License & Contributors Credits
+
+Copyright (c) 2016 Gamemakin LLC
+
+See [LICENSE](/LICENSE)
 
 * [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar), [Twitter](https://twitter.com/michaelallar)
 * [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
 * [billymcguffin](https://github.com/billymcguffin)
 * [akenatsu](https://github.com/akenatsu)
 
-## License
-
-Copyright (c) 2016 Gamemakin LLC
-
-See [LICENSE](/LICENSE)
 
 **[⬆ Back to Top](#table-of-contents)**
 

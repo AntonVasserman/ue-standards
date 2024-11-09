@@ -544,6 +544,8 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |   |-- Bob
         |   |-- Common
         |   |   |-- <a href="#3.7">Animations</a>
+        |   |   |   |-- Cinematic
+        |   |   |   |-- Locomotion
         |   |   |-- Audio
         |   |-- Jack
         |   |-- Steve
@@ -635,7 +637,7 @@ When working on multiple projects it is common for a team to copy assets from on
 
 These dependencies are what can easily get you into trouble. If two project's assets do not have a top level folder and they happen to have similarly named or already previously migrated assets, a new migration can accidentally wipe any changes to the existing assets.
 
-This is also the primary reason why Epic's Marketplace staff enforces the same policy for submitted assets.
+This is also the primary reason why Fab (previously Epic's Marketplace) staff enforces the same policy for submitted assets.
 
 After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is _100%_ guaranteed to make any migrations that occur completely safe.
 
@@ -653,13 +655,13 @@ This issue can be hard to predict and hard to account for. The person migrating 
 It is at this point where if the master materials for both projects are incompatible in _any way_, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
 
 <a name="3.2.3"></a>
-#### 3.2.3 Samples, Templates, and Marketplace Content Are Risk-Free
+#### 3.2.3 Samples, Templates, and Fab Content Are Risk-Free
 
-An extension to [3.2.2](#3.2.2), if a team member decides to add sample content, template files, or assets they bought from the marketplace, it is guaranteed, as long your project's top-level folder is uniquely named,that these new assets will not interfere with your project.
+An extension to [3.2.2](#3.2.2), if a team member decides to add sample content, template files, or assets they bought from Fab, it is guaranteed, as long your project's top-level folder is uniquely named, that these new assets will not interfere with your project.
 
-You can not trust marketplace content to fully conform to the [top level folder rule](#3.2). There exists many assets that have the majority of their content in a top level folder but also have possibly modified Epic sample content as well as level files polluting the global `Content` folder.
+You can not trust Fab content to fully conform to the [top level folder rule](#3.2). There exists many assets that have the majority of their content in a top level folder but also have possibly modified Epic sample content as well as level files polluting the global `Content` folder.
 
-When adhering to [3.2](#3.2), the worst marketplace conflict you can have is if two marketplace assets both have the same Epic sample content. If all your assets are in a project specific folder, including sample content you may have moved into your folder, your project will never break.
+When adhering to [3.2](#3.2), the worst Fab conflict you can have is if two Fab assets both have the same Epic sample content. If all your assets are in a project specific folder, including sample content you may have moved into your folder, your project will never break.
 
 <a name="3.2.4"></a>
 #### 3.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained

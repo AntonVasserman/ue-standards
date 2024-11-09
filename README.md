@@ -1386,9 +1386,9 @@ Levels should not have any [z-fighting](https://en.wikipedia.org/wiki/Z-fighting
 
 <a name="7.4"></a>
 <a name="levels-mp-rules"></a>
-### 7.4 Marketplace Specific Rules
+### 7.4 Fab Specific Rules
 
-If a project is to be sold on the UE5 Marketplace, it must follow these rules.
+If a project is to be sold on Fab, it must follow these rules.
 
 <a name="7.4.1"></a>
 <a name="levels-mp-rules-overview"></a>
@@ -1396,9 +1396,7 @@ If a project is to be sold on the UE5 Marketplace, it must follow these rules.
 
 If your project contains assets that should be visualized or demoed, you must have a map within your project that contains the name "Overview".
 
-This overview map, if it is visualizing assets, should be set up according to [Epic's guidelines](http://help.epicgames.com/customer/en/portal/articles/2592186-marketplace-submission-guidelines-preparing-your-assets#Required%20Levels%20and%20Maps).
-
-For example, `InteractionComponent_Overview`.
+For example, `LVL_InteractionComponent_Overview`.
 
 <a name="7.4.2"></a>
 <a name="levels-mp-rules-demo"></a>
@@ -1408,7 +1406,7 @@ If your project contains assets that should be demoed or come with some sort of 
 
 If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
 
-For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
+For example, `LVL_InteractionComponent_Overview_Demo`, `LVL_ExplosionKit_Demo`.
 
 **[⬆ Back to Top](#table-of-contents)**
 

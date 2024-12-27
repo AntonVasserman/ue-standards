@@ -68,75 +68,75 @@ TODO: Consider moving C++ code conventions higher before Blueprints
   - [3.7 Very Large Asset Sets Get Their Own Folder Layout](#structure-large-sets)
   - [3.8 `MaterialLibrary`](#structure-material-library)
   - [3.9 No Empty Folders](#structure-no-empty-folders)
-- [X. C++](#cpp)
-- [4. Blueprints](#bp)
-  - [4.1 Compiling](#bp-compiling)
-  - [4.2 Variables](#bp-vars)
-    - [4.2.1 Naming](#bp-var-naming)
-      - [4.2.1.1 Nouns](#bp-var-naming-nouns)
-      - [4.2.1.2 PascalCase](#bp-var-naming-case)
-        - [4.2.1.2e Examples](#4.2.1.2e)
-      - [4.2.1.3 Boolean Names](#bp-var-bool-names)
-        - [4.2.1.3.1 Boolean `b` Prefix](#4.2.1.3.1)
-        - [4.2.1.3.2 General And Independent State Information](#4.2.1.3.2)
-        - [4.2.1.3.3 Complex States](#4.2.1.3.3)
-      - [4.2.1.4 Considered Context](#bp-vars-naming-context)
-        - [4.2.1.4e Examples](#4.2.1.4e)
-      - [4.2.1.5 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
-      - [4.2.1.6 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
-      - [4.2.1.7 Arrays](#bp-vars-naming-arrays)
-    - [4.2.2 Editable Variables](#bp-vars-editable)
-      - [4.2.2.1 Tooltips](#bp-vars-editable-tooltips)
-      - [4.2.2.2 Slider And Value Ranges](#bp-vars-editable-ranges)
-    - [4.2.3 Categories](#bp-vars-categories)
-    - [4.2.4 Variable Access Level](#bp-vars-access)
-      - [4.2.4.1 Private Variables](#bp-vars-access-private)
-    - [4.2.5 Advanced Display](#bp-vars-advanced)
-    - [4.2.6 Transient Variables](#bp-vars-transient)
-    - [4.2.7 Config Variables](#bp-vars-config)
-  - [4.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-functions)
-    - [4.3.1 Function Naming](#bp-funcs-naming)
-    - [4.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
-    - [4.3.1.2 Property RepNotify Functions Always `OnRep_Variable`](#bp-funcs-naming-onrep)
-    - [4.3.1.3 Info Functions Returning Bool Should Ask Questions](#bp-funcs-naming-bool)
-    - [4.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
-    - [4.3.1.5 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#bp-funcs-naming-internal-delegates)
-    - [4.3.1.6 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
-    - [4.3.2 All Functions Must Have Return Nodes](#bp-funcs-return)
-    - [4.3.3 No Function Should Have More Than 50 Nodes](#bp-graphs-funcs-node-limit)
-    - [4.3.4 All Public Functions Should Have A Description](#bp-graphs-funcs-description)
-    - [4.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#bp-graphs-funcs-plugin-category)
-  - [4.4 Blueprint Graphs](#bp-graphs)
-    - [4.4.1 No Spaghetti](#bp-graphs-spaghetti)
-    - [4.4.2 Align Wires Not Nodes](#bp-graphs-align-wires)
-    - [4.4.3 White Exec Lines Are Top Priority](#bp-graphs-exec-first-class)
-    - [4.4.4 Place All Parameters Under The Node They Go To](#bp-graphs-parameters-under-node)
-    - [4.4.5 Do Not Favor Property Reuse, Favor Additional Getters](#bp-graphs-no-property-reuse)
-    - [4.4.6 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
-    - [4.4.7 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
-    - [4.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
-- [5. Static Meshes](#5)
-  - [5.1 Static Mesh UVs](#s-uvs)
-    - [5.1.1 All Meshes Must Have UVs](#s-uvs-no-missing)
-    - [5.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps](#s-uvs-no-overlapping)
-  - [5.2 LODs Should Be Set Up Correctly](#s-lods)
-  - [5.3 Modular Socketless Assets Should Snap To The Grid Cleanly](#s-modular-snapping)
-  - [5.4 All Meshes Must Have Collision](#s-collision)
-  - [5.5 All Meshes Should Be Scaled Correctly](#s-scaled)
-- [6. Niagara](#Niagara)
-  - [6.1 No Spaces, Ever](#ng-rules)
-- [7. Levels / Maps](#levels)
-  - [7.1 No Errors Or Warnings](#levels-no-errors-or-warnings)
-  - [7.2 Lighting Should Be Built](#levels-lighting-should-be-built)
-  - [7.3 No Player Visible Z Fighting](#levels-no-visible-z-fighting)
-  - [7.4 Marketplace Specific Rules](#levels-mp-rules)
-    - [7.4.1 Overview Level](#levels-mp-rules-overview)
-    - [7.4.2 Demo Level](#levels-mp-rules-demo)
-- [8. Textures](#textures)
-  - [8.1 Dimensions Are Powers of 2](#textures-dimensions)
-  - [8.2 Texture Density Should Be Uniform](#textures-density)
-  - [8.3 Textures Should Be No Bigger than 8192](#textures-max-size)
-  - [8.4 Textures Should Be Grouped Correctly](#textures-group)
+- [4. C++](#cpp)
+- [5. Blueprints](#bp)
+  - [5.1 Compiling](#bp-compiling)
+  - [5.2 Variables](#bp-vars)
+    - [5.2.1 Naming](#bp-var-naming)
+      - [5.2.1.1 Nouns](#bp-var-naming-nouns)
+      - [5.2.1.2 PascalCase](#bp-var-naming-case)
+        - [5.2.1.2e Examples](#5.2.1.2e)
+      - [5.2.1.3 Boolean Names](#bp-var-bool-names)
+        - [5.2.1.3.1 Boolean `b` Prefix](#5.2.1.3.1)
+        - [5.2.1.3.2 General And Independent State Information](#5.2.1.3.2)
+        - [5.2.1.3.3 Complex States](#5.2.1.3.3)
+      - [5.2.1.4 Considered Context](#bp-vars-naming-context)
+        - [5.2.1.4e Examples](#5.2.1.4e)
+      - [5.2.1.5 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
+      - [5.2.1.6 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
+      - [5.2.1.7 Arrays](#bp-vars-naming-arrays)
+    - [5.2.2 Editable Variables](#bp-vars-editable)
+      - [5.2.2.1 Tooltips](#bp-vars-editable-tooltips)
+      - [5.2.2.2 Slider And Value Ranges](#bp-vars-editable-ranges)
+    - [5.2.3 Categories](#bp-vars-categories)
+    - [5.2.4 Variable Access Level](#bp-vars-access)
+      - [5.2.4.1 Private Variables](#bp-vars-access-private)
+    - [5.2.5 Advanced Display](#bp-vars-advanced)
+    - [5.2.6 Transient Variables](#bp-vars-transient)
+    - [5.2.7 Config Variables](#bp-vars-config)
+  - [5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-functions)
+    - [5.3.1 Function Naming](#bp-funcs-naming)
+      - [5.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
+      - [5.3.1.2 Property RepNotify Functions Always `OnRep_Variable`](#bp-funcs-naming-onrep)
+      - [5.3.1.3 Info Functions Returning Bool Should Ask Questions](#bp-funcs-naming-bool)
+      - [5.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
+      - [5.3.1.5 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#bp-funcs-naming-internal-delegates)
+      - [5.3.1.6 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
+    - [5.3.2 All Functions Must Have Return Nodes](#bp-funcs-return)
+    - [5.3.3 No Function Should Have More Than 50 Nodes](#bp-graphs-funcs-node-limit)
+    - [5.3.4 All Public Functions Should Have A Description](#bp-graphs-funcs-description)
+    - [5.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#bp-graphs-funcs-plugin-category)
+  - [5.4 Blueprint Graphs](#bp-graphs)
+    - [5.4.1 No Spaghetti](#bp-graphs-spaghetti)
+    - [5.4.2 Align Wires Not Nodes](#bp-graphs-align-wires)
+    - [5.4.3 White Exec Lines Are Top Priority](#bp-graphs-exec-first-class)
+    - [5.4.4 Place All Parameters Under The Node They Go To](#bp-graphs-parameters-under-node)
+    - [5.4.5 Do Not Favor Property Reuse, Favor Additional Getters](#bp-graphs-no-property-reuse)
+    - [5.4.6 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
+    - [5.4.7 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
+    - [5.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
+- [6. Static Meshes](#5)
+  - [6.1 Static Mesh UVs](#s-uvs)
+    - [6.1.1 All Meshes Must Have UVs](#s-uvs-no-missing)
+    - [6.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps](#s-uvs-no-overlapping)
+  - [6.2 LODs Should Be Set Up Correctly](#s-lods)
+  - [6.3 Modular Socketless Assets Should Snap To The Grid Cleanly](#s-modular-snapping)
+  - [6.4 All Meshes Must Have Collision](#s-collision)
+  - [6.5 All Meshes Should Be Scaled Correctly](#s-scaled)
+- [7. Niagara](#Niagara)
+  - [7.1 No Spaces, Ever](#ng-rules)
+- [8. Levels / Maps](#levels)
+  - [8.1 No Errors Or Warnings](#levels-no-errors-or-warnings)
+  - [8.2 Lighting Should Be Built](#levels-lighting-should-be-built)
+  - [8.3 No Player Visible Z Fighting](#levels-no-visible-z-fighting)
+  - [8.4 Marketplace Specific Rules](#levels-mp-rules)
+    - [8.4.1 Overview Level](#levels-mp-rules-overview)
+    - [8.4.2 Demo Level](#levels-mp-rules-demo)
+- [9. Textures](#textures)
+  - [9.1 Dimensions Are Powers of 2](#textures-dimensions)
+  - [9.2 Texture Density Should Be Uniform](#textures-density)
+  - [9.3 Textures Should Be No Bigger than 8192](#textures-max-size)
+  - [9.4 Textures Should Be Grouped Correctly](#textures-group)
 
 ## Important Terminology
 
@@ -773,33 +773,33 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 <a name="X"></a>
 <a name="cpp"></a>
-## X. C++
+## 4. C++
 
 This section will focus on C++ Coding standards.
 
-<a name="X.1"></a>
+<a name="4.1"></a>
 <a name="cpp-compiling"></a>
-### X.1 Compiling
+### 4.1 Compiling
 
 All C++ code should compile with zero warnings and zero errors (ignore everything outside your game project). You should fix warnings immediately as they can quickly cascade into runtime errors and scary unexpected behavior (and even crash the engine).
 
-<a name="X.2"></a>
+<a name="4.2"></a>
 <a name="cpp-variables"></a>
-### X.2 Variables
+### 4.2 Variables
 
-<a name="X.2.1"></a>
+<a name="4.2.1"></a>
 <a name="cpp-var-naming"></a>
-#### X.2.1 Naming
+#### 4.2.1 Naming
 
-<a name="X.2.1.1"></a>
+<a name="4.2.1.1"></a>
 <a name="cpp-var-naming-nouns"></a>
-##### X.2.1.1 Nouns
+##### 4.2.1.1 Nouns
 
 All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
 
-<a name="X.2.1.2"></a>
+<a name="4.2.1.2"></a>
 <a name="cpp-var-naming-case"></a>
-##### X.2.1.2 PascalCase
+##### 4.2.1.2 PascalCase
 
 All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 
@@ -810,19 +810,19 @@ Examples:
 * `TargetPlayer` **not** `targetPlayer`
 * `CrosshairColor` **not** `crosshairColor`
 
-<a name="X.2.1.3"></a>
+<a name="4.2.1.3"></a>
 <a name="cpp-var-bool-names"></a>
-##### X.2.1.3 Boolean Names
+##### 4.2.1.3 Boolean Names
 
-<a name="X.2.1.3.1"></a>
-###### X.2.1.3.1 Boolean `b` Prefix
+<a name="4.2.1.3.1"></a>
+###### 4.2.1.3.1 Boolean `b` Prefix
 
 All booleans should be named in PascalCase but prefixed with a lowercase `b`.
 
 Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
 
-<a name="X.2.1.3.2"></a>
-###### X.2.1.3.2 General And Independent State Information
+<a name="4.2.1.3.2"></a>
+###### 4.2.1.3.2 General And Independent State Information
 
 All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
 
@@ -830,9 +830,9 @@ Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
 
 Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
 
-<a name="X.2.1.4"></a>
+<a name="4.2.1.4"></a>
 <a name="cpp-vars-naming-atomic"></a>
-##### X.2.1.4 Do _Not_ Include Atomic Type Names
+##### 4.2.1.4 Do _Not_ Include Atomic Type Names
 
 Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
 
@@ -850,17 +850,17 @@ The only exception to this rule is when a variable represents 'a number of' some
 
 Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
 
-<a name="X.2.1.5"></a>
+<a name="4.2.1.5"></a>
 <a name="cpp-vars-naming-arrays"></a>
-##### X.2.1.5 Arrays
+##### 4.2.1.5 Arrays
 
 Arrays follow the same naming rules as above, but should be named as a plural noun.
 
 Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
 
-<a name="X.3"></a>
+<a name="4.3"></a>
 <a name="cpp-statements"></a>
-### X.3 Statements
+### 4.3 Statements
 
 All statement bodies (`if`, `for`, etc.) should be wrapped with block wrappers (curly braces) instead of one liners.
 
@@ -883,39 +883,39 @@ else
   ...
 ```
 
-<a name="X.4"></a>
+<a name="4.4"></a>
 <a name="cpp-structs"></a>
-### X.4 Structs
+### 4.4 Structs
 
 As a rule of thumb all structs should be prefixed with `F`, and contain only data, no functionality.
 
-<a name="X.5"></a>
+<a name="4.5"></a>
 <a name="cpp-classes"></a>
-### X.5 Classes
+### 4.5 Classes
 
 All classes should have the `UCLASS` macro (so they are exposed to Blueprints) and inherit from `UObject` or one of its derivatives.
 
-<a name="X.5.1"></a>
+<a name="4.5.1"></a>
 <a name="cpp-classes-naming"></a>
-#### X.5.1 Naming
+#### 4.5.1 Naming
 
 If the class inherits from AActor or one of its derivatives then it should be prefixed with `A`, otherwise it should be prefixed with `U`.
 
-<a name="X.5.2"></a>
+<a name="4.5.2"></a>
 <a name="cpp-classes-data-members"></a>
-#### X.5.2 Data Members/Properties
+#### 4.5.2 Data Members/Properties
 
 The words `data member` and `property` may be used interchangeably.
 
-<a name="X.5.2.1"></a>
+<a name="4.5.2.1"></a>
 <a name="cpp-classes-data-members-naming"></a>
-##### X.5.2.1 Naming
+##### 4.5.2.1 Naming
 
 As a rule of thumb, all data members should also follow the [C++ Variables Naming](#cpp-var-naming) rules.
 
-<a name="X.5.2.1.1"></a>
+<a name="4.5.2.1.1"></a>
 <a name="cpp-classes-data-members-naming-complex-states"></a>
-###### X.5.2.1.1 Complex States
+###### 4.5.2.1.1 Complex States
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
@@ -923,9 +923,9 @@ Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if
 
 Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
 
-<a name="X.5.2.1.2"></a>
+<a name="4.5.2.1.2"></a>
 <a name="cpp-classes-data-members-naming-context"></a>
-###### X.5.2.1.3 Considered Context
+###### 4.5.2.1.3 Considered Context
 
 All data member names must not be redundant with their context as all data member references always have context in a class/struct.
 
@@ -949,9 +949,9 @@ All of these data members are named redundantly. It is implied that the data mem
 * `Skills`
 * `Skin`
 
-<a name="X.5.2.1.3"></a>
+<a name="4.5.2.1.3"></a>
 <a name="cpp-classes-data-members-naming-atomic-names"></a>
-###### X.5.2.1.3 Do Include Non-Atomic Type Names
+###### 4.5.2.1.3 Do Include Non-Atomic Type Names
 
 Non-atomic or complex data members are data members that represent data as a collection of atomic data members. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
 
@@ -967,9 +967,9 @@ If a class does not own the value a complex data member represents, you should u
 
 Example: If a `ATurret` has the ability to target a `APlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `ATurret` it should be clear that it is a reference to another complex data member type that it does not own.
 
-<a name="X.5.2.2"></a>
+<a name="4.5.2.2"></a>
 <a name="cpp-classes-data-members-editable"></a>
-##### X.5.2.2 Editable Data Members
+##### 4.5.2.2 Editable Data Members
 
 All data members that are safe to change in an inheriting Blueprint should be marked with a `UPROPERTY` macro that has the `EditAnywhere`/`BlueprintReadWrite` specifiers.
 
@@ -977,9 +977,9 @@ All data members that are safe to change in an inheriting Blueprint should be ma
 > Due to that, I personally prefer using the next two combinations `UPROPERTY(EditAnywhere + BlueprintReadOnly)` or `UPROPERTY(VisibleAnywhere + BlueprintReadWrite)`.
 > On that note, I also prefer the usage of `EditDefaultsOnly` and `EditInstanceOnly` in favor of `EditAnywhere`, due to similar reasons.
 
-<a name="X.5.2.2.1"></a>
+<a name="4.5.2.2.1"></a>
 <a name="cpp-classes-data-members-editable-ranges"></a>
-###### X.5.2.2.1 Slider And Value Ranges
+###### 4.5.2.2.1 Slider And Value Ranges
 
 All `Editable` data members should make use of slider and value ranges if there is ever a value that should _not_ be allowed.
 
@@ -989,9 +989,9 @@ If an editable variable is used in a Construction Script, it should have a reaso
 
 A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
 
-<a name="X.5.2.3"></a>
+<a name="4.5.2.3"></a>
 <a name="cpp-classes-data-members-categories"></a>
-##### X.5.2.3 Categories
+##### 4.5.2.3 Categories
 
 If a class has only a small number of data members, categories are not required.
 
@@ -1014,29 +1014,29 @@ Example: A weapon class set of data members might be organized as:
     |-- State
     |-- Visuals
 
-<a name="X.5.2.4"></a>
+<a name="4.5.2.4"></a>
 <a name="cpp-classes-data-members-access"></a>
-##### X.5.2.4 Data Members Access Level
+##### 4.5.2.4 Data Members Access Level
 
 In C++, data members have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
 
 All data members should be marked as `protected` or `private` according to their needs, but never `public`! If a data member needs to be accessed from a different class, define a Getter function.
 
-<a name="X.5.2.5"></a>
+<a name="4.5.2.5"></a>
 <a name="cpp-classes-data-members-advanced"></a>
-##### X.5.2.5 Advanced Display
+##### 4.5.2.5 Advanced Display
 
 If a data member should be editable but often untouched, add the `Advanced Display` specifier. This makes the data member hidden unless the advanced display arrow is clicked.
 
-<a name="X.5.3"></a>
+<a name="4.5.3"></a>
 <a name="cpp-classes-component-data-members"></a>
-#### X.5.3 cpp-classes-component-data-members
+#### 4.5.3 cpp-classes-component-data-members
 
 A data member that inherits from `UActorComponent` is a component data member.
 
-<a name="X.5.3.1"></a>
+<a name="4.5.3.1"></a>
 <a name="cpp-classes-component-data-members-naming"></a>
-##### X.5.3.1 Naming
+##### 4.5.3.1 Naming
 
 A component data member should be suffixed with `Comp`.
 
@@ -1044,23 +1044,23 @@ A component data member's object name shouldn't be suffixed with `Comp` or `Comp
 
 Example: Favor `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));` over `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm Component"));`.
 
-<a name="X.5.3.2"></a>
+<a name="4.5.3.2"></a>
 <a name="cpp-classes-component-data-members-uproperty"></a>
-##### X.5.3.2 UPROPERTY vs TObjectPtr
+##### 4.5.3.2 UPROPERTY vs TObjectPtr
 
 TODO: Discuss TObjectPtr<T> verses using UPROPERTY for components...
 
-<a name="X.5.4"></a>
+<a name="4.5.4"></a>
 <a name="cpp-classes-functions"></a>
-#### X.5.4 Functions/Methods
+#### 4.5.4 Functions/Methods
 
 This section describes how you should author class functions.
 
 A method is a function belonging to a class, so the words 'method' and 'function' are interchangable in most contexts.
 
-<a name="X.5.4.1"></a>
+<a name="4.5.4.1"></a>
 <a name="cpp-classes-functions-naming"></a>
-##### X.5.4.1 Naming
+##### 4.5.4.1 Naming
 
 The naming of functions is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
 
@@ -1073,9 +1073,9 @@ These questions and more can all be answered when functions are named appropriat
 
 Function declarations should be in a single line. In case of many parameters, split the parameters to several lines.
 
-<a name="X.5.4.1.1"></a>
+<a name="4.5.4.1.1"></a>
 <a name="cpp-classes-functions-naming-verbs"></a>
-###### X.5.4.1.1 All Functions Should Be Verbs
+###### 4.5.4.1.1 All Functions Should Be Verbs
 
 All functions perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
 
@@ -1101,15 +1101,15 @@ Bad examples:
 * `PlayerState` - Nouns are ambiguous.
 * `Color` - Verb with no context, or ambiguous noun.
 
-<a name="X.5.4.1.2"></a>
+<a name="4.5.4.1.2"></a>
 <a name="cpp-classes-functions-naming-onrep"></a>
-###### X.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
+###### 4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
 
 All functions for replicated with notification variables should have the form `OnRep_Variable`, and exposed to Blueprints.
 
-<a name="X.5.4.1.3"></a>
+<a name="4.5.4.1.3"></a>
 <a name="cpp-classes-functions-naming-bool"></a>
-###### X.5.4.1.3 Info Functions Returning Bool Should Ask Questions
+###### 4.5.4.1.3 Info Functions Returning Bool Should Ask Questions
 
 When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#cpp-classes-functions-naming-verbs).
 
@@ -1134,9 +1134,9 @@ Bad examples:
 * `Dead` - Is dead? Will deaden?
 * `Visibility` - Is visible? Set visibility? A description of flying conditions?
 
-<a name="X.5.4.1.4"></a>
+<a name="4.5.4.1.4"></a>
 <a name="cpp-classes-functions-naming-rpcs"></a>
-###### X.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
+###### 4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
 
@@ -1155,37 +1155,37 @@ Bad examples:
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
 
-<a name="X.5.4.2"></a>
+<a name="4.5.4.2"></a>
 <a name="cpp-classes-functions-getset"></a>
-##### X.5.4.2 Getters and Setters
+##### 4.5.4.2 Getters and Setters
 
 Classes that want to expose private/protected data members for editting through other classes should add Getter and Setter functions.
 
 When using Unreal Engine's API always prefer using a Getter instead of the actual data memeber. This is because the API changes, and at some point the said data member could become private, resulting in a code break.
 
-<a name="X.5.4.3"></a>
+<a name="4.5.4.3"></a>
 <a name="cpp-classes-functions-inline"></a>
-##### X.5.4.3 Inline Functions
+##### 4.5.4.3 Inline Functions
 
 Functions that execute a single line of code (Getters/Setters often fall into this criteria) should always be inline functions and have the `FORCEINLINE` macro.
 
-<a name="X.6"></a>
+<a name="4.6"></a>
 <a name="cpp-enums"></a>
-### X.6 Enums
+### 4.6 Enums
 
 An enumeration (`Enum`) is often used to store a finite amount of options, such as a state.
 
 In Unreal Engine Enums should often use the `UENUM()` macro to be exposed to Blueprints.
 
-<a name="X.6.1"></a>
+<a name="4.6.1"></a>
 <a name="cpp-enums-naming"></a>
-#### X.6.1 Naming
+#### 4.6.1 Naming
 
 Enums should always be prefixed with 'E'.
 
-<a name="X.6.1.1"></a>
+<a name="4.6.1.1"></a>
 <a name="cpp-enums-naming-value-prefix"></a>
-##### X.6.1.1 Enum Values Prefix
+##### 4.6.1.1 Enum Values Prefix
 
 It is common (not always) to prefix each value in the Enum with an abbreviation of the Enum name.
 
@@ -1205,9 +1205,9 @@ This rule is important in case you are not using a class enum, in which case the
 
 In case you do use a class enum, then the only advantage of this rule is that it's easier to find the enum in an IDE by writing the abbreviation. But this is less relevant with modern IDEs such as JetBrains Rider that finds classes by the abbreviation anyway.
 
-<a name="X.6.2"></a>
+<a name="4.6.2"></a>
 <a name="cpp-enums-displayname"></a>
-#### X.6.2 Display Name
+#### 4.6.2 Display Name
 
 Favor using (especially for unclear enum values) the `UMETA()` macro and adding a `DisplayName` for a friendly clear display name in Blueprints.
 
@@ -1223,9 +1223,9 @@ enum class EMaterialBakeMethod : uint8
 };
 ```
 
-<a name="X.7"></a>
+<a name="4.7"></a>
 <a name="cpp-interfaces"></a>
-### X.7 Interfaces
+### 4.7 Interfaces
 
 When creating an `Interface`, we need to create two classes, `UInterface` (with `MinimalAPI` specifier) and `IInterface` (with the Game's API macro).
 
@@ -1248,9 +1248,9 @@ public:
 
 > **_NOTE_:** Both should reside in the same interface file, in this example in `PRSOperatableInterface.h`.
 
-<a name="X.7.1"></a>
+<a name="4.7.1"></a>
 <a name="cpp-interfaces-naming"></a>
-#### X.7.1 Naming
+#### 4.7.1 Naming
 
 The `UInterface` class should be prefixed with `U`.
 
@@ -1275,19 +1275,19 @@ public:
 };
 ```
 
-<a name="X.8"></a>
+<a name="4.8"></a>
 <a name="cpp-delegates-and-events"></a>
-### X.8 Delegates and Events
+### 4.8 Delegates and Events
 
-<a name="X.8.1"></a>
+<a name="4.8.1"></a>
 <a name="cpp-events-naming"></a>
-#### X.8.1
+#### 4.8.1
 
 In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-functions-naming).
 
-<a name="X.8.1.1"></a>
+<a name="4.8.1.1"></a>
 <a name="cpp-events-naming-eventhandlers"></a>
-##### X.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
+##### 4.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
 
 Delegate Declarations as well as exposed Events should start with `FOn`.
 
@@ -1326,9 +1326,9 @@ Bad examples:
 * `HandleMessage`
 * `HandleDeath`
 
-<a name="X.8.1.2"></a>
+<a name="4.8.1.2"></a>
 <a name="bp-funcs-naming-internal-delegates"></a>
-##### X.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
+##### 4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
 
 Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
 
@@ -1339,9 +1339,9 @@ For example:
 * `FOnTimelineFloat AttackPostUpdateDelegate;`
 * `FOnTimelineEvent AttackEventDelegate;`
 
-<a name="X.8.2"></a>
+<a name="4.8.2"></a>
 <a name="cpp-events-binding"></a>
-#### X.8.2
+#### 4.8.2
 
 Binding to other member's events should never be in the Constructor, but rather in `virtual void BeginPlay() override;`. If bindings occur in the Constructor, undesired side effects can occur, such as the function continue being binded even if the code is removed, most likely due to the CDO (Class Default Object) creation.
 
@@ -1351,13 +1351,13 @@ TODO: Research if there is a more appropriate place than `BeginPlay()`.
 
 <a name="4"></a>
 <a name="bp"></a>
-## 4. Blueprints
+## 5. Blueprints
 
 This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
-<a name="4.1"></a>
+<a name="5.1"></a>
 <a name="bp-compiling"></a>
-### 4.1 Compiling
+### 5.1 Compiling
 
 All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.
 
@@ -1365,30 +1365,30 @@ Do *not* submit broken blueprints to source control. If you must store them on s
 
 Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.
 
-<a name="4.2"></a>
+<a name="5.2"></a>
 <a name="bp-vars"></a>
-### 4.2 Variables
+### 5.2 Variables
 
 The words `variable` and `property` may be used interchangeably.
 
-<a name="4.2.1"></a>
+<a name="5.2.1"></a>
 <a name="bp-var-naming"></a>
-#### 4.2.1 Naming
+#### 5.2.1 Naming
 
-<a name="4.2.1.1"></a>
+<a name="5.2.1.1"></a>
 <a name="bp-var-naming-nouns"></a>
-##### 4.2.1.1 Nouns
+##### 5.2.1.1 Nouns
 
 All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
 
-<a name="4.2.1.2"></a>
+<a name="5.2.1.2"></a>
 <a name="bp-var-naming-case"></a>
-##### 4.2.1.2 PascalCase
+##### 5.2.1.2 PascalCase
 
 All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 
-<a name="4.2.1.2e"></a>
-###### 4.2.1.2e Examples
+<a name="5.2.1.2e"></a>
+###### 5.2.1.2e Examples
 
 * `Score`
 * `Kills`
@@ -1397,12 +1397,12 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 * `CrosshairColor`
 * `AbilityID`
 
-<a name="4.2.1.3"></a>
+<a name="5.2.1.3"></a>
 <a name="bp-var-bool-names"></a>
-##### 4.2.1.3 Boolean Names
+##### 5.2.1.3 Boolean Names
 
-<a name="4.2.1.3.1"></a>
-###### 4.2.1.3.1 Boolean `b` Prefix
+<a name="5.2.1.3.1"></a>
+###### 5.2.1.3.1 Boolean `b` Prefix
 
 All booleans should be named in PascalCase but prefixed with a lowercase `b`.
 
@@ -1410,8 +1410,8 @@ Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
 
 UE5 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
 
-<a name="4.2.1.3.2"></a>
-###### 4.2.1.3.2 General And Independent State Information
+<a name="5.2.1.3.2"></a>
+###### 5.2.1.3.2 General And Independent State Information
 
 All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
 
@@ -1419,8 +1419,8 @@ Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
 
 Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
 
-<a name="4.2.1.3.3"></a>
-###### 4.2.1.3.3 Complex States
+<a name="5.2.1.3.3"></a>
+###### 5.2.1.3.3 Complex States
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
@@ -1428,14 +1428,14 @@ Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if
 
 Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
 
-<a name="4.2.1.4"></a>
+<a name="5.2.1.4"></a>
 <a name="bp-vars-naming-context"></a>
-##### 4.2.1.4 Considered Context
+##### 5.2.1.4 Considered Context
 
 All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
 
-<a name="4.2.1.4e"></a>
-###### 4.2.1.4e Examples
+<a name="5.2.1.4e"></a>
+###### 5.2.1.4e Examples
 
 Consider a Blueprint called `BP_PlayerCharacter`.
 
@@ -1459,9 +1459,9 @@ All of these variables are named redundantly. It is implied that the variable is
 * `Skills`
 * `Skin`
 
-<a name="4.2.1.5"></a>
+<a name="5.2.1.5"></a>
 <a name="bp-vars-naming-atomic"></a>
-##### 4.2.1.5 Do _Not_ Include Atomic Type Names
+##### 5.2.1.5 Do _Not_ Include Atomic Type Names
 
 Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
 
@@ -1479,9 +1479,9 @@ The only exception to this rule is when a variable represents 'a number of' some
 
 Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
 
-<a name="4.2.1.6"></a>
+<a name="5.2.1.6"></a>
 <a name="bp-vars-naming-complex"></a>
-##### 4.2.1.6 Do Include Non-Atomic Type Names
+##### 5.2.1.6 Do Include Non-Atomic Type Names
 
 Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
 
@@ -1497,17 +1497,17 @@ If a class does not own the value a complex variable represents, you should use 
 
 Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
 
-<a name="4.2.1.7"></a>
+<a name="5.2.1.7"></a>
 <a name="bp-vars-naming-arrays"></a>
-##### 4.2.1.7 Arrays
+##### 5.2.1.7 Arrays
 
 Arrays follow the same naming rules as above, but should be named as a plural noun.
 
 Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
 
-<a name="4.2.2"></a>
+<a name="5.2.2"></a>
 <a name="bp-vars-editable"></a>
-#### 4.2.2 Editable Variables
+#### 5.2.2 Editable Variables
 
 All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as `Editable`.
 
@@ -1515,15 +1515,15 @@ Conversely, all variables that are not safe to change or should not be exposed t
 
 Do not arbitrarily mark variables as `Editable`.
 
-<a name="4.2.2.1"></a>
+<a name="5.2.2.1"></a>
 <a name="bp-vars-editable-tooltips"></a>
-##### 4.2.2.1 Tooltips
+##### 5.2.2.1 Tooltips
 
 All `Editable` variables, including those marked editable just so they can be marked as `Expose On Spawn`, should have a description in their `Tooltip` fields that explains how changing this value affects the behavior of the blueprint.
 
-<a name="4.2.2.2"></a>
+<a name="5.2.2.2"></a>
 <a name="bp-vars-editable-ranges"></a>
-##### 4.2.2.2 Slider And Value Ranges
+##### 5.2.2.2 Slider And Value Ranges
 
 All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should _not_ be set to.
 
@@ -1533,9 +1533,9 @@ If an editable variable is used in a Construction Script, it should have a reaso
 
 A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
 
-<a name="4.2.3"></a>
+<a name="5.2.3"></a>
 <a name="bp-vars-categories"></a>
-#### 4.2.3 Categories
+#### 5.2.3 Categories
 
 If a class has only a small number of variables, categories are not required.
 
@@ -1562,9 +1562,9 @@ Example: A weapon class set of variables might be organized as:
 
 > **_NOTE_:** In C++ code as a rule of thumb, every `UPROPERTY` that has `EditAnywhere`/`VisibleAnywhere` should have a Category.
 
-<a name="4.2.4"></a>
+<a name="5.2.4"></a>
 <a name="bp-vars-access"></a>
-#### 4.2.4 Variable Access Level
+#### 5.2.4 Variable Access Level
 
 In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
 
@@ -1572,43 +1572,43 @@ Blueprints do not have a defined concept of protected access currently.
 
 Treat `Editable` variables as public variables. Treat non-editable variables as protected variables.
 
-<a name="4.2.4.1"></a>
+<a name="5.2.4.1"></a>
 <a name="bp-vars-access-private"></a>
-##### 4.2.4.1 Private Variables
+##### 5.2.4.1 Private Variables
 
 Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked `protected`, reserve private for when you absolutely know you want to restrict child class usage.
 
-<a name="4.2.5"></a>
+<a name="5.2.5"></a>
 <a name="bp-vars-advanced"></a>
-#### 4.2.5 Advanced Display
+#### 5.2.5 Advanced Display
 
 If a variable should be editable but often untouched, mark it as `Advanced Display`. This makes the variable hidden unless the advanced display arrow is clicked.
 
 To find the `Advanced Display` option, it is listed as an advanced displayed variable in the variable details list.
 
-<a name="4.2.6"></a>
+<a name="5.2.6"></a>
 <a name="bp-vars-transient"></a>
-#### 4.2.6 Transient Variables
+#### 5.2.6 Transient Variables
 
 Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who's value isn't known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.
 
 Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.
 
-<a name="4.2.7"></a>
+<a name="5.2.7"></a>
 <a name="bp-vars-config"></a>
-#### 4.2.7 Config Variables
+#### 5.2.7 Config Variables
 
 Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
 
-<a name="4.3"></a>
+<a name="5.3"></a>
 <a name="bp-functions"></a>
-### 4.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers
+### 5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers
 
 This section describes how you should author functions, delegates, events, event handlers, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
 
-<a name="4.3.1"></a>
+<a name="5.3.1"></a>
 <a name="bp-funcs-naming"></a>
-#### 4.3.1 Function Naming
+#### 5.3.1 Function Naming
 
 The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
 
@@ -1620,9 +1620,9 @@ The naming of functions, events, and event dispatchers is critically important. 
 
 These questions and more can all be answered when functions are named appropriately.
 
-<a name="4.3.1.1"></a>
+<a name="5.3.1.1"></a>
 <a name="bp-funcs-naming-verbs"></a>
-#### 4.3.1.1 All Functions Should Be Verbs
+#### 5.3.1.1 All Functions Should Be Verbs
 
 All functions and events perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
 
@@ -1649,15 +1649,15 @@ Bad examples:
 * `PlayerState` - Nouns are ambiguous.
 * `Color` - Verb with no context, or ambiguous noun.
 
-<a name="4.3.1.2"></a>
+<a name="5.3.1.2"></a>
 <a name="bp-funcs-naming-onrep"></a>
-#### 4.3.1.2 Property RepNotify Functions Always `OnRep_Variable`
+#### 5.3.1.2 Property RepNotify Functions Always `OnRep_Variable`
 
 All functions for replicated with notification variables should have the form `OnRep_Variable`. This is forced by the Blueprint editor. If you are writing a C++ `OnRep` function however, it should also follow this convention when exposing it to Blueprints.
 
-<a name="4.3.1.3"></a>
+<a name="5.3.1.3"></a>
 <a name="bp-funcs-naming-bool"></a>
-#### 4.3.1.3 Info Functions Returning Bool Should Ask Questions
+#### 5.3.1.3 Info Functions Returning Bool Should Ask Questions
 
 When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#bp-funcs-naming-verbs).
 
@@ -1682,9 +1682,9 @@ Bad examples:
 * `Dead` - Is dead? Will deaden?
 * `Visibility` - Is visible? Set visibility? A description of flying conditions?
 
-<a name="4.3.1.4"></a>
+<a name="5.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 4.3.1.4 Event Handlers and Dispatchers Should Start With `On`
+#### 5.3.1.4 Event Handlers and Dispatchers Should Start With `On`
 
 Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
 
@@ -1709,9 +1709,9 @@ Bad examples:
 * `HandleMessage`
 * `HandleDeath`
 
-<a name="4.3.1.6"></a>
+<a name="5.3.1.6"></a>
 <a name="bp-funcs-naming-rpcs"></a>
-#### 4.3.1.6 Remote Procedure Calls Should Be Prefixed With Target
+#### 5.3.1.6 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
 
@@ -1730,9 +1730,9 @@ Bad examples:
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
 
-<a name="4.3.2"></a>
+<a name="5.3.2"></a>
 <a name="bp-funcs-return"></a>
-#### 4.3.2 All Functions Must Have Return Nodes
+#### 5.3.2 All Functions Must Have Return Nodes
 
 All functions must have return nodes, no exceptions.
 
@@ -1742,9 +1742,9 @@ The Blueprint compiler is able to follow the flow of execution and will warn you
 
 In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.
 
-<a name="4.3.3"></a>
+<a name="5.3.3"></a>
 <a name="bp-graphs-funcs-node-limit"></a>
-#### 4.3.3 No Function Should Have More Than 50 Nodes
+#### 5.3.3 No Function Should Have More Than 50 Nodes
 
 Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.
 
@@ -1758,37 +1758,37 @@ The following nodes are not counted as they are deemed to not increase function 
 * Function Entry
 * Self
 
-<a name="4.3.4"></a>
+<a name="5.3.4"></a>
 <a name="bp-graphs-funcs-description"></a>
-#### 4.3.4 All Public Functions Should Have A Description
+#### 5.3.4 All Public Functions Should Have A Description
 
 This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
 
 Simply, any function that has an access specifier of Public should have its description filled out.
 
-<a name="4.3.5"></a>
+<a name="5.3.5"></a>
 <a name="bp-graphs-funcs-plugin-category"></a>
-#### 4.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name
+#### 5.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name
 
 If your project includes a plugin that defines `static` `BlueprintCallable` functions, they should have their category set to the plugin's name or a subset category of the plugin's name.
 
 For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
 
-<a name="4.3.4"></a>
+<a name="5.3.4"></a>
 <a name="bp-graphs"></a>
-### 4.3.4 Blueprint Graphs
+### 5.3.4 Blueprint Graphs
 
 This section covers things that apply to all Blueprint graphs.
 
-<a name="4.4.1"></a>
+<a name="5.4.1"></a>
 <a name="bp-graphs-spaghetti"></a>
-#### 4.4.1 No Spaghetti
+#### 5.4.1 No Spaghetti
 
 Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
 
-<a name="4.4.2"></a>
+<a name="5.4.2"></a>
 <a name="bp-graphs-align-wires"></a>
-#### 4.4.2 Align Wires Not Nodes
+#### 5.4.2 Align Wires Not Nodes
 
 Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
 
@@ -1801,45 +1801,45 @@ Bad Example: The tops of the nodes are aligned creating a wiggly white exec line
 Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
 ![Acceptable](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png?raw=true "Acceptable")
 
-<a name="4.4.3"></a>
+<a name="5.4.3"></a>
 <a name="bp-graphs-exec-first-class"></a>
-#### 4.4.3 White Exec Lines Are Top Priority
+#### 5.4.3 White Exec Lines Are Top Priority
 
 If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
 
-<a name="4.4.4"></a>
+<a name="5.4.4"></a>
 <a name="bp-graphs-parameters-under-node"></a>
-#### 4.4.4 Place All Parameters Under The Node They Go To
+#### 5.4.4 Place All Parameters Under The Node They Go To
 
 When providing parameters to a certain Node (wheter it's a Pure Function or an Exec line) prefer stacking the parameters vertically under the Node instead of spreading them horizontally elsewhere.
 
 I find this method easier to follow, it provides a clear structure, it helps easily find the used parameters, and it removes the need to follow lines backward in the flow, allowing to stay concentrated at the current flow.
 
-<a name="4.4.5"></a>
+<a name="5.4.5"></a>
 <a name="bp-graphs-no-property-reuse"></a>
-#### 4.4.5 Do Not Favor Property Reuse, Favor Additional Getters
+#### 5.4.5 Do Not Favor Property Reuse, Favor Additional Getters
 
-Following on 4.4.4, for similar reasons favor calling a getter again, and pulling a function parameter explicitly instead of dragging their lines from previous nodes.
+Following on 5.4.4, for similar reasons favor calling a getter again, and pulling a function parameter explicitly instead of dragging their lines from previous nodes.
 
 This (as mentioned) removes the need to follow lines backward in the flow and searchfing for the relevant parameters.
 
-<a name="4.4.6"></a>
+<a name="5.4.6"></a>
 <a name="bp-graphs-block-comments"></a>
-#### 4.4.6 Graphs Should Be Reasonably Commented
+#### 5.4.6 Graphs Should Be Reasonably Commented
 
 Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and description should suffice.
 
-<a name="4.4.7"></a>
+<a name="5.4.7"></a>
 <a name="bp-graphs-cast-error-handling"></a>
-#### 4.4.7 Graphs Should Handle Casting Errors Where Appropriate
+#### 5.4.7 Graphs Should Handle Casting Errors Where Appropriate
 
 If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recover after a failed cast if it's known that the reference being casted could ever fail to be casted.
 
 This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
 
-<a name="4.4.8"></a>
+<a name="5.4.8"></a>
 <a name="bp-graphs-dangling-nodes"></a>
-#### 4.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
+#### 5.4.8 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
 
 All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
 
@@ -1849,49 +1849,49 @@ All nodes in all blueprint graphs must have a purpose. You should not leave dang
 <a name="5"></a>
 <a name="Static Meshes"></a>
 <a name="s"></a>
-## 5. Static Meshes
+## 6. Static Meshes
 
 This section will focus on Static Mesh assets and their internals.
 
-<a name="5.1"></a>
+<a name="6.1"></a>
 <a name="s-uvs"></a>
-### 5.1 Static Mesh UVs
+### 6.1 Static Mesh UVs
 
-<a name="5.1.1"></a>
+<a name="6.1.1"></a>
 <a name="s-uvs-no-missing"></a>
-#### 5.1.1 All Meshes Must Have UVs
+#### 6.1.1 All Meshes Must Have UVs
 
 Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.
 
-<a name="5.1.2"></a>
+<a name="6.1.2"></a>
 <a name="s-uvs-no-overlapping"></a>
-#### 5.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps
+#### 6.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps
 
 Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.
 
-<a name="5.2"></a>
+<a name="6.2"></a>
 <a name="s-lods"></a>
-### 5.2 LODs Should Be Set Up Correctly
+### 6.2 LODs Should Be Set Up Correctly
 
 This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.
 
-<a name="5.3"></a>
+<a name="6.3"></a>
 <a name="s-modular-snapping"></a>
-### 5.3 Modular Socketless Assets Should Snap To The Grid Cleanly
+### 6.3 Modular Socketless Assets Should Snap To The Grid Cleanly
 
 This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project's grid settings.
 
 It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However if you are authoring modular socketless assets for Fab, Epic's requirement is that they snap cleanly when the grid is set to 10 units or bigger.
 
-<a name="5.4"></a>
+<a name="6.4"></a>
 <a name="s-collision"></a>
-### 5.4 All Meshes Must Have Collision
+### 6.4 All Meshes Must Have Collision
 
 Regardless of whether an asset is going to be used for collision in a level, all meshes should have proper collision defined. This helps the engine with things such as bounds calculations, occlusion, and lighting. Collision should also be well-formed to the asset.
 
-<a name="5.5"></a>
+<a name="6.5"></a>
 <a name="s-scaled"></a>
-### 5.5 All Meshes Should Be Scaled Correctly
+### 6.5 All Meshes Should Be Scaled Correctly
 
 This is a subjective check on a per-project basis, however all assets should be scaled correctly to their project. Level designers or blueprint authors should not have to tweak the scale of meshes to get them to confirm in the editor. Scaling meshes in the engine should be treated as a scale override, not a scale correction.
 
@@ -1901,13 +1901,13 @@ This is a subjective check on a per-project basis, however all assets should be 
 <a name="6"></a>
 <a name="Niagara"></a>
 <a name="ng"></a>
-## 6. Niagara
+## 7. Niagara
 
 This section will focus on Niagara assets and their internals.
 
-<a name="6.1"></a>
+<a name="7.1"></a>
 <a name="ng-rules"></a>
-### 6.1 No Spaces, Ever
+### 7.1 No Spaces, Ever
 
 As mentioned in [1.1 Forbidden Identifiers](#1.1), spaces and all white space characters are forbidden in identifiers. This is especially true for Niagara systems as it makes working with things significantly harder if not impossible when working with HLSL or other means of scripting within Niagara and trying to reference an identifier.
 
@@ -1917,49 +1917,49 @@ As mentioned in [1.1 Forbidden Identifiers](#1.1), spaces and all white space ch
 <a name="7"></a>
 <a name="Levels"></a>
 <a name="levels"></a>
-## 7. Levels / Maps
+## 8. Levels / Maps
 
 [See Terminology Note](#terms-level-map) regarding "levels" vs "maps".
 
 This section will focus on Level assets and their internals.
 
-<a name="7.1"></a>
+<a name="8.1"></a>
 <a name="levels-no-errors-or-warnings"></a>
-### 7.1 No Errors Or Warnings
+### 8.1 No Errors Or Warnings
 
 All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.
 
 You can run a map check on an open level in the editor by using the console command "map check".
 
-<a name="7.2"></a>
+<a name="8.2"></a>
 <a name="levels-lighting-should-be-built"></a>
-### 7.2 Lighting Should Be Built
+### 8.2 Lighting Should Be Built
 
 It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.
 
-<a name="7.3"></a>
+<a name="8.3"></a>
 <a name="levels-no-visible-z-fighting"></a>
-### 7.3 No Player Visible Z Fighting
+### 8.3 No Player Visible Z Fighting
 
 Levels should not have any [z-fighting](https://en.wikipedia.org/wiki/Z-fighting) in all areas visible to the player.
 
-<a name="7.4"></a>
+<a name="8.4"></a>
 <a name="levels-mp-rules"></a>
-### 7.4 Fab Specific Rules
+### 8.4 Fab Specific Rules
 
 If a project is to be sold on Fab, it must follow these rules.
 
-<a name="7.4.1"></a>
+<a name="8.4.1"></a>
 <a name="levels-mp-rules-overview"></a>
-#### 7.4.1 Overview Level
+#### 8.4.1 Overview Level
 
 If your project contains assets that should be visualized or demoed, you must have a map within your project that contains the name "Overview".
 
 For example, `LVL_InteractionComponent_Overview`.
 
-<a name="7.4.2"></a>
+<a name="8.4.2"></a>
 <a name="levels-mp-rules-demo"></a>
-#### 7.4.2 Demo Level
+#### 8.4.2 Demo Level
 
 If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples on how to do this.
 
@@ -1972,35 +1972,35 @@ For example, `LVL_InteractionComponent_Overview_Demo`, `LVL_ExplosionKit_Demo`.
 
 <a name="8"></a>
 <a name="textures"></a>
-## 8. Textures
+## 9. Textures
 
 This section will focus on Texture assets and their internals.
 
-<a name="8.1"></a>
+<a name="9.1"></a>
 <a name="textures-dimensions"></a>
-### 8.1 Dimensions Are Powers of 2
+### 9.1 Dimensions Are Powers of 2
 
 All textures, except for UI textures, must have its dimensions in multiples of powers of 2. Textures do not have to be square.
 
 For example, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
 
-<a name="8.2"></a>
+<a name="9.2"></a>
 <a name="textures-density"></a>
-### 8.2 Texture Density Should Be Uniform
+### 9.2 Texture Density Should Be Uniform
 
 All textures should be of a size appropriate for their standard use case. Appropriate texture density varies from project to project, but all textures within that project should have a consistent density.
 
 For example, if a project's texture density is 8 pixel per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density.
 
-<a name="8.3"></a>
+<a name="9.3"></a>
 <a name="textures-max-size"></a>
-### 8.3 Textures Should Be No Bigger than 8192
+### 9.3 Textures Should Be No Bigger than 8192
 
 No texture should have a dimension that exceeds 8192 in size, unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.
 
-<a name="8.4"></a>
+<a name="9.4"></a>
 <a name="textures-group"></a>
-### 8.4 Textures Should Be Grouped Correctly
+### 9.4 Textures Should Be Grouped Correctly
 
 Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.
 

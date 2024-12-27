@@ -539,6 +539,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Landscape Grass Type       | LG_        |            |                                  |
 | Landscape Layer            | LL_        |            |                                  |
 | Level / Map                | LVL_       |            | [Should be in a folder called Maps.](#3.4) |
+| Level Instance             | LVLI_      |            |                                  |
 | Level (Audio)              | LVL_       | _Audio     |                                  |
 | Level (Gameplay)           | LVL_       | _Gameplay  |                                  |
 | Level (Geometry)           | LVL_       | _Geo       |                                  |
@@ -575,19 +576,16 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 ### 3e1 Example Project Content Structure
 <pre>
 |-- Content
-    |-- <a href="#3.2">Game</a>
+    |-- <a href="#3.2">Game Name</a>
         |-- Art
         |-- Audio
-        |   |-- Industrial
-        |   |   |-- Ambient
-        |   |   |-- Machinery
-        |   |   |-- Pipes
+        |   |-- Music
         |   |-- Nature
         |   |   |-- Ambient
         |   |   |-- Foliage
         |   |   |-- Rocks
         |   |   |-- Trees
-        |   |-- Office
+        |   |-- SFX
         |-- Characters
         |   |-- Bob
         |   |-- Common
@@ -614,8 +612,9 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |   |-- Fire
         |   |-- Weather
         |-- <a href="#3.4">Maps</a>
-        |   |-- Campaign1
-        |   |-- Campaign2
+        |   |-- Gyms
+        |   |-- Level_0
+        |   |-- Level_1
         |-- <a href="#3.8">MaterialLibrary</a>
         |   |-- Debug
         |   |-- Metal
@@ -666,6 +665,8 @@ Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,
 ### 3.2 Use A Top Level Folder For Project Specific Assets
 
 All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', _all_ of it's content should exist in `Content/GenericShooter`.
+
+Consier also set it as favorite and set its color to highlight it from all the other folders (I personally use `3333FFFF` (0.2, 0.2, 1.0)).
 
 > The `Developers` folder is not for assets that your project relies on and therefore is not project specific. See [Developer Folders](#3.3) for details about this.
 
@@ -738,7 +739,7 @@ Being able to tell someone to open a specific map without having to explain wher
 
 This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
 
-If Gym maps are used, put them under `/Content/Project/Maps/Gyms` (Consider setting a special color to this folder, as it has unique purpose).
+If Gym maps are used, put them under `/Content/Project/Maps/Gyms` (Consider setting a special color to this folder, as it has unique purpose, I personally set it to `404040FF` (0.25, 0.25, 0.25)).
 
 <a name="3.5"></a>
 <a name="structure-core"></a>

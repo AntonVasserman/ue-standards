@@ -14,6 +14,7 @@ You can link to any section directly by simply append a hash tag and the section
 
 For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in https://github.com/AntonVasserman/ue5-standards#0.1.
 
+TODO: Consider moving C++ code conventions higher before Blueprints
 ## Table of contents
 - [Important Terminology](#important-terminology)
   - [Levels/Maps](#terms-level-map)
@@ -67,6 +68,7 @@ For example, if you want to send someone to the first principle of this style gu
   - [3.7 Very Large Asset Sets Get Their Own Folder Layout](#structure-large-sets)
   - [3.8 `MaterialLibrary`](#structure-material-library)
   - [3.9 No Empty Folders](#structure-no-empty-folders)
+- [X. C++](#cpp)
 - [4. Blueprints](#bp)
   - [4.1 Compiling](#bp-compiling)
   - [4.2 Variables](#bp-vars)
@@ -135,7 +137,6 @@ For example, if you want to send someone to the first principle of this style gu
   - [8.2 Texture Density Should Be Uniform](#textures-density)
   - [8.3 Textures Should Be No Bigger than 8192](#textures-max-size)
   - [8.4 Textures Should Be Grouped Correctly](#textures-group)
-- [9. Coding (WIP)](#coding) @TODO
 
 ## Important Terminology
 
@@ -277,8 +278,8 @@ Depending on how your asset variants are made, you can chain together variant na
 
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
-| Skeletal Mesh           | SK_Bob                                                     |
 | Material                | M_Bob                                                      |
+| Skeletal Mesh           | SK_Bob                                                     |
 | Texture (Diffuse/Albedo)| T_Bob_D                                                    |
 | Texture (Normal)        | T_Bob_N                                                    |
 | Texture (Evil Diffuse)  | T_Bob_Evil_D                                               |
@@ -287,11 +288,11 @@ Depending on how your asset variants are made, you can chain together variant na
 
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
+| Material                | M_Rock                                                     |
+| Material Instance (Snow)| MI_Rock_Snow                                               |
 | Static Mesh (01)        | SM_Rock_01                                                 |
 | Static Mesh (02)        | SM_Rock_02                                                 |
 | Static Mesh (03)        | SM_Rock_03                                                 |
-| Material                | M_Rock                                                     |
-| Material Instance (Snow)| MI_Rock_Snow                                               |
 
 <a name="asset-name-modifiers"></a>
 <a name="2.2"></a>
@@ -313,6 +314,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Animation Sequence      | AS_        |            |                                  |
 | Blend Space             | BS_        |            |                                  |
 | Blend Space 1D          | BS_        | _1D        |                                  |
+| IK Rig                  | IK_        |            |                                  |
+| IK Retargeter           | RTG_       |            |                                  |
 | Level Sequence          | LS_        |            |                                  |
 | Morph Target            | MT_        |            |                                  |
 | Rig                     | Rig_       |            |                                  |
@@ -330,10 +333,10 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Behavior Tree           | BT_          |            |                                  |
 | Blackboard              | BB_          |            |                                  |
 | Decorator               | BTDecorator_ |            |                                  |
-| Service                 | BTService_   |            |                                  |
-| Task                    | BTTask_      |            |                                  |
 | Environment Query       | EQS_         |            |                                  |
 | EnvQueryContext         | EQS_         | Context    |                                  |
+| Service                 | BTService_   |            |                                  |
+| Task                    | BTTask_      |            |                                  |
 
 <a name="anc-bp"></a>
 <a name="2.2.3"></a>
@@ -529,7 +532,7 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 ### 3e1 Example Project Content Structure
 <pre>
 |-- Content
-    |-- <a href="#3.2">GenericShooter</a>
+    |-- <a href="#3.2">Game</a>
         |-- Art
         |-- Audio
         |   |-- Industrial
@@ -692,6 +695,8 @@ Being able to tell someone to open a specific map without having to explain wher
 
 This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
 
+If Gym maps are used, put them under `/Content/Project/Maps/Gyms` (Consider setting a special color to this folder, as it has unique purpose).
+
 <a name="3.5"></a>
 <a name="structure-core"></a>
 ### 3.5 Use A `Core` Folder For Critical Blueprints And Other Assets
@@ -766,6 +771,583 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 **[⬆ Back to Top](#table-of-contents)**
 
+<a name="X"></a>
+<a name="cpp"></a>
+## X. C++
+
+This section will focus on C++ Coding standards.
+
+<a name="X.1"></a>
+<a name="cpp-compiling"></a>
+### X.1 Compiling
+
+All C++ code should compile with zero warnings and zero errors (ignore everything outside your game project). You should fix warnings immediately as they can quickly cascade into runtime errors and scary unexpected behavior (and even crash the engine).
+
+<a name="X.2"></a>
+<a name="cpp-variables"></a>
+### X.2 Variables
+
+<a name="X.2.1"></a>
+<a name="cpp-var-naming"></a>
+#### X.2.1 Naming
+
+<a name="X.2.1.1"></a>
+<a name="cpp-var-naming-nouns"></a>
+##### X.2.1.1 Nouns
+
+All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
+
+<a name="X.2.1.2"></a>
+<a name="cpp-var-naming-case"></a>
+##### X.2.1.2 PascalCase
+
+All non-boolean variables should be in the form of [PascalCase](#terms-cases).
+
+Examples:
+
+* `Score` **not** `score`
+* `Kills` **not** `kills`
+* `TargetPlayer` **not** `targetPlayer`
+* `CrosshairColor` **not** `crosshairColor`
+
+<a name="X.2.1.3"></a>
+<a name="cpp-var-bool-names"></a>
+##### X.2.1.3 Boolean Names
+
+<a name="X.2.1.3.1"></a>
+###### X.2.1.3.1 Boolean `b` Prefix
+
+All booleans should be named in PascalCase but prefixed with a lowercase `b`.
+
+Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
+
+<a name="X.2.1.3.2"></a>
+###### X.2.1.3.2 General And Independent State Information
+
+All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
+
+Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
+
+Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
+
+<a name="X.2.1.4"></a>
+<a name="cpp-vars-naming-atomic"></a>
+##### X.2.1.4 Do _Not_ Include Atomic Type Names
+
+Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
+
+Strings and vectors are considered atomic in terms of style when working with C++/Blueprints, however they are technically not atomic.
+
+> While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
+
+> Do _not_ consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
+
+Atomic variables should not have their type name in their name.
+
+Example: Use `Score`, `Kills`, and `Description` **not** `ScoreFloat`, `FloatKills`, `DescriptionString`.
+
+The only exception to this rule is when a variable represents 'a number of' something to be counted _and_ when using a name without a variable type is not easy to read.
+
+Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
+
+<a name="X.2.1.5"></a>
+<a name="cpp-vars-naming-arrays"></a>
+##### X.2.1.5 Arrays
+
+Arrays follow the same naming rules as above, but should be named as a plural noun.
+
+Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
+
+<a name="X.3"></a>
+<a name="cpp-statements"></a>
+### X.3 Statements
+
+All statement bodies (`if`, `for`, etc.) should be wrapped with block wrappers (curly braces) instead of one liners.
+
+Example:
+```
+// GOOD
+if (bFalling)
+{
+  ...
+}
+else
+{
+  ...
+}
+
+// BAD
+if (bfalling)
+  ...
+else
+  ...
+```
+
+<a name="X.4"></a>
+<a name="cpp-structs"></a>
+### X.4 Structs
+
+As a rule of thumb all structs should be prefixed with `F`, and contain only data, no functionality.
+
+<a name="X.5"></a>
+<a name="cpp-classes"></a>
+### X.5 Classes
+
+All classes should have the `UCLASS` macro (so they are exposed to Blueprints) and inherit from `UObject` or one of its derivatives.
+
+<a name="X.5.1"></a>
+<a name="cpp-classes-naming"></a>
+#### X.5.1 Naming
+
+If the class inherits from AActor or one of its derivatives then it should be prefixed with `A`, otherwise it should be prefixed with `U`.
+
+<a name="X.5.2"></a>
+<a name="cpp-classes-data-members"></a>
+#### X.5.2 Data Members/Properties
+
+The words `data member` and `property` may be used interchangeably.
+
+<a name="X.5.2.1"></a>
+<a name="cpp-classes-data-members-naming"></a>
+##### X.5.2.1 Naming
+
+As a rule of thumb, all data members should also follow the [C++ Variables Naming](#cpp-var-naming) rules.
+
+<a name="X.5.2.1.1"></a>
+<a name="cpp-classes-data-members-naming-complex-states"></a>
+###### X.5.2.1.1 Complex States
+
+Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
+
+Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a data member with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
+
+Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
+
+<a name="X.5.2.1.2"></a>
+<a name="cpp-classes-data-members-naming-context"></a>
+###### X.5.2.1.3 Considered Context
+
+All data member names must not be redundant with their context as all data member references always have context in a class/struct.
+
+Examples:
+
+Consider a Class called `APlayerCharacter`.
+
+**Bad**
+
+* `PlayerScore`
+* `MyCharacterName`
+* `CharacterSkills`
+* `ChosenCharacterSkin`
+
+All of these data members are named redundantly. It is implied that the data member is representative of the `APlayerCharacter` it belongs to because it is `APlayerCharacter` that is defining these data members.
+
+**Good**
+
+* `Score`
+* `Name`
+* `Skills`
+* `Skin`
+
+<a name="X.5.2.1.3"></a>
+<a name="cpp-classes-data-members-naming-atomic-names"></a>
+###### X.5.2.1.3 Do Include Non-Atomic Type Names
+
+Non-atomic or complex data members are data members that represent data as a collection of atomic data members. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
+
+> While an Array of an atomic data member type is a list of data members, Arrays do not change the 'atomicness' of a data member type.
+
+These data members should include their type name while still considering their context.
+
+If a class owns an instance of a complex data member, i.e. if a `APlayerCharacter` owns a `AHat`, it should be stored as the data member type as without any name modifications.
+
+Example: Use `Hat`, `Flag`, and `Ability` **not** `MyHat`, `MyFlag`, and `PlayerAbility`.
+
+If a class does not own the value a complex data member represents, you should use a noun along with the data member type.
+
+Example: If a `ATurret` has the ability to target a `APlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `ATurret` it should be clear that it is a reference to another complex data member type that it does not own.
+
+<a name="X.5.2.2"></a>
+<a name="cpp-classes-data-members-editable"></a>
+##### X.5.2.2 Editable Data Members
+
+All data members that are safe to change in an inheriting Blueprint should be marked with a `UPROPERTY` macro that has the `EditAnywhere`/`BlueprintReadWrite` specifiers.
+
+> **_NOTE_:** I personally believe that having a data member both `EditAnywhere` and `BlueprintReadWrite` can lead to unexpected runtime behavior, especially for designers since this is exposing the member for editing in one too many places.
+> Due to that, I personally prefer using the next two combinations `UPROPERTY(EditAnywhere + BlueprintReadOnly)` or `UPROPERTY(VisibleAnywhere + BlueprintReadWrite)`.
+> On that note, I also prefer the usage of `EditDefaultsOnly` and `EditInstanceOnly` in favor of `EditAnywhere`, due to similar reasons.
+
+<a name="X.5.2.2.1"></a>
+<a name="cpp-classes-data-members-editable-ranges"></a>
+###### X.5.2.2.1 Slider And Value Ranges
+
+All `Editable` data members should make use of slider and value ranges if there is ever a value that should _not_ be allowed.
+
+Example: A class that generates fence posts might have an editable variable named `PostsCount` and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.
+
+If an editable variable is used in a Construction Script, it should have a reasonable Slider Range defined so that someone can not accidentally assign it a large value that could crash the editor.
+
+A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
+
+<a name="X.5.2.3"></a>
+<a name="cpp-classes-data-members-categories"></a>
+##### X.5.2.3 Categories
+
+If a class has only a small number of data members, categories are not required.
+
+If a class has a moderate amount of data members (5-10), all `Editable` data members should have a non-default category assigned. A common category is `Config`.
+
+If a class has a large amount of data members, all `Editable` data members should be categorized into sub-categories using the category `Config` as the base category. Non-editable data members should be categorized into descriptive categories describing their usage.
+
+> You can define sub-categories by using the pipe character `|`, i.e. `Config | Animations`.
+
+Example: A weapon class set of data members might be organized as:
+
+    |-- Config
+    |    |-- Animations
+    |    |-- Effects
+    |    |-- Audio
+    |    |-- Recoil
+    |    |-- Timings
+    |-- Animations
+    |-- Input
+    |-- State
+    |-- Visuals
+
+<a name="X.5.2.4"></a>
+<a name="cpp-classes-data-members-access"></a>
+##### X.5.2.4 Data Members Access Level
+
+In C++, data members have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
+
+All data members should be marked as `protected` or `private` according to their needs, but never `public`! If a data member needs to be accessed from a different class, define a Getter function.
+
+<a name="X.5.2.5"></a>
+<a name="cpp-classes-data-members-advanced"></a>
+##### X.5.2.5 Advanced Display
+
+If a data member should be editable but often untouched, add the `Advanced Display` specifier. This makes the data member hidden unless the advanced display arrow is clicked.
+
+<a name="X.5.3"></a>
+<a name="cpp-classes-component-data-members"></a>
+#### X.5.3 cpp-classes-component-data-members
+
+A data member that inherits from `UActorComponent` is a component data member.
+
+<a name="X.5.3.1"></a>
+<a name="cpp-classes-component-data-members-naming"></a>
+##### X.5.3.1 Naming
+
+A component data member should be suffixed with `Comp`.
+
+A component data member's object name shouldn't be suffixed with `Comp` or `Component`, as this is redundant.
+
+Example: Favor `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));` over `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm Component"));`.
+
+<a name="X.5.3.2"></a>
+<a name="cpp-classes-component-data-members-uproperty"></a>
+##### X.5.3.2 UPROPERTY vs TObjectPtr
+
+TODO: Discuss TObjectPtr<T> verses using UPROPERTY for components...
+
+<a name="X.5.4"></a>
+<a name="cpp-classes-functions"></a>
+#### X.5.4 Functions/Methods
+
+This section describes how you should author class functions.
+
+A method is a function belonging to a class, so the words 'method' and 'function' are interchangable in most contexts.
+
+<a name="X.5.4.1"></a>
+<a name="cpp-classes-functions-naming"></a>
+##### X.5.4.1 Naming
+
+The naming of functions is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
+
+* Is it fetching state information?
+* Is it a handler?
+* Is it an RPC?
+* What is its purpose?
+
+These questions and more can all be answered when functions are named appropriately.
+
+Function declarations should be in a single line. In case of many parameters, split the parameters to several lines.
+
+<a name="X.5.4.1.1"></a>
+<a name="cpp-classes-functions-naming-verbs"></a>
+###### X.5.4.1.1 All Functions Should Be Verbs
+
+All functions perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
+
+`OnRep` functions are an exception to this rule.
+
+Good examples:
+
+* `Fire` - Good example if in a Character / Weapon class, as it has context. Bad if in a Barrel / Grass / any ambiguous class.
+* `Jump` - Good example if in a Character class, otherwise, needs context.
+* `Explode`
+* `ReceiveMessage`
+* `SortPlayerArray`
+* `GetArmOffset`
+* `GetCoordinates`
+* `UpdateTransforms`
+* `EnableBigHeadMode`
+* `IsEnemy`
+
+Bad examples:
+
+* `Dead` - Is Dead? Will deaden?
+* `ProcessData` - Ambiguous, these words mean nothing.
+* `PlayerState` - Nouns are ambiguous.
+* `Color` - Verb with no context, or ambiguous noun.
+
+<a name="X.5.4.1.2"></a>
+<a name="cpp-classes-functions-naming-onrep"></a>
+###### X.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
+
+All functions for replicated with notification variables should have the form `OnRep_Variable`, and exposed to Blueprints.
+
+<a name="X.5.4.1.3"></a>
+<a name="cpp-classes-functions-naming-bool"></a>
+###### X.5.4.1.3 Info Functions Returning Bool Should Ask Questions
+
+When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#cpp-classes-functions-naming-verbs).
+
+This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.
+
+Good examples:
+
+* `IsDead`
+* `IsOnFire`
+* `IsAlive`
+* `IsSpeaking`
+* `IsHavingAnExistentialCrisis`
+* `IsVisible`
+* `HasWeapon` - ["Has" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+* `WasCharging` - ["Was" is past-tense of "be".](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "was" when referring to 'previous frame' or 'previous state'.
+* `CanReload` - ["Can" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+
+Bad examples:
+
+* `Fire` - Is on fire? Will fire? Do fire?
+* `OnFire` - Can be confused with event dispatcher for firing.
+* `Dead` - Is dead? Will deaden?
+* `Visibility` - Is visible? Set visibility? A description of flying conditions?
+
+<a name="X.5.4.1.4"></a>
+<a name="cpp-classes-functions-naming-rpcs"></a>
+###### X.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
+
+Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
+
+After the prefix, follow all other rules regarding function naming.
+
+Good examples:
+
+* `ServerFireWeapon`
+* `ClientNotifyDeath`
+* `MulticastSpawnTracerEffect`
+
+Bad examples:
+
+* `FireWeapon` - Does not indicate its an RPC of some kind.
+* `ServerClientBroadcast` - Confusing.
+* `AllNotifyDeath` - Use `Multicast`, never `All`.
+* `ClientWeapon` - No verb, ambiguous.
+
+<a name="X.5.4.2"></a>
+<a name="cpp-classes-functions-getset"></a>
+##### X.5.4.2 Getters and Setters
+
+Classes that want to expose private/protected data members for editting through other classes should add Getter and Setter functions.
+
+When using Unreal Engine's API always prefer using a Getter instead of the actual data memeber. This is because the API changes, and at some point the said data member could become private, resulting in a code break.
+
+<a name="X.5.4.3"></a>
+<a name="cpp-classes-functions-inline"></a>
+##### X.5.4.3 Inline Functions
+
+Functions that execute a single line of code (Getters/Setters often fall into this criteria) should always be inline functions and have the `FORCEINLINE` macro.
+
+<a name="X.6"></a>
+<a name="cpp-enums"></a>
+### X.6 Enums
+
+An enumeration (`Enum`) is often used to store a finite amount of options, such as a state.
+
+In Unreal Engine Enums should often use the `UENUM()` macro to be exposed to Blueprints.
+
+<a name="X.6.1"></a>
+<a name="cpp-enums-naming"></a>
+#### X.6.1 Naming
+
+Enums should always be prefixed with 'E'.
+
+<a name="X.6.1.1"></a>
+<a name="cpp-enums-naming-value-prefix"></a>
+##### X.6.1.1 Enum Values Prefix
+
+It is common (not always) to prefix each value in the Enum with an abbreviation of the Enum name.
+
+Example:
+
+```
+UENUM()
+enum class ECurveEditorSnapAxis : uint8
+{
+	CESA_None UMETA(DisplayName = "None"),
+	CESA_X UMETA(DisplayName = "X Only"),
+	CESA_Y UMETA(DisplayName = "Y Only")
+};
+```
+
+This rule is important in case you are not using a class enum, in which case the enum name isn't required when passing that enum's value. In that case the abbreviation adds clarity to what this enum is.
+
+In case you do use a class enum, then the only advantage of this rule is that it's easier to find the enum in an IDE by writing the abbreviation. But this is less relevant with modern IDEs such as JetBrains Rider that finds classes by the abbreviation anyway.
+
+<a name="X.6.2"></a>
+<a name="cpp-enums-displayname"></a>
+#### X.6.2 Display Name
+
+Favor using (especially for unclear enum values) the `UMETA()` macro and adding a `DisplayName` for a friendly clear display name in Blueprints.
+
+Example:
+
+```
+UENUM()
+enum class EMaterialBakeMethod : uint8
+{
+	IndividualMaterial UMETA(DisplayName = "Bake out Materials Individually"),
+	AtlasMaterial UMETA(DisplayName = "Combine Materials into Atlassed Material"),
+	BinnedMaterial UMETA(DisplayName = "Combine Materials into Binned Material")
+};
+```
+
+<a name="X.7"></a>
+<a name="cpp-interfaces"></a>
+### X.7 Interfaces
+
+When creating an `Interface`, we need to create two classes, `UInterface` (with `MinimalAPI` specifier) and `IInterface` (with the Game's API macro).
+
+Example:
+```
+UINTERFACE(MinimalAPI)
+class UPRSOperatableInterface : public UInterface
+{
+	GENERATED_BODY()
+};
+
+class PERSPECTIVE_API IPRSOperatableInterface
+{
+	GENERATED_BODY()
+
+public:
+  ...
+};
+```
+
+> **_NOTE_:** Both should reside in the same interface file, in this example in `PRSOperatableInterface.h`.
+
+<a name="X.7.1"></a>
+<a name="cpp-interfaces-naming"></a>
+#### X.7.1 Naming
+
+The `UInterface` class should be prefixed with `U`.
+
+The `IInterface` class should be prefixed with `I`.
+
+Both should be suffixed with `Interface`.
+
+Example:
+```
+UINTERFACE(MinimalAPI)
+class UPRSOperatableInterface : public UInterface
+{
+	GENERATED_BODY()
+};
+
+class PERSPECTIVE_API IPRSOperatableInterface
+{
+	GENERATED_BODY()
+
+public:
+  ...
+};
+```
+
+<a name="X.8"></a>
+<a name="cpp-delegates-and-events"></a>
+### X.8 Delegates and Events
+
+<a name="X.8.1"></a>
+<a name="cpp-events-naming"></a>
+#### X.8.1
+
+In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-functions-naming).
+
+<a name="X.8.1.1"></a>
+<a name="cpp-events-naming-eventhandlers"></a>
+##### X.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
+
+Delegate Declarations as well as exposed Events should start with `FOn`.
+
+For example:
+
+* `DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAwaitingDuel);`
+* `DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPhaseChanged, EPhase, Phase);`
+
+Exposed Events (as in events that can be registered by other classes) should start with `On`.
+
+For example:
+
+* `FOnAwaitingDuel OnAwaitingDuel;`
+* `FOnPhaseChanged OnPhaseChanged;`
+
+Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
+
+[Collocations](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) of the word `On` are exempt from following the verb rule.
+
+`Handle` is not allowed. It is 'Unreal' to use `On` instead of `Handle`, while other frameworks may prefer to use `Handle` instead of `On`.
+
+Good examples:
+
+* `OnDeath` - Common collocation in games
+* `OnPickup`
+* `OnReceiveMessage`
+* `OnMessageRecieved`
+* `OnTargetChanged`
+* `OnClick`
+* `OnLeave`
+
+Bad examples:
+
+* `OnData`
+* `OnTarget`
+* `HandleMessage`
+* `HandleDeath`
+
+<a name="X.8.1.2"></a>
+<a name="bp-funcs-naming-internal-delegates"></a>
+##### X.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
+
+Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
+
+Hence we suffix with a `Delegate` to clarify that this is a wrapping delegate.
+
+For example:
+
+* `FOnTimelineFloat AttackPostUpdateDelegate;`
+* `FOnTimelineEvent AttackEventDelegate;`
+
+<a name="X.8.2"></a>
+<a name="cpp-events-binding"></a>
+#### X.8.2
+
+Binding to other member's events should never be in the Constructor, but rather in `virtual void BeginPlay() override;`. If bindings occur in the Constructor, undesired side effects can occur, such as the function continue being binded even if the code is removed, most likely due to the CDO (Class Default Object) creation.
+
+TODO: Research if there is a more appropriate place than `BeginPlay()`.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 <a name="4"></a>
 <a name="bp"></a>
@@ -957,6 +1539,8 @@ A Value Range only needs to be defined if the bounds of a value are known. While
 
 If a class has only a small number of variables, categories are not required.
 
+// TODO: Consider `Defaults` and `Instance` categories for EditDefaultsOnly and EditInstanceOnly instead of Config, more clean???
+
 If a class has a moderate amount of variables (5-10), all `Editable` variables should have a non-default category assigned. A common category is `Config`.
 
 If a class has a large amount of variables, all `Editable` variables should be categorized into sub-categories using the category `Config` as the base category. Non-editable variables should be categorized into descriptive categories describing their usage.
@@ -972,8 +1556,11 @@ Example: A weapon class set of variables might be organized as:
     |    |-- Recoil
     |    |-- Timings
     |-- Animations
+    |-- Input
     |-- State
     |-- Visuals
+
+> **_NOTE_:** In C++ code as a rule of thumb, every `UPROPERTY` that has `EditAnywhere`/`VisibleAnywhere` should have a Category.
 
 <a name="4.2.4"></a>
 <a name="bp-vars-access"></a>
@@ -1097,21 +1684,7 @@ Bad examples:
 
 <a name="4.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 4.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
-
-Delegate Declarations as well as exposed Events should start with `FOn`.
-
-For example:
-
-* `DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAwaitingDuel);`
-* `DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPhaseChanged, EPhase, Phase);`
-
-Exposed Events (as in events that can be registered by other classes) should start with `On`.
-
-For example:
-
-* `FOnAwaitingDuel OnAwaitingDuel;`
-* `FOnPhaseChanged OnPhaseChanged;`
+#### 4.3.1.4 Event Handlers and Dispatchers Should Start With `On`
 
 Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
 
@@ -1136,19 +1709,6 @@ Bad examples:
 * `HandleMessage`
 * `HandleDeath`
 
-<a name="4.3.1.5"></a>
-<a name="bp-funcs-naming-internal-delegates"></a>
-#### 4.3.1.5 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
-
-Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
-
-Hence we suffix with a `Delegate` to clarify that this is a wrapping delegate.
-
-For example:
-
-* `FOnTimelineFloat AttackPostUpdateDelegate;`
-* `FOnTimelineEvent AttackEventDelegate;`
-
 <a name="4.3.1.6"></a>
 <a name="bp-funcs-naming-rpcs"></a>
 #### 4.3.1.6 Remote Procedure Calls Should Be Prefixed With Target
@@ -1169,7 +1729,6 @@ Bad examples:
 * `ServerClientBroadcast` - Confusing.
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
-
 
 <a name="4.3.2"></a>
 <a name="bp-funcs-return"></a>
@@ -1205,7 +1764,7 @@ The following nodes are not counted as they are deemed to not increase function 
 
 This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
 
-Simply, any function that has an access specificer of Public should have its description filled out.
+Simply, any function that has an access specifier of Public should have its description filled out.
 
 <a name="4.3.5"></a>
 <a name="bp-graphs-funcs-plugin-category"></a>
@@ -1446,7 +2005,6 @@ No texture should have a dimension that exceeds 8192 in size, unless you have a 
 Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.
 
 **[⬆ Back to Top](#table-of-contents)**
-
 
 ## License & Credits
 

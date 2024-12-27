@@ -69,19 +69,63 @@ TODO: Consider moving C++ code conventions higher before Blueprints
   - [3.8 `MaterialLibrary`](#structure-material-library)
   - [3.9 No Empty Folders](#structure-no-empty-folders)
 - [4. C++](#cpp)
+  - [4.1 Compiling](#cpp-compiling)
+  - [4.2 Variables](#cpp-variables)
+    - [4.2.1 Naming](#cpp-var-naming)
+      - [4.2.1.1 Nouns](#cpp-var-naming-nouns)
+      - [4.2.1.2 PascalCase](#cpp-var-naming-case)
+      - [4.2.1.3 Boolean Names](#cpp-var-bool-names)
+        - [4.2.1.3.1 Boolean `b` Prefix](#4.2.1.3.1)
+        - [4.2.1.3.2 General And Independent State Information](#4.2.1.3.2)
+      - [4.2.1.4 Do _Not_ Include Atomic Type Names](#cpp-vars-naming-atomic)
+      - [4.2.1.5 Arrays](#cpp-vars-naming-arrays)
+  - [4.3 Statements](#cpp-statements)
+  - [4.4 Structs](#cpp-structs)
+  - [4.5 Classes](#cpp-classes)
+    - [4.5.1 Naming](#cpp-classes-naming)
+    - [4.5.2 Data Members/Properties](#cpp-classes-data-members)
+      - [4.5.2.1 Naming](#cpp-classes-data-members-naming)
+        - [4.5.2.1.1 Complex States](#cpp-classes-data-members-naming-complex-states)
+        - [4.5.2.1.2 Considered Context](#cpp-classes-data-members-naming-context)
+        - [4.5.2.1.3 Do Include Non-Atomic Type Names](#cpp-classes-data-members-naming-atomic-names)
+      - [4.5.2.2 Editable Data Members](#cpp-classes-data-members-editable)
+        - [4.5.2.2.1 Slider And Value Ranges](#cpp-classes-data-members-editable-ranges)
+      - [4.5.2.3 Categories](#cpp-classes-data-members-categories)
+      - [4.5.2.4 Data Members Access Level](#cpp-classes-data-members-access)
+      - [4.5.2.5 Advanced Display](#cpp-classes-data-members-advanced)
+    - [4.5.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
+      - [4.5.3.1 Naming](#cpp-classes-component-data-members-naming)
+      - [4.5.3.2 UPROPERTY vs TObjectPtr](#cpp-classes-component-data-members-uproperty)
+    - [4.5.4 Functions/Methods](#cpp-classes-functions)
+      - [4.5.4.1 Naming](#cpp-classes-functions-naming)
+        - [4.5.4.1.1 All Functions Should Be Verbs](#cpp-classes-functions-naming-verbs)
+        - [4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`](#cpp-classes-functions-naming-onrep)
+        - [4.5.4.1.3 Info Functions Returning Bool Should Ask Questions](#cpp-classes-functions-naming-bool)
+        - [4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-functions-naming-rpcs)
+      - [4.5.4.2 Getters and Setters](#cpp-classes-functions-getset)
+      - [4.5.4.3 Inline Functions](#cpp-classes-functions-inline)
+  - [4.6 Enums](#cpp-enums)
+    - [4.6.1 Naming](#cpp-enums-naming)
+      - [4.6.1.1 Enum Values Prefix](#cpp-enums-naming-value-prefix)
+    - [4.6.2 Display Name](#cpp-enums-displayname)
+  - [4.7 Interfaces](#cpp-interfaces)
+    - [4.7.1 Naming](#cpp-interfaces-naming)
+  - [4.8 Delegates and Events](#cpp-delegates-and-events)
+    - [4.8.1 Naming](#cpp-events-naming)
+      - [4.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#cpp-events-naming-eventhandlers)
+      - [4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#cpp-events-naming-internal-delegates)
+    - [4.8.2 Event Binding](#cpp-events-binding)
 - [5. Blueprints](#bp)
   - [5.1 Compiling](#bp-compiling)
   - [5.2 Variables](#bp-vars)
     - [5.2.1 Naming](#bp-var-naming)
       - [5.2.1.1 Nouns](#bp-var-naming-nouns)
       - [5.2.1.2 PascalCase](#bp-var-naming-case)
-        - [5.2.1.2e Examples](#5.2.1.2e)
       - [5.2.1.3 Boolean Names](#bp-var-bool-names)
         - [5.2.1.3.1 Boolean `b` Prefix](#5.2.1.3.1)
         - [5.2.1.3.2 General And Independent State Information](#5.2.1.3.2)
         - [5.2.1.3.3 Complex States](#5.2.1.3.3)
       - [5.2.1.4 Considered Context](#bp-vars-naming-context)
-        - [5.2.1.4e Examples](#5.2.1.4e)
       - [5.2.1.5 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
       - [5.2.1.6 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
       - [5.2.1.7 Arrays](#bp-vars-naming-arrays)
@@ -99,9 +143,8 @@ TODO: Consider moving C++ code conventions higher before Blueprints
       - [5.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
       - [5.3.1.2 Property RepNotify Functions Always `OnRep_Variable`](#bp-funcs-naming-onrep)
       - [5.3.1.3 Info Functions Returning Bool Should Ask Questions](#bp-funcs-naming-bool)
-      - [5.3.1.4 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
-      - [5.3.1.5 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#bp-funcs-naming-internal-delegates)
-      - [5.3.1.6 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
+      - [5.3.1.4 Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
+      - [5.3.1.5 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
     - [5.3.2 All Functions Must Have Return Nodes](#bp-funcs-return)
     - [5.3.3 No Function Should Have More Than 50 Nodes](#bp-graphs-funcs-node-limit)
     - [5.3.4 All Public Functions Should Have A Description](#bp-graphs-funcs-description)
@@ -925,7 +968,7 @@ Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. 
 
 <a name="4.5.2.1.2"></a>
 <a name="cpp-classes-data-members-naming-context"></a>
-###### 4.5.2.1.3 Considered Context
+###### 4.5.2.1.2 Considered Context
 
 All data member names must not be redundant with their context as all data member references always have context in a class/struct.
 
@@ -1281,7 +1324,7 @@ public:
 
 <a name="4.8.1"></a>
 <a name="cpp-events-naming"></a>
-#### 4.8.1
+#### 4.8.1 Naming
 
 In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-functions-naming).
 
@@ -1327,7 +1370,7 @@ Bad examples:
 * `HandleDeath`
 
 <a name="4.8.1.2"></a>
-<a name="bp-funcs-naming-internal-delegates"></a>
+<a name="cpp-events-naming-internal-delegates"></a>
 ##### 4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
 
 Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
@@ -1341,7 +1384,7 @@ For example:
 
 <a name="4.8.2"></a>
 <a name="cpp-events-binding"></a>
-#### 4.8.2
+#### 4.8.2 Event Binding
 
 Binding to other member's events should never be in the Constructor, but rather in `virtual void BeginPlay() override;`. If bindings occur in the Constructor, undesired side effects can occur, such as the function continue being binded even if the code is removed, most likely due to the CDO (Class Default Object) creation.
 
@@ -1387,8 +1430,7 @@ All non-boolean variable names must be clear, unambiguous, and descriptive nouns
 
 All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 
-<a name="5.2.1.2e"></a>
-###### 5.2.1.2e Examples
+Examples:
 
 * `Score`
 * `Kills`
@@ -1434,8 +1476,7 @@ Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. 
 
 All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
 
-<a name="5.2.1.4e"></a>
-###### 5.2.1.4e Examples
+Examples:
 
 Consider a Blueprint called `BP_PlayerCharacter`.
 
@@ -1709,9 +1750,9 @@ Bad examples:
 * `HandleMessage`
 * `HandleDeath`
 
-<a name="5.3.1.6"></a>
+<a name="5.3.1.5"></a>
 <a name="bp-funcs-naming-rpcs"></a>
-#### 5.3.1.6 Remote Procedure Calls Should Be Prefixed With Target
+#### 5.3.1.5 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
 

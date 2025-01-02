@@ -121,21 +121,17 @@ TODO: Consider moving C++ code conventions higher before Blueprints
     - [5.2.1 Naming](#bp-vars-naming)
     - [5.2.2 Editable Variables](#bp-vars-editable)
       - [5.2.2.1 Tooltips](#bp-vars-editable-tooltips)
-    - [5.2.3 Categories](#bp-vars-categories)
+    - [5.2.3 Variable Access Level](#bp-vars-access)
     - [5.2.4 Advanced Display](#bp-vars-advanced)
     - [5.2.5 Transient Variables](#bp-vars-transient)
     - [5.2.6 Config Variables](#bp-vars-config)
-  - [5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-functions)
+  - [5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-funcs)
     - [5.3.1 Function Naming](#bp-funcs-naming)
-      - [5.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
-      - [5.3.1.2 Property RepNotify Functions Always `OnRep_Variable`](#bp-funcs-naming-onrep)
-      - [5.3.1.3 Info Functions Returning Bool Should Ask Questions](#bp-funcs-naming-bool)
-      - [5.3.1.4 Event Handlers and Event Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
-      - [5.3.1.5 Remote Procedure Calls Should Be Prefixed With Target](#bp-funcs-naming-rpcs)
+      - [5.3.1.1 Event Handlers and Dispatchers Should Start With `On`](#bp-funcs-naming-eventhandlers)
     - [5.3.2 All Functions Must Have Return Nodes](#bp-funcs-return)
-    - [5.3.3 No Function Should Have More Than 50 Nodes](#bp-graphs-funcs-node-limit)
-    - [5.3.4 All Public Functions Should Have A Description](#bp-graphs-funcs-description)
-    - [5.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#bp-graphs-funcs-plugin-category)
+    - [5.3.3 No Function Should Have More Than 50 Nodes](#bp-funcs-node-limit)
+    - [5.3.4 All Public Functions Should Have A Description](#bp-funcs-description)
+    - [5.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#bp-funcs-plugin-category)
   - [5.4 Blueprint Graphs](#bp-graphs)
     - [5.4.1 No Spaghetti](#bp-graphs-spaghetti)
     - [5.4.2 Align Wires Not Nodes](#bp-graphs-align-wires)
@@ -1457,60 +1453,22 @@ Because of this, all transient variables should always be initialized as zero or
 Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
 
 <a name="5.3"></a>
-<a name="bp-functions"></a>
+<a name="bp-funcs"></a>
 ### 5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers
 
 This section describes how you should author functions, delegates, events, event handlers, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
 
-Functions should follow all rules stated in [C++ Classes Functions](#cpp-classes-functions), with the addition of the following rules below.
+<a name="5.3.1"></a>
+<a name="bp-funcs-naming"></a>
+### 5.3.1 Function Naming
 
-<a name="5.3.1.4"></a>
+Function naming should follow all rules stated in [C++ Classes Functions Naming](#cpp-classes-functions-naming), with the addition of the following rules below.
+
+<a name="5.3.1.1"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 5.3.1.4 Event Handlers and Dispatchers Should Start With `On`
+#### 5.3.1.1 Event Handlers and Dispatchers Should Start With `On`
 
-Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
-
-[Collocations](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) of the word `On` are exempt from following the verb rule.
-
-`Handle` is not allowed. It is 'Unreal' to use `On` instead of `Handle`, while other frameworks may prefer to use `Handle` instead of `On`.
-
-Good examples:
-
-* `OnDeath` - Common collocation in games
-* `OnPickup`
-* `OnReceiveMessage`
-* `OnMessageRecieved`
-* `OnTargetChanged`
-* `OnClick`
-* `OnLeave`
-
-Bad examples:
-
-* `OnData`
-* `OnTarget`
-* `HandleMessage`
-* `HandleDeath`
-
-<a name="5.3.1.5"></a>
-<a name="bp-funcs-naming-rpcs"></a>
-#### 5.3.1.5 Remote Procedure Calls Should Be Prefixed With Target
-
-Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
-
-After the prefix, follow all other rules regarding function naming.
-
-Good examples:
-
-* `ServerFireWeapon`
-* `ClientNotifyDeath`
-* `MulticastSpawnTracerEffect`
-
-Bad examples:
-
-* `FireWeapon` - Does not indicate its an RPC of some kind.
-* `ServerClientBroadcast` - Confusing.
-* `AllNotifyDeath` - Use `Multicast`, never `All`.
-* `ClientWeapon` - No verb, ambiguous.
+Any function that handles an event or dispatches an event should start with `On` and continue to follow [C++ Events, Event Handlers and Event Dispatchers rule](#cpp-events-naming-eventhandlers).
 
 <a name="5.3.2"></a>
 <a name="bp-funcs-return"></a>
@@ -1525,7 +1483,7 @@ The Blueprint compiler is able to follow the flow of execution and will warn you
 In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.
 
 <a name="5.3.3"></a>
-<a name="bp-graphs-funcs-node-limit"></a>
+<a name="bp-funcs-node-limit"></a>
 #### 5.3.3 No Function Should Have More Than 50 Nodes
 
 Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.
@@ -1541,7 +1499,7 @@ The following nodes are not counted as they are deemed to not increase function 
 * Self
 
 <a name="5.3.4"></a>
-<a name="bp-graphs-funcs-description"></a>
+<a name="bp-funcs-description"></a>
 #### 5.3.4 All Public Functions Should Have A Description
 
 This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
@@ -1549,16 +1507,16 @@ This rule applies more to public facing or marketplace blueprints, so that other
 Simply, any function that has an access specifier of Public should have its description filled out.
 
 <a name="5.3.5"></a>
-<a name="bp-graphs-funcs-plugin-category"></a>
+<a name="bp-funcs-plugin-category"></a>
 #### 5.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name
 
 If your project includes a plugin that defines `static` `BlueprintCallable` functions, they should have their category set to the plugin's name or a subset category of the plugin's name.
 
 For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
 
-<a name="5.3.4"></a>
+<a name="5.4"></a>
 <a name="bp-graphs"></a>
-### 5.3.4 Blueprint Graphs
+### 5.4 Blueprint Graphs
 
 This section covers things that apply to all Blueprint graphs.
 
@@ -1627,8 +1585,7 @@ All nodes in all blueprint graphs must have a purpose. You should not leave dang
 
 **[⬆ Back to Top](#table-of-contents)**
 
-
-<a name="5"></a>
+<a name="6"></a>
 <a name="Static Meshes"></a>
 <a name="s"></a>
 ## 6. Static Meshes
@@ -1680,7 +1637,7 @@ This is a subjective check on a per-project basis, however all assets should be 
 **[⬆ Back to Top](#table-of-contents)**
 
 
-<a name="6"></a>
+<a name="7"></a>
 <a name="Niagara"></a>
 <a name="ng"></a>
 ## 7. Niagara
@@ -1696,7 +1653,7 @@ As mentioned in [1.1 Forbidden Identifiers](#1.1), spaces and all white space ch
 **[⬆ Back to Top](#table-of-contents)**
 
 
-<a name="7"></a>
+<a name="8"></a>
 <a name="Levels"></a>
 <a name="levels"></a>
 ## 8. Levels / Maps
@@ -1752,7 +1709,7 @@ For example, `LVL_InteractionComponent_Overview_Demo`, `LVL_ExplosionKit_Demo`.
 **[⬆ Back to Top](#table-of-contents)**
 
 
-<a name="8"></a>
+<a name="9"></a>
 <a name="textures"></a>
 ## 9. Textures
 

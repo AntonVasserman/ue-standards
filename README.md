@@ -1,4 +1,4 @@
-# [Gamemakin](https://gamemak.in) UE5 Style Guide, Personalized
+# Unreal Engine Standards (Style-Guide, Personalized)
 
 *A mostly reasonable approach to coding and management standards in Unreal Engine 5.*
 
@@ -14,7 +14,6 @@ You can link to any section directly by simply append a hash tag and the section
 
 For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in https://github.com/AntonVasserman/ue5-standards#0.1.
 
-TODO: Consider moving C++ code conventions higher before Blueprints
 ## Table of contents
 - [Important Terminology](#important-terminology)
   - [Levels/Maps](#terms-level-map)

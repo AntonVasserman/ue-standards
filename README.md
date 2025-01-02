@@ -70,11 +70,11 @@ TODO: Consider moving C++ code conventions higher before Blueprints
   - [3.9 No Empty Folders](#structure-no-empty-folders)
 - [4. C++](#cpp)
   - [4.1 Compiling](#cpp-compiling)
-  - [4.2 Variables](#cpp-variables)
-    - [4.2.1 Naming](#cpp-var-naming)
-      - [4.2.1.1 Nouns](#cpp-var-naming-nouns)
-      - [4.2.1.2 PascalCase](#cpp-var-naming-case)
-      - [4.2.1.3 Boolean Names](#cpp-var-bool-names)
+  - [4.2 Variables](#cpp-vars)
+    - [4.2.1 Naming](#cpp-vars-naming)
+      - [4.2.1.1 Nouns](#cpp-vars-naming-nouns)
+      - [4.2.1.2 PascalCase](#cpp-vars-naming-case)
+      - [4.2.1.3 Boolean Names](#cpp-vars-bool-names)
         - [4.2.1.3.1 Boolean `b` Prefix](#4.2.1.3.1)
         - [4.2.1.3.2 General And Independent State Information](#4.2.1.3.2)
       - [4.2.1.4 Do _Not_ Include Atomic Type Names](#cpp-vars-naming-atomic)
@@ -118,26 +118,13 @@ TODO: Consider moving C++ code conventions higher before Blueprints
 - [5. Blueprints](#bp)
   - [5.1 Compiling](#bp-compiling)
   - [5.2 Variables](#bp-vars)
-    - [5.2.1 Naming](#bp-var-naming)
-      - [5.2.1.1 Nouns](#bp-var-naming-nouns)
-      - [5.2.1.2 PascalCase](#bp-var-naming-case)
-      - [5.2.1.3 Boolean Names](#bp-var-bool-names)
-        - [5.2.1.3.1 Boolean `b` Prefix](#5.2.1.3.1)
-        - [5.2.1.3.2 General And Independent State Information](#5.2.1.3.2)
-        - [5.2.1.3.3 Complex States](#5.2.1.3.3)
-      - [5.2.1.4 Considered Context](#bp-vars-naming-context)
-      - [5.2.1.5 Do _Not_ Include Atomic Type Names](#bp-vars-naming-atomic)
-      - [5.2.1.6 Do Include Non-Atomic Type Names](#bp-vars-naming-complex)
-      - [5.2.1.7 Arrays](#bp-vars-naming-arrays)
+    - [5.2.1 Naming](#bp-vars-naming)
     - [5.2.2 Editable Variables](#bp-vars-editable)
       - [5.2.2.1 Tooltips](#bp-vars-editable-tooltips)
-      - [5.2.2.2 Slider And Value Ranges](#bp-vars-editable-ranges)
     - [5.2.3 Categories](#bp-vars-categories)
-    - [5.2.4 Variable Access Level](#bp-vars-access)
-      - [5.2.4.1 Private Variables](#bp-vars-access-private)
-    - [5.2.5 Advanced Display](#bp-vars-advanced)
-    - [5.2.6 Transient Variables](#bp-vars-transient)
-    - [5.2.7 Config Variables](#bp-vars-config)
+    - [5.2.4 Advanced Display](#bp-vars-advanced)
+    - [5.2.5 Transient Variables](#bp-vars-transient)
+    - [5.2.6 Config Variables](#bp-vars-config)
   - [5.3 Functions, Delegates, Events, Event Handlers, and Event Dispatchers](#bp-functions)
     - [5.3.1 Function Naming](#bp-funcs-naming)
       - [5.3.1.1 All Functions Should Be Verbs](#bp-funcs-naming-verbs)
@@ -815,11 +802,11 @@ If you find that the content browser has an empty folder you can't delete, you s
 
 **[⬆ Back to Top](#table-of-contents)**
 
-<a name="X"></a>
+<a name="4"></a>
 <a name="cpp"></a>
 ## 4. C++
 
-This section will focus on C++ Coding standards.
+This section will focus on C++ Coding standards. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
 <a name="4.1"></a>
 <a name="cpp-compiling"></a>
@@ -828,21 +815,23 @@ This section will focus on C++ Coding standards.
 All C++ code should compile with zero warnings and zero errors (ignore everything outside your game project). You should fix warnings immediately as they can quickly cascade into runtime errors and scary unexpected behavior (and even crash the engine).
 
 <a name="4.2"></a>
-<a name="cpp-variables"></a>
+<a name="cpp-vars"></a>
 ### 4.2 Variables
 
+The word `variable` here refers to scoped variables inside statements. Not to be confused with `data members` (also referred as `property`) which are variables scoped under a specific `struct`/`class`. 
+
 <a name="4.2.1"></a>
-<a name="cpp-var-naming"></a>
+<a name="cpp-vars-naming"></a>
 #### 4.2.1 Naming
 
 <a name="4.2.1.1"></a>
-<a name="cpp-var-naming-nouns"></a>
+<a name="cpp-vars-naming-nouns"></a>
 ##### 4.2.1.1 Nouns
 
 All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
 
 <a name="4.2.1.2"></a>
-<a name="cpp-var-naming-case"></a>
+<a name="cpp-vars-naming-case"></a>
 ##### 4.2.1.2 PascalCase
 
 All non-boolean variables should be in the form of [PascalCase](#terms-cases).
@@ -855,7 +844,7 @@ Examples:
 * `CrosshairColor` **not** `crosshairColor`
 
 <a name="4.2.1.3"></a>
-<a name="cpp-var-bool-names"></a>
+<a name="cpp-vars-bool-names"></a>
 ##### 4.2.1.3 Boolean Names
 
 <a name="4.2.1.3.1"></a>
@@ -955,7 +944,7 @@ The words `data member` and `property` may be used interchangeably.
 <a name="cpp-classes-data-members-naming"></a>
 ##### 4.5.2.1 Naming
 
-As a rule of thumb, all data members should also follow the [C++ Variables Naming](#cpp-var-naming) rules.
+Class data members namings should follow all rules stated in [C++ Variables Naming](#cpp-var-naming), with the addition of the following rules below.
 
 <a name="4.5.2.1.1"></a>
 <a name="cpp-classes-data-members-naming-complex-states"></a>
@@ -1393,7 +1382,7 @@ TODO: Research if there is a more appropriate place than `BeginPlay()`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-<a name="4"></a>
+<a name="5"></a>
 <a name="bp"></a>
 ## 5. Blueprints
 
@@ -1413,139 +1402,13 @@ Broken blueprints can cause problems that manifest in other ways, such as broken
 <a name="bp-vars"></a>
 ### 5.2 Variables
 
-The words `variable` and `property` may be used interchangeably.
+The words `variable` and `property` may be used interchangeably and refer to variables scoped under the specific Blueprint struct/class.
 
 <a name="5.2.1"></a>
-<a name="bp-var-naming"></a>
+<a name="bp-vars-naming"></a>
 #### 5.2.1 Naming
 
-<a name="5.2.1.1"></a>
-<a name="bp-var-naming-nouns"></a>
-##### 5.2.1.1 Nouns
-
-All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
-
-<a name="5.2.1.2"></a>
-<a name="bp-var-naming-case"></a>
-##### 5.2.1.2 PascalCase
-
-All non-boolean variables should be in the form of [PascalCase](#terms-cases).
-
-Examples:
-
-* `Score`
-* `Kills`
-* `TargetPlayer`
-* `Range`
-* `CrosshairColor`
-* `AbilityID`
-
-<a name="5.2.1.3"></a>
-<a name="bp-var-bool-names"></a>
-##### 5.2.1.3 Boolean Names
-
-<a name="5.2.1.3.1"></a>
-###### 5.2.1.3.1 Boolean `b` Prefix
-
-All booleans should be named in PascalCase but prefixed with a lowercase `b`.
-
-Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
-
-UE5 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
-
-<a name="5.2.1.3.2"></a>
-###### 5.2.1.3.2 General And Independent State Information
-
-All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
-
-Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
-
-Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
-
-<a name="5.2.1.3.3"></a>
-###### 5.2.1.3.3 Complex States
-
-Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
-
-Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a variable with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
-
-Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
-
-<a name="5.2.1.4"></a>
-<a name="bp-vars-naming-context"></a>
-##### 5.2.1.4 Considered Context
-
-All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
-
-Examples:
-
-Consider a Blueprint called `BP_PlayerCharacter`.
-
-**Bad**
-
-* `PlayerScore`
-* `PlayerKills`
-* `MyTargetPlayer`
-* `MyCharacterName`
-* `CharacterSkills`
-* `ChosenCharacterSkin`
-
-All of these variables are named redundantly. It is implied that the variable is representative of the `BP_PlayerCharacter` it belongs to because it is `BP_PlayerCharacter` that is defining these variables.
-
-**Good**
-
-* `Score`
-* `Kills`
-* `TargetPlayer`
-* `Name`
-* `Skills`
-* `Skin`
-
-<a name="5.2.1.5"></a>
-<a name="bp-vars-naming-atomic"></a>
-##### 5.2.1.5 Do _Not_ Include Atomic Type Names
-
-Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
-
-Strings and vectors are considered atomic in terms of style when working with Blueprints, however they are technically not atomic.
-
-> While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
-
-> Do _not_ consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
-
-Atomic variables should not have their type name in their name.
-
-Example: Use `Score`, `Kills`, and `Description` **not** `ScoreFloat`, `FloatKills`, `DescriptionString`.
-
-The only exception to this rule is when a variable represents 'a number of' something to be counted _and_ when using a name without a variable type is not easy to read.
-
-Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
-
-<a name="5.2.1.6"></a>
-<a name="bp-vars-naming-complex"></a>
-##### 5.2.1.6 Do Include Non-Atomic Type Names
-
-Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
-
-> While an Array of an atomic variable type is a list of variables, Arrays do not change the 'atomicness' of a variable type.
-
-These variables should include their type name while still considering their context.
-
-If a class owns an instance of a complex variable, i.e. if a `BP_PlayerCharacter` owns a `BP_Hat`, it should be stored as the variable type as without any name modifications.
-
-Example: Use `Hat`, `Flag`, and `Ability` **not** `MyHat`, `MyFlag`, and `PlayerAbility`.
-
-If a class does not own the value a complex variable represents, you should use a noun along with the variable type.
-
-Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
-
-<a name="5.2.1.7"></a>
-<a name="bp-vars-naming-arrays"></a>
-##### 5.2.1.7 Arrays
-
-Arrays follow the same naming rules as above, but should be named as a plural noun.
-
-Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
+Blueprint variable namings should follow all rules stated in [C++ Class Data Members Naming](#cpp-classes-data-members-naming), with the addition of the following rules below.
 
 <a name="5.2.2"></a>
 <a name="bp-vars-editable"></a>
@@ -1563,50 +1426,9 @@ Do not arbitrarily mark variables as `Editable`.
 
 All `Editable` variables, including those marked editable just so they can be marked as `Expose On Spawn`, should have a description in their `Tooltip` fields that explains how changing this value affects the behavior of the blueprint.
 
-<a name="5.2.2.2"></a>
-<a name="bp-vars-editable-ranges"></a>
-##### 5.2.2.2 Slider And Value Ranges
-
-All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should _not_ be set to.
-
-Example: A blueprint that generates fence posts might have an editable variable named `PostsCount` and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.
-
-If an editable variable is used in a Construction Script, it should have a reasonable Slider Range defined so that someone can not accidentally assign it a large value that could crash the editor.
-
-A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
-
 <a name="5.2.3"></a>
-<a name="bp-vars-categories"></a>
-#### 5.2.3 Categories
-
-If a class has only a small number of variables, categories are not required.
-
-// TODO: Consider `Defaults` and `Instance` categories for EditDefaultsOnly and EditInstanceOnly instead of Config, more clean???
-
-If a class has a moderate amount of variables (5-10), all `Editable` variables should have a non-default category assigned. A common category is `Config`.
-
-If a class has a large amount of variables, all `Editable` variables should be categorized into sub-categories using the category `Config` as the base category. Non-editable variables should be categorized into descriptive categories describing their usage.
-
-> You can define sub-categories by using the pipe character `|`, i.e. `Config | Animations`.
-
-Example: A weapon class set of variables might be organized as:
-
-    |-- Config
-    |    |-- Animations
-    |    |-- Effects
-    |    |-- Audio
-    |    |-- Recoil
-    |    |-- Timings
-    |-- Animations
-    |-- Input
-    |-- State
-    |-- Visuals
-
-> **_NOTE_:** In C++ code as a rule of thumb, every `UPROPERTY` that has `EditAnywhere`/`VisibleAnywhere` should have a Category.
-
-<a name="5.2.4"></a>
 <a name="bp-vars-access"></a>
-#### 5.2.4 Variable Access Level
+#### 5.2.3 Variable Access Level
 
 In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
 
@@ -1614,31 +1436,23 @@ Blueprints do not have a defined concept of protected access currently.
 
 Treat `Editable` variables as public variables. Treat non-editable variables as protected variables.
 
-<a name="5.2.4.1"></a>
-<a name="bp-vars-access-private"></a>
-##### 5.2.4.1 Private Variables
-
-Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked `protected`, reserve private for when you absolutely know you want to restrict child class usage.
-
-<a name="5.2.5"></a>
+<a name="5.2.4"></a>
 <a name="bp-vars-advanced"></a>
-#### 5.2.5 Advanced Display
-
-If a variable should be editable but often untouched, mark it as `Advanced Display`. This makes the variable hidden unless the advanced display arrow is clicked.
+#### 5.2.4 Advanced Display
 
 To find the `Advanced Display` option, it is listed as an advanced displayed variable in the variable details list.
 
-<a name="5.2.6"></a>
+<a name="5.2.5"></a>
 <a name="bp-vars-transient"></a>
-#### 5.2.6 Transient Variables
+#### 5.2.5 Transient Variables
 
 Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who's value isn't known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.
 
 Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.
 
-<a name="5.2.7"></a>
+<a name="5.2.6"></a>
 <a name="bp-vars-config"></a>
-#### 5.2.7 Config Variables
+#### 5.2.6 Config Variables
 
 Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
 
@@ -1648,81 +1462,7 @@ Do not use the `Config Variable` flag. This makes it harder for designers to con
 
 This section describes how you should author functions, delegates, events, event handlers, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
 
-<a name="5.3.1"></a>
-<a name="bp-funcs-naming"></a>
-#### 5.3.1 Function Naming
-
-The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
-
-* Is it a pure function?
-* Is it fetching state information?
-* Is it a handler?
-* Is it an RPC?
-* What is its purpose?
-
-These questions and more can all be answered when functions are named appropriately.
-
-<a name="5.3.1.1"></a>
-<a name="bp-funcs-naming-verbs"></a>
-#### 5.3.1.1 All Functions Should Be Verbs
-
-All functions and events perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
-
-`OnRep` functions, event handlers, and event dispatchers are an exception to this rule.
-
-Good examples:
-
-* `Fire` - Good example if in a Character / Weapon class, as it has context. Bad if in a Barrel / Grass / any ambiguous class.
-* `Jump` - Good example if in a Character class, otherwise, needs context.
-* `Explode`
-* `ReceiveMessage`
-* `SortPlayerArray`
-* `GetArmOffset`
-* `GetCoordinates`
-* `UpdateTransforms`
-* `EnableBigHeadMode`
-* `IsEnemy` - ["Is" is a verb.](http://writingexplained.org/is-is-a-verb)
-
-Bad examples:
-
-* `Dead` - Is Dead? Will deaden?
-* `Rock`
-* `ProcessData` - Ambiguous, these words mean nothing.
-* `PlayerState` - Nouns are ambiguous.
-* `Color` - Verb with no context, or ambiguous noun.
-
-<a name="5.3.1.2"></a>
-<a name="bp-funcs-naming-onrep"></a>
-#### 5.3.1.2 Property RepNotify Functions Always `OnRep_Variable`
-
-All functions for replicated with notification variables should have the form `OnRep_Variable`. This is forced by the Blueprint editor. If you are writing a C++ `OnRep` function however, it should also follow this convention when exposing it to Blueprints.
-
-<a name="5.3.1.3"></a>
-<a name="bp-funcs-naming-bool"></a>
-#### 5.3.1.3 Info Functions Returning Bool Should Ask Questions
-
-When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#bp-funcs-naming-verbs).
-
-This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.
-
-Good examples:
-
-* `IsDead`
-* `IsOnFire`
-* `IsAlive`
-* `IsSpeaking`
-* `IsHavingAnExistentialCrisis`
-* `IsVisible`
-* `HasWeapon` - ["Has" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
-* `WasCharging` - ["Was" is past-tense of "be".](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "was" when referring to 'previous frame' or 'previous state'.
-* `CanReload` - ["Can" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
-
-Bad examples:
-
-* `Fire` - Is on fire? Will fire? Do fire?
-* `OnFire` - Can be confused with event dispatcher for firing.
-* `Dead` - Is dead? Will deaden?
-* `Visibility` - Is visible? Set visibility? A description of flying conditions?
+Functions should follow all rules stated in [C++ Classes Functions](#cpp-classes-functions), with the addition of the following rules below.
 
 <a name="5.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>

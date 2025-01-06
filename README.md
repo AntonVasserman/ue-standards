@@ -94,7 +94,7 @@ For example, if you want to send someone to the first principle of this style gu
       - [4.5.2.5 Advanced Display](#cpp-classes-data-members-advanced)
     - [4.5.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
       - [4.5.3.1 Naming](#cpp-classes-component-data-members-naming)
-      - [4.5.3.2 UPROPERTY vs TObjectPtr](#cpp-classes-component-data-members-uproperty)
+      - [4.5.3.2 Garbage Collection](#cpp-classes-component-data-members-gc)
     - [4.5.4 Functions/Methods](#cpp-classes-functions)
       - [4.5.4.1 Naming](#cpp-classes-functions-naming)
         - [4.5.4.1.1 All Functions Should Be Verbs](#cpp-classes-functions-naming-verbs)
@@ -1073,10 +1073,12 @@ A component data member's object name shouldn't be suffixed with `Comp` or `Comp
 Example: Favor `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));` over `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm Component"));`.
 
 <a name="4.5.3.2"></a>
-<a name="cpp-classes-component-data-members-uproperty"></a>
-##### 4.5.3.2 UPROPERTY vs TObjectPtr
+<a name="cpp-classes-component-data-members-gc"></a>
+##### 4.5.3.2 Garbage Collection
 
-TODO: Discuss TObjectPtr<T> verses using UPROPERTY for components...
+A component data member should have a `UPROPERTY` macro so it's exposed to UE Garbage Collection, and preferably leverage `TObjectPtr<T>` instead of a raw pointer.
+
+> **_NOTE_:** `TObjectPtr<T>` was introduced in UE5, and although is optional, considered a better practice. See [C++ Object Pointer Properties](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-migration-guide#c++objectpointerproperties)
 
 <a name="4.5.4"></a>
 <a name="cpp-classes-functions"></a>
@@ -1371,9 +1373,13 @@ For example:
 <a name="cpp-events-binding"></a>
 #### 4.8.2 Event Binding
 
-Binding to other member's events should never be in the Constructor, but rather in `virtual void BeginPlay() override;`. If bindings occur in the Constructor, undesired side effects can occur, such as the function continue being binded even if the code is removed, most likely due to the CDO (Class Default Object) creation.
+Binding to other data member's events should be either in the `PostInitializeComponents()` or the `BeginPlay()` function.
 
-TODO: Research if there is a more appropriate place than `BeginPlay()`.
+> **_NOTE_:** While `BeginPlay()` is in general the most common place to bind to events, the correct place on paper to bind to events is `PostInitializeComponents()`, as it is the earliest point where the actor is in a fully-formed state, hence making sense to include code that initializes the actor at the start of the game.
+
+You should never bind to other data member events in the Constructor, this could lead to undesired side effects can occur due to the CDO (Class Default Object), such as the function continue being binded even if the code is removed.
+
+> **_NOTE_:** As a rule, the Constructor should not contain any gameplay-related code, it should be used to for establishing universal details for the class, not for modifying any particular instance of that class.
 
 **[⬆ Back to Top](#table-of-contents)**
 

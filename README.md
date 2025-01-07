@@ -829,14 +829,14 @@ All non-boolean variable names must be clear, unambiguous, and descriptive nouns
 <a name="cpp-vars-naming-case"></a>
 ##### 4.2.1.2 PascalCase
 
-All non-boolean variables should be in the form of [PascalCase](#terms-cases).
+All non-boolean variables should be in the form of [PascalCase](#terms-cases) and should not include underscores between words.
 
 Examples:
 
 * `Score` **not** `score`
 * `Kills` **not** `kills`
 * `TargetPlayer` **not** `targetPlayer`
-* `CrosshairColor` **not** `crosshairColor`
+* `CrosshairColor` **not** `crosshair_color`
 
 <a name="4.2.1.3"></a>
 <a name="cpp-vars-bool-names"></a>
@@ -927,7 +927,11 @@ All classes should have the `UCLASS` macro (so they are exposed to Blueprints) a
 <a name="cpp-classes-naming"></a>
 #### 4.5.1 Naming
 
-If the class inherits from AActor or one of its derivatives then it should be prefixed with `A`, otherwise it should be prefixed with `U`.
+A class that inherits from `UObject` should be prefixed with `U`.
+
+A class that inherits from `AActor` should be prefixed with `A`.
+
+A class that inherits from `SWidget` should be prefixed with `S`.
 
 <a name="4.5.2"></a>
 <a name="cpp-classes-data-members"></a>
@@ -1253,11 +1257,13 @@ enum class EMaterialBakeMethod : uint8
 };
 ```
 
+TODO: Since there is no such thing as an Interface in C++  we should move this to a section under Classes
+
 <a name="4.7"></a>
 <a name="cpp-interfaces"></a>
 ### 4.7 Interfaces
 
-When creating an `Interface`, we need to create two classes, `UInterface` (with `MinimalAPI` specifier) and `IInterface` (with the Game's API macro).
+When creating an abstract interface class, we need to create two classes, `UInterface` (with `MinimalAPI` specifier prefixed with `U`) and `IInterface` (with the Game's API macro prefixed with `I`).
 
 Example:
 ```

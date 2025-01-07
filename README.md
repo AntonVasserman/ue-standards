@@ -103,6 +103,7 @@ For example, if you want to send someone to the first principle of this style gu
         - [4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-functions-naming-rpcs)
       - [4.5.4.2 Getters and Setters](#cpp-classes-functions-getset)
       - [4.5.4.3 Inline Functions](#cpp-classes-functions-inline)
+      - [4.5.4.4 Parameter Names](#cpp-classes-functions-parameter-names)
   - [4.6 Enums](#cpp-enums)
     - [4.6.1 Naming](#cpp-enums-naming)
       - [4.6.1.1 Enum Values Prefix](#cpp-enums-naming-value-prefix)
@@ -114,6 +115,8 @@ For example, if you want to send someone to the first principle of this style gu
       - [4.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#cpp-events-naming-eventhandlers)
       - [4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#cpp-events-naming-internal-delegates)
     - [4.8.2 Event Binding](#cpp-events-binding)
+  - [4.9 Typedefs](#cpp-typedefs)
+  - [4.10 Macros](#cpp-macros)
 - [5. Blueprints](#bp)
   - [5.1 Compiling](#bp-compiling)
   - [5.2 Variables](#bp-vars)
@@ -1203,6 +1206,14 @@ When using Unreal Engine's API always prefer using a Getter instead of the actua
 
 Functions that execute a single line of code (Getters/Setters often fall into this criteria) should always be inline functions and have the `FORCEINLINE` macro.
 
+<a name="4.5.4.4"></a>
+<a name="cpp-classes-functions-parameter-names"></a>
+##### 4.5.4.4 Parameter Names
+
+If a function parameter is passed by reference, and it's expected that the function will edit its value, it is recommended to be prefixed with `Out`.
+
+If the parameter is a boolean, prefix with `b` before `In`/`Out` prefixes.
+
 <a name="4.6"></a>
 <a name="cpp-enums"></a>
 ### 4.6 Enums
@@ -1386,6 +1397,24 @@ Binding to other data member's events should be either in the `PostInitializeCom
 You should never bind to other data member events in the Constructor, this could lead to undesired side effects can occur due to the CDO (Class Default Object), such as the function continue being binded even if the code is removed.
 
 > **_NOTE_:** As a rule, the Constructor should not contain any gameplay-related code, it should be used to for establishing universal details for the class, not for modifying any particular instance of that class.
+
+<a name="4.9"></a>
+<a name="cpp-typedefs"></a>
+#### 4.9 Typedefs
+
+Typedefs should be prefixed by what is appropriate for that type, such as `F` for structs, or `U` for `UObject`.
+
+Example: `typedef TArray<FMytype> FArrayOfMyTypes;`
+
+<a name="4.10"></a>
+<a name="cpp-macros"></a>
+#### 4.10 Macros
+
+Macro names (as opposed to function names) should be fully capitalized with words separated by underscores, and prefixed with the projects name.
+
+Example for UE macros: `#define UE_AUDIT_SPRITER_IMPORT`
+
+Example for project with an abbreviation of `QD`: `#define QD_SOME_MACRO`
 
 **[⬆ Back to Top](#table-of-contents)**
 

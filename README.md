@@ -95,15 +95,18 @@ For example, if you want to send someone to the first principle of this style gu
     - [4.5.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
       - [4.5.3.1 Naming](#cpp-classes-component-data-members-naming)
       - [4.5.3.2 Garbage Collection](#cpp-classes-component-data-members-gc)
-    - [4.5.4 Functions/Methods](#cpp-classes-functions)
-      - [4.5.4.1 Naming](#cpp-classes-functions-naming)
-        - [4.5.4.1.1 All Functions Should Be Verbs](#cpp-classes-functions-naming-verbs)
-        - [4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`](#cpp-classes-functions-naming-onrep)
-        - [4.5.4.1.3 Info Functions Returning Bool Should Ask Questions](#cpp-classes-functions-naming-bool)
-        - [4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-functions-naming-rpcs)
-      - [4.5.4.2 Getters and Setters](#cpp-classes-functions-getset)
-      - [4.5.4.3 Inline Functions](#cpp-classes-functions-inline)
-      - [4.5.4.4 Parameter Names](#cpp-classes-functions-parameter-names)
+    - [4.5.4 Functions/Methods](#cpp-classes-funcs)
+      - [4.5.4.1 Naming](#cpp-classes-funcs-naming)
+        - [4.5.4.1.1 All Functions Should Be Verbs](#cpp-classes-funcs-naming-verbs)
+        - [4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`](#cpp-classes-funcs-naming-onrep)
+        - [4.5.4.1.3 Info Functions Returning Bool Should Ask Questions](#cpp-classes-funcs-naming-bool)
+        - [4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-funcs-naming-rpcs)
+      - [4.5.4.2 Getters and Setters](#cpp-classes-funcs-getset)
+      - [4.5.4.3 Inline Functions](#cpp-classes-funcs-inline)
+      - [4.5.4.4 Const Correctness](#cpp-classes-funcs-const)
+      - [4.5.4.5 Parameter Names](#cpp-classes-funcs-params)
+        - [4.5.4.5.1 Names](#cpp-classes-funcs-params-names)
+        - [4.5.4.5.2 Const Correctness](#cpp-classes-funcs-params-const)
   - [4.6 Enums](#cpp-enums)
     - [4.6.1 Naming](#cpp-enums-naming)
       - [4.6.1.1 Enum Values Prefix](#cpp-enums-naming-value-prefix)
@@ -1088,7 +1091,7 @@ A component data member should have a `UPROPERTY` macro so it's exposed to UE Ga
 > **_NOTE_:** `TObjectPtr<T>` was introduced in UE5, and although is optional, considered a better practice. See [C++ Object Pointer Properties](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-migration-guide#c++objectpointerproperties)
 
 <a name="4.5.4"></a>
-<a name="cpp-classes-functions"></a>
+<a name="cpp-classes-funcs"></a>
 #### 4.5.4 Functions/Methods
 
 This section describes how you should author class functions.
@@ -1096,7 +1099,7 @@ This section describes how you should author class functions.
 A method is a function belonging to a class, so the words 'method' and 'function' are interchangable in most contexts.
 
 <a name="4.5.4.1"></a>
-<a name="cpp-classes-functions-naming"></a>
+<a name="cpp-classes-funcs-naming"></a>
 ##### 4.5.4.1 Naming
 
 The naming of functions is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
@@ -1111,7 +1114,7 @@ These questions and more can all be answered when functions are named appropriat
 Function declarations should be in a single line. In case of many parameters, split the parameters to several lines.
 
 <a name="4.5.4.1.1"></a>
-<a name="cpp-classes-functions-naming-verbs"></a>
+<a name="cpp-classes-funcs-naming-verbs"></a>
 ###### 4.5.4.1.1 All Functions Should Be Verbs
 
 All functions perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
@@ -1139,16 +1142,16 @@ Bad examples:
 * `Color` - Verb with no context, or ambiguous noun.
 
 <a name="4.5.4.1.2"></a>
-<a name="cpp-classes-functions-naming-onrep"></a>
+<a name="cpp-classes-funcs-naming-onrep"></a>
 ###### 4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
 
 All functions for replicated with notification variables should have the form `OnRep_Variable`, and exposed to Blueprints.
 
 <a name="4.5.4.1.3"></a>
-<a name="cpp-classes-functions-naming-bool"></a>
+<a name="cpp-classes-funcs-naming-bool"></a>
 ###### 4.5.4.1.3 Info Functions Returning Bool Should Ask Questions
 
-When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#cpp-classes-functions-naming-verbs).
+When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#cpp-classes-funcs-naming-verbs).
 
 This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.
 
@@ -1172,7 +1175,7 @@ Bad examples:
 * `Visibility` - Is visible? Set visibility? A description of flying conditions?
 
 <a name="4.5.4.1.4"></a>
-<a name="cpp-classes-functions-naming-rpcs"></a>
+<a name="cpp-classes-funcs-naming-rpcs"></a>
 ###### 4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
@@ -1193,7 +1196,7 @@ Bad examples:
 * `ClientWeapon` - No verb, ambiguous.
 
 <a name="4.5.4.2"></a>
-<a name="cpp-classes-functions-getset"></a>
+<a name="cpp-classes-funcs-getset"></a>
 ##### 4.5.4.2 Getters and Setters
 
 Classes that want to expose private/protected data members for editting through other classes should add Getter and Setter functions.
@@ -1201,18 +1204,50 @@ Classes that want to expose private/protected data members for editting through 
 When using Unreal Engine's API always prefer using a Getter instead of the actual data memeber. This is because the API changes, and at some point the said data member could become private, resulting in a code break.
 
 <a name="4.5.4.3"></a>
-<a name="cpp-classes-functions-inline"></a>
+<a name="cpp-classes-funcs-inline"></a>
 ##### 4.5.4.3 Inline Functions
 
 Functions that execute a single line of code (Getters/Setters often fall into this criteria) should always be inline functions and have the `FORCEINLINE` macro.
 
 <a name="4.5.4.4"></a>
-<a name="cpp-classes-functions-parameter-names"></a>
-##### 4.5.4.4 Parameter Names
+<a name="cpp-classes-funcs-const"></a>
+##### 4.5.4.4 Const Correctness
+
+If a method doesn't modify the state of the object, mark it as `const`.
+
+Example:
+```
+void FThing::SomeNonMutatingOperation() const
+{
+    // This code will not modify the FThing it is invoked on
+}
+```
+
+<a name="4.5.4.5"></a>
+<a name="cpp-classes-funcs-params"></a>
+##### 4.5.4.5 Parameters
+
+<a name="4.5.4.5.1"></a>
+<a name="cpp-classes-funcs-params-names"></a>
+##### 4.5.4.5.1 Names
 
 If a function parameter is passed by reference, and it's expected that the function will edit its value, it is recommended to be prefixed with `Out`.
 
 If the parameter is a boolean, prefix with `b` before `In`/`Out` prefixes.
+
+<a name="4.5.4.5.2"></a>
+<a name="cpp-classes-funcs-params-const"></a>
+##### 4.5.4.5.2 Const Correctness
+
+If a function parameter is not intended to be modified by the function pass it as `const` pointer/reference.
+
+Example: 
+```
+void SomeMutatingOperation(FThing& OutResult, const TArray<Int32>& Array)
+{
+    // Array will not be modified here, but OutResult probably will be
+}
+```
 
 <a name="4.6"></a>
 <a name="cpp-enums"></a>
@@ -1330,7 +1365,7 @@ public:
 <a name="cpp-events-naming"></a>
 #### 4.8.1 Naming
 
-In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-functions-naming).
+In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-funcs-naming).
 
 <a name="4.8.1.1"></a>
 <a name="cpp-events-naming-eventhandlers"></a>
@@ -1502,7 +1537,7 @@ This section describes how you should author functions, delegates, events, event
 <a name="bp-funcs-naming"></a>
 ### 5.3.1 Function Naming
 
-Function naming should follow all rules stated in [C++ Classes Functions Naming](#cpp-classes-functions-naming), with the addition of the following rules below.
+Function naming should follow all rules stated in [C++ Classes Functions Naming](#cpp-classes-funcs-naming), with the addition of the following rules below.
 
 <a name="5.3.1.1"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>

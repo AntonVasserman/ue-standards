@@ -37,15 +37,16 @@ For example, if you want to send someone to the first principle of this style gu
     - [2.2.2 Artificial Intelligence](#anc-ai)
     - [2.2.3 Blueprints](#anc-bp)
     - [2.2.4 Effects](#anc-effects)
-    - [2.2.5 Materials](#anc-materials)
-    - [2.2.6 Paper 2D](#anc-paper2d)
-    - [2.2.7 Paper ZD](#anc-paperzd)
-    - [2.2.8 Physics](#anc-physics)
-    - [2.2.9 Sounds](#anc-sounds)
-    - [2.2.10 Textures](#anc-textures)
-      - [2.2.10.1 Texture Packing](#anc-textures-packing)
-    - [2.2.11 User Interface](#anc-ui)
-    - [2.2.12 Miscellaneous](#anc-misc)
+    - [2.2.5 Inputs](#anc-inputs)
+    - [2.2.6 Materials](#anc-materials)
+    - [2.2.7 Paper 2D](#anc-paper2d)
+    - [2.2.8 Paper ZD](#anc-paperzd)
+    - [2.2.9 Physics](#anc-physics)
+    - [2.2.10 Sounds](#anc-sounds)
+    - [2.2.11 Textures](#anc-textures)
+      - [2.2.11.1 Texture Packing](#anc-textures-packing)
+    - [2.2.12 User Interface](#anc-ui)
+    - [2.2.13 Miscellaneous](#anc-misc)
 - [3. Content Directory Structure](#structure)
   - [3e1 Example Project Content Structure](#3e1)
   - [3.1 Folder Names](#structure-folder-names)
@@ -396,9 +397,21 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Niagara Function        | FXF_       |            |                                  |
 | Particle System         | PS_        |            |                                  |
 
-<a name="anc-materials"></a>
+TODO: Add to TOC
+<a name="anc-inputs"></a>
 <a name="2.2.5"></a>
-### 2.2.5 Materials
+### 2.2.5 Inputs
+
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Force Feedback Effect         | FFE_       |            |                                  |
+| Input Action                  | IA_        |            |                                  |
+| Input Mapping Context         | IMC_       |            |                                  |
+
+TODO: Update everything below
+<a name="anc-materials"></a>
+<a name="2.2.6"></a>
+### 2.2.6 Materials
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
@@ -411,8 +424,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-paper2d"></a>
-<a name="2.2.6"></a>
-### 2.2.6 Paper 2D
+<a name="2.2.7"></a>
+### 2.2.7 Paper 2D
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -424,8 +437,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Tile Set                | TS_        |            |                                  |
 
 <a name="anc-paperzd"></a>
-<a name="2.2.7"></a>
-### 2.2.7 Paper ZD
+<a name="2.2.8"></a>
+### 2.2.8 Paper ZD
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -434,8 +447,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Animation Source        | ASRC_      |            |                                  |
 
 <a name="anc-physics"></a>
-<a name="2.2.8"></a>
-### 2.2.8 Physics
+<a name="2.2.9"></a>
+### 2.2.9 Physics
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -444,8 +457,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Destructible Mesh       | DM_        |            |                                  |
 
 <a name="anc-sounds"></a>
-<a name="2.2.9"></a>
-### 2.2.9 Sounds
+<a name="2.2.10"></a>
+### 2.2.10 Sounds
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -465,8 +478,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Sound Wave              | A_         |            |                                  |
 
 <a name="anc-textures"></a>
-<a name="2.2.10"></a>
-### 2.2.10 Textures
+<a name="2.2.11"></a>
+### 2.2.11 Textures
 
 | Asset Type                          | Prefix        | Suffix     | Notes                            |
 | ----------------------------------- | ------------- | ---------- | -------------------------------- |
@@ -489,8 +502,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Texture Light Profile               | TLP           |            |                                  |
 
 <a name="anc-textures-packing"></a>
-<a name="2.2.10.1"></a>
-#### 2.2.10.1 Texture Packing
+<a name="2.2.11.1"></a>
+#### 2.2.11.1 Texture Packing
 It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack (in lexicographic order) the given suffix letters from above together, e.g. `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
@@ -498,8 +511,8 @@ It is common practice to pack multiple layers of texture data into one texture. 
 Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
 
 <a name="anc-ui"></a>
-<a name="2.2.11"></a>
-### 2.2.11 User Interface
+<a name="2.2.12"></a>
+### 2.2.12 User Interface
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -508,8 +521,8 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Slate Widget Style      | Style_     |            |                                  |
 
 <a name="anc-misc"></a>
-<a name="2.2.12"></a>
-### 2.2.12 Miscellaneous
+<a name="2.2.13"></a>
+### 2.2.13 Miscellaneous
 
 | Asset Type                 | Prefix     | Suffix     | Notes                            |
 | -------------------------- | ---------- | ---------- | -------------------------------- |

@@ -80,47 +80,55 @@ For example, if you want to send someone to the first principle of this style gu
       - [4.2.1.4 Do _Not_ Include Atomic Type Names](#cpp-vars-naming-atomic)
       - [4.2.1.5 Arrays](#cpp-vars-naming-arrays)
   - [4.3 Statements](#cpp-statements)
-  - [4.4 Structs](#cpp-structs)
-  - [4.5 Classes](#cpp-classes)
-    - [4.5.1 Naming](#cpp-classes-naming)
-    - [4.5.2 Data Members/Properties](#cpp-classes-data-members)
-      - [4.5.2.1 Naming](#cpp-classes-data-members-naming)
-        - [4.5.2.1.1 Complex States](#cpp-classes-data-members-naming-complex-states)
-        - [4.5.2.1.2 Considered Context](#cpp-classes-data-members-naming-context)
-        - [4.5.2.1.3 Do Include Non-Atomic Type Names](#cpp-classes-data-members-naming-atomic-names)
-      - [4.5.2.2 Editable Data Members](#cpp-classes-data-members-editable)
-        - [4.5.2.2.1 Slider And Value Ranges](#cpp-classes-data-members-editable-ranges)
-      - [4.5.2.3 Categories](#cpp-classes-data-members-categories)
-      - [4.5.2.4 Data Members Access Level](#cpp-classes-data-members-access)
-      - [4.5.2.5 Advanced Display](#cpp-classes-data-members-advanced)
-    - [4.5.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
-      - [4.5.3.1 Naming](#cpp-classes-component-data-members-naming)
-      - [4.5.3.2 Garbage Collection](#cpp-classes-component-data-members-gc)
-    - [4.5.4 Functions/Methods](#cpp-classes-funcs)
-      - [4.5.4.1 Naming](#cpp-classes-funcs-naming)
-        - [4.5.4.1.1 All Functions Should Be Verbs](#cpp-classes-funcs-naming-verbs)
-        - [4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`](#cpp-classes-funcs-naming-onrep)
-        - [4.5.4.1.3 Info Functions Returning Bool Should Ask Questions](#cpp-classes-funcs-naming-bool)
-        - [4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-funcs-naming-rpcs)
-      - [4.5.4.2 Getters and Setters](#cpp-classes-funcs-getset)
-      - [4.5.4.3 Inline Functions](#cpp-classes-funcs-inline)
-      - [4.5.4.4 Const Correctness](#cpp-classes-funcs-const)
-      - [4.5.4.5 Parameter Names](#cpp-classes-funcs-params)
-        - [4.5.4.5.1 Names](#cpp-classes-funcs-params-names)
-        - [4.5.4.5.2 Const Correctness](#cpp-classes-funcs-params-const)
-  - [4.6 Enums](#cpp-enums)
-    - [4.6.1 Naming](#cpp-enums-naming)
-      - [4.6.1.1 Enum Values Prefix](#cpp-enums-naming-value-prefix)
-    - [4.6.2 Display Name](#cpp-enums-displayname)
-  - [4.7 Interfaces](#cpp-interfaces)
-    - [4.7.1 Naming](#cpp-interfaces-naming)
-  - [4.8 Delegates and Events](#cpp-delegates-and-events)
-    - [4.8.1 Naming](#cpp-events-naming)
-      - [4.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#cpp-events-naming-eventhandlers)
-      - [4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#cpp-events-naming-internal-delegates)
-    - [4.8.2 Event Binding](#cpp-events-binding)
-  - [4.9 Typedefs](#cpp-typedefs)
-  - [4.10 Macros](#cpp-macros)
+  - [4.4 Functions](#cpp-functions)
+    - [4.4.1 Avoid passing Literals](#cpp-functions-passing-literals)
+  - [4.5 Structs](#cpp-structs)
+  - [4.6 Classes](#cpp-classes)
+    - [4.6.1 Naming](#cpp-classes-naming)
+    - [4.6.2 Data Members/Properties](#cpp-classes-data-members)
+      - [4.6.2.1 Naming](#cpp-classes-data-members-naming)
+        - [4.6.2.1.1 Complex States](#cpp-classes-data-members-naming-complex-states)
+        - [4.6.2.1.2 Considered Context](#cpp-classes-data-members-naming-context)
+        - [4.6.2.1.3 Do Include Non-Atomic Type Names](#cpp-classes-data-members-naming-atomic-names)
+      - [4.6.2.2 Editable Data Members](#cpp-classes-data-members-editable)
+        - [4.6.2.2.1 Slider And Value Ranges](#cpp-classes-data-members-editable-ranges)
+      - [4.6.2.3 Categories](#cpp-classes-data-members-categories)
+      - [4.6.2.4 Data Members Access Level](#cpp-classes-data-members-access)
+      - [4.6.2.5 Advanced Display](#cpp-classes-data-members-advanced)
+    - [4.6.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
+      - [4.6.3.1 Naming](#cpp-classes-component-data-members-naming)
+      - [4.6.3.2 Garbage Collection](#cpp-classes-component-data-members-gc)
+    - [4.6.4 Functions/Methods](#cpp-classes-funcs)
+      - [4.6.4.1 Naming](#cpp-classes-funcs-naming)
+        - [4.6.4.1.1 All Functions Should Be Verbs](#cpp-classes-funcs-naming-verbs)
+        - [4.6.4.1.2 Property RepNotify Functions Always `OnRep_Variable`](#cpp-classes-funcs-naming-onrep)
+        - [4.6.4.1.3 Info Functions Returning Bool Should Ask Questions](#cpp-classes-funcs-naming-bool)
+        - [4.6.4.1.4 Remote Procedure Calls Should Be Prefixed With Target](#cpp-classes-funcs-naming-rpcs)
+      - [4.6.4.2 Getters and Setters](#cpp-classes-funcs-getset)
+      - [4.6.4.3 Inline Functions](#cpp-classes-funcs-inline)
+      - [4.6.4.4 Const Correctness](#cpp-classes-funcs-const)
+      - [4.6.4.5 Parameter Names](#cpp-classes-funcs-params)
+        - [4.6.4.5.1 Names](#cpp-classes-funcs-params-names)
+        - [4.6.4.5.2 Const Correctness](#cpp-classes-funcs-params-const)
+        - [4.6.4.5.3 Avoid boolean flags parameters](#cpp-classes-funcs-params-bool-flags)
+  - [4.7 Enums](#cpp-enums)
+    - [4.7.1 Naming](#cpp-enums-naming)
+      - [4.7.1.1 Enum Values Prefix](#cpp-enums-naming-value-prefix)
+    - [4.7.2 Display Name](#cpp-enums-displayname)
+    - [4.7.3 Enums as Flags](#cpp-enums-flags)
+  - [4.8 Interfaces](#cpp-interfaces)
+    - [4.8.1 Naming](#cpp-interfaces-naming)
+    - [4.8.2 Non-pure functions in Interfaces](#cpp-interfaces-non-pure-functions)
+  - [4.9 Delegates and Events](#cpp-delegates-and-events)
+    - [4.9.1 Naming](#cpp-events-naming)
+      - [4.9.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`](#cpp-events-naming-eventhandlers)
+      - [4.9.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`](#cpp-events-naming-internal-delegates)
+    - [4.9.2 Event Binding](#cpp-events-binding)
+  - [4.10 Typedefs](#cpp-typedefs)
+  - [4.11 Macros](#cpp-macros)
+  - [4.12 Comments](#cpp-comments)
+    - [4.12.1 Third Party Code](#cpp-comments-thirdparty)
+  - [4.13 Namespaces](#cpp-namespaces)
 - [5. Blueprints](#bp)
   - [5.1 Compiling](#bp-compiling)
   - [5.2 Variables](#bp-vars)
@@ -397,7 +405,6 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Niagara Function        | FXF_       |            |                                  |
 | Particle System         | PS_        |            |                                  |
 
-TODO: Add to TOC
 <a name="anc-inputs"></a>
 <a name="2.2.5"></a>
 ### 2.2.5 Inputs
@@ -408,7 +415,6 @@ TODO: Add to TOC
 | Input Action                  | IA_        |            |                                  |
 | Input Mapping Context         | IMC_       |            |                                  |
 
-TODO: Update everything below
 <a name="anc-materials"></a>
 <a name="2.2.6"></a>
 ### 2.2.6 Materials
@@ -931,20 +937,44 @@ else
 ```
 
 <a name="4.4"></a>
+<a name="cpp-functions"></a>
+### 4.4 Functions
+
+<a name="4.4.1"></a>
+<a name="cpp-functions-passing-literals"></a>
+### 4.4.1 Avoid passing Literals
+
+Avoid using literals in function calls.
+
+Prefer named constants which describe their meaning. This makes intent more obvious as it avoids the need to look up the function declaration to understand it.
+
+Example:
+```
+// Avoid
+Trigger(TEXT("Soldier"), 5, true);.
+ 
+// Instead use
+const FName ObjectName                = TEXT("Soldier");
+const float CooldownInSeconds         = 5;
+const bool bVulnerableDuringCooldown  = true;
+Trigger(ObjectName, CooldownInSeconds, bVulnerableDuringCooldown);
+```
+
+<a name="4.5"></a>
 <a name="cpp-structs"></a>
-### 4.4 Structs
+### 4.5 Structs
 
 As a rule of thumb all structs should be prefixed with `F`, and contain only data, no functionality.
 
-<a name="4.5"></a>
+<a name="4.6"></a>
 <a name="cpp-classes"></a>
-### 4.5 Classes
+### 4.6 Classes
 
 All classes should have the `UCLASS` macro (so they are exposed to Blueprints) and inherit from `UObject` or one of its derivatives.
 
-<a name="4.5.1"></a>
+<a name="4.6.1"></a>
 <a name="cpp-classes-naming"></a>
-#### 4.5.1 Naming
+#### 4.6.1 Naming
 
 A class that inherits from `UObject` should be prefixed with `U`.
 
@@ -952,21 +982,21 @@ A class that inherits from `AActor` should be prefixed with `A`.
 
 A class that inherits from `SWidget` should be prefixed with `S`.
 
-<a name="4.5.2"></a>
+<a name="4.6.2"></a>
 <a name="cpp-classes-data-members"></a>
-#### 4.5.2 Data Members/Properties
+#### 4.6.2 Data Members/Properties
 
 The words `data member` and `property` may be used interchangeably.
 
-<a name="4.5.2.1"></a>
+<a name="4.6.2.1"></a>
 <a name="cpp-classes-data-members-naming"></a>
-##### 4.5.2.1 Naming
+##### 4.6.2.1 Naming
 
 Class data members namings should follow all rules stated in [C++ Variables Naming](#cpp-var-naming), with the addition of the following rules below.
 
-<a name="4.5.2.1.1"></a>
+<a name="4.6.2.1.1"></a>
 <a name="cpp-classes-data-members-naming-complex-states"></a>
-###### 4.5.2.1.1 Complex States
+###### 4.6.2.1.1 Complex States
 
 Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
 
@@ -974,9 +1004,9 @@ Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if
 
 Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
 
-<a name="4.5.2.1.2"></a>
+<a name="4.6.2.1.2"></a>
 <a name="cpp-classes-data-members-naming-context"></a>
-###### 4.5.2.1.2 Considered Context
+###### 4.6.2.1.2 Considered Context
 
 All data member names must not be redundant with their context as all data member references always have context in a class/struct.
 
@@ -1000,9 +1030,9 @@ All of these data members are named redundantly. It is implied that the data mem
 * `Skills`
 * `Skin`
 
-<a name="4.5.2.1.3"></a>
+<a name="4.6.2.1.3"></a>
 <a name="cpp-classes-data-members-naming-atomic-names"></a>
-###### 4.5.2.1.3 Do Include Non-Atomic Type Names
+###### 4.6.2.1.3 Do Include Non-Atomic Type Names
 
 Non-atomic or complex data members are data members that represent data as a collection of atomic data members. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
 
@@ -1018,9 +1048,9 @@ If a class does not own the value a complex data member represents, you should u
 
 Example: If a `ATurret` has the ability to target a `APlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `ATurret` it should be clear that it is a reference to another complex data member type that it does not own.
 
-<a name="4.5.2.2"></a>
+<a name="4.6.2.2"></a>
 <a name="cpp-classes-data-members-editable"></a>
-##### 4.5.2.2 Editable Data Members
+##### 4.6.2.2 Editable Data Members
 
 All data members that are safe to change in an inheriting Blueprint should be marked with a `UPROPERTY` macro that has the `EditAnywhere`/`BlueprintReadWrite` specifiers.
 
@@ -1028,9 +1058,9 @@ All data members that are safe to change in an inheriting Blueprint should be ma
 > Due to that, I personally prefer using the next two combinations `UPROPERTY(EditAnywhere + BlueprintReadOnly)` or `UPROPERTY(VisibleAnywhere + BlueprintReadWrite)`.
 > On that note, I also prefer the usage of `EditDefaultsOnly` and `EditInstanceOnly` in favor of `EditAnywhere`, due to similar reasons.
 
-<a name="4.5.2.2.1"></a>
+<a name="4.6.2.2.1"></a>
 <a name="cpp-classes-data-members-editable-ranges"></a>
-###### 4.5.2.2.1 Slider And Value Ranges
+###### 4.6.2.2.1 Slider And Value Ranges
 
 All `Editable` data members should make use of slider and value ranges if there is ever a value that should _not_ be allowed.
 
@@ -1040,9 +1070,9 @@ If an editable variable is used in a Construction Script, it should have a reaso
 
 A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
 
-<a name="4.5.2.3"></a>
+<a name="4.6.2.3"></a>
 <a name="cpp-classes-data-members-categories"></a>
-##### 4.5.2.3 Categories
+##### 4.6.2.3 Categories
 
 If a class has only a small number of data members, categories are not required.
 
@@ -1065,29 +1095,29 @@ Example: A weapon class set of data members might be organized as:
     |-- State
     |-- Visuals
 
-<a name="4.5.2.4"></a>
+<a name="4.6.2.4"></a>
 <a name="cpp-classes-data-members-access"></a>
-##### 4.5.2.4 Data Members Access Level
+##### 4.6.2.4 Data Members Access Level
 
 In C++, data members have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
 
 All data members should be marked as `protected` or `private` according to their needs, but never `public`! If a data member needs to be accessed from a different class, define a Getter function.
 
-<a name="4.5.2.5"></a>
+<a name="4.6.2.5"></a>
 <a name="cpp-classes-data-members-advanced"></a>
-##### 4.5.2.5 Advanced Display
+##### 4.6.2.5 Advanced Display
 
 If a data member should be editable but often untouched, add the `Advanced Display` specifier. This makes the data member hidden unless the advanced display arrow is clicked.
 
-<a name="4.5.3"></a>
+<a name="4.6.3"></a>
 <a name="cpp-classes-component-data-members"></a>
-#### 4.5.3 cpp-classes-component-data-members
+#### 4.6.3 cpp-classes-component-data-members
 
 A data member that inherits from `UActorComponent` is a component data member.
 
-<a name="4.5.3.1"></a>
+<a name="4.6.3.1"></a>
 <a name="cpp-classes-component-data-members-naming"></a>
-##### 4.5.3.1 Naming
+##### 4.6.3.1 Naming
 
 A component data member should be suffixed with `Comp`.
 
@@ -1095,25 +1125,25 @@ A component data member's object name shouldn't be suffixed with `Comp` or `Comp
 
 Example: Favor `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));` over `SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm Component"));`.
 
-<a name="4.5.3.2"></a>
+<a name="4.6.3.2"></a>
 <a name="cpp-classes-component-data-members-gc"></a>
-##### 4.5.3.2 Garbage Collection
+##### 4.6.3.2 Garbage Collection
 
 A component data member should have a `UPROPERTY` macro so it's exposed to UE Garbage Collection, and preferably leverage `TObjectPtr<T>` instead of a raw pointer.
 
 > **_NOTE_:** `TObjectPtr<T>` was introduced in UE5, and although is optional, considered a better practice. See [C++ Object Pointer Properties](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-migration-guide#c++objectpointerproperties)
 
-<a name="4.5.4"></a>
+<a name="4.6.4"></a>
 <a name="cpp-classes-funcs"></a>
-#### 4.5.4 Functions/Methods
+#### 4.6.4 Functions/Methods
 
 This section describes how you should author class functions.
 
 A method is a function belonging to a class, so the words 'method' and 'function' are interchangable in most contexts.
 
-<a name="4.5.4.1"></a>
+<a name="4.6.4.1"></a>
 <a name="cpp-classes-funcs-naming"></a>
-##### 4.5.4.1 Naming
+##### 4.6.4.1 Naming
 
 The naming of functions is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
 
@@ -1126,9 +1156,9 @@ These questions and more can all be answered when functions are named appropriat
 
 Function declarations should be in a single line. In case of many parameters, split the parameters to several lines.
 
-<a name="4.5.4.1.1"></a>
+<a name="4.6.4.1.1"></a>
 <a name="cpp-classes-funcs-naming-verbs"></a>
-###### 4.5.4.1.1 All Functions Should Be Verbs
+###### 4.6.4.1.1 All Functions Should Be Verbs
 
 All functions perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
 
@@ -1154,15 +1184,15 @@ Bad examples:
 * `PlayerState` - Nouns are ambiguous.
 * `Color` - Verb with no context, or ambiguous noun.
 
-<a name="4.5.4.1.2"></a>
+<a name="4.6.4.1.2"></a>
 <a name="cpp-classes-funcs-naming-onrep"></a>
-###### 4.5.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
+###### 4.6.4.1.2 Property RepNotify Functions Always `OnRep_Variable`
 
 All functions for replicated with notification variables should have the form `OnRep_Variable`, and exposed to Blueprints.
 
-<a name="4.5.4.1.3"></a>
+<a name="4.6.4.1.3"></a>
 <a name="cpp-classes-funcs-naming-bool"></a>
-###### 4.5.4.1.3 Info Functions Returning Bool Should Ask Questions
+###### 4.6.4.1.3 Info Functions Returning Bool Should Ask Questions
 
 When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#cpp-classes-funcs-naming-verbs).
 
@@ -1187,9 +1217,9 @@ Bad examples:
 * `Dead` - Is dead? Will deaden?
 * `Visibility` - Is visible? Set visibility? A description of flying conditions?
 
-<a name="4.5.4.1.4"></a>
+<a name="4.6.4.1.4"></a>
 <a name="cpp-classes-funcs-naming-rpcs"></a>
-###### 4.5.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
+###### 4.6.4.1.4 Remote Procedure Calls Should Be Prefixed With Target
 
 Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
 
@@ -1208,23 +1238,25 @@ Bad examples:
 * `AllNotifyDeath` - Use `Multicast`, never `All`.
 * `ClientWeapon` - No verb, ambiguous.
 
-<a name="4.5.4.2"></a>
+<a name="4.6.4.2"></a>
 <a name="cpp-classes-funcs-getset"></a>
-##### 4.5.4.2 Getters and Setters
+##### 4.6.4.2 Getters and Setters
 
 Classes that want to expose private/protected data members for editting through other classes should add Getter and Setter functions.
 
 When using Unreal Engine's API always prefer using a Getter instead of the actual data memeber. This is because the API changes, and at some point the said data member could become private, resulting in a code break.
 
-<a name="4.5.4.3"></a>
+<a name="4.6.4.3"></a>
 <a name="cpp-classes-funcs-inline"></a>
-##### 4.5.4.3 Inline Functions
+##### 4.6.4.3 Inline Functions
 
-Functions that execute a single line of code (Getters/Setters often fall into this criteria) should always be inline functions and have the `FORCEINLINE` macro.
+Functions that are used as trivial accessors should always be inline functions and have the `FORCEINLINE` macro.
 
-<a name="4.5.4.4"></a>
+But do not overuse `FORCEINLINE` for everything one line function, as this forces rebuilds.
+
+<a name="4.6.4.4"></a>
 <a name="cpp-classes-funcs-const"></a>
-##### 4.5.4.4 Const Correctness
+##### 4.6.4.4 Const Correctness
 
 If a method doesn't modify the state of the object, mark it as `const`.
 
@@ -1236,21 +1268,21 @@ void FThing::SomeNonMutatingOperation() const
 }
 ```
 
-<a name="4.5.4.5"></a>
+<a name="4.6.4.5"></a>
 <a name="cpp-classes-funcs-params"></a>
-##### 4.5.4.5 Parameters
+##### 4.6.4.5 Parameters
 
-<a name="4.5.4.5.1"></a>
+<a name="4.6.4.5.1"></a>
 <a name="cpp-classes-funcs-params-names"></a>
-##### 4.5.4.5.1 Names
+##### 4.6.4.5.1 Names
 
 If a function parameter is passed by reference, and it's expected that the function will edit its value, it is recommended to be prefixed with `Out`.
 
 If the parameter is a boolean, prefix with `b` before `In`/`Out` prefixes.
 
-<a name="4.5.4.5.2"></a>
+<a name="4.6.4.5.2"></a>
 <a name="cpp-classes-funcs-params-const"></a>
-##### 4.5.4.5.2 Const Correctness
+##### 4.6.4.5.2 Const Correctness
 
 If a function parameter is not intended to be modified by the function pass it as `const` pointer/reference.
 
@@ -1262,23 +1294,51 @@ void SomeMutatingOperation(FThing& OutResult, const TArray<Int32>& Array)
 }
 ```
 
-<a name="4.6"></a>
+<a name="4.6.4.5.3"></a>
+<a name="cpp-classes-funcs-params-bool-flags"></a>
+##### 4.6.4.5.3 Avoid boolean flags parameters
+
+Avoid using many boolean parameters in a function, instead prefer [Enum Flags](#cpp-enums-flags).
+
+Example:
+```
+// Avoid
+FCup* MakeCupOfTea(FTea* Tea, bool bAddSugar = false, bool bAddMilk = false, bool bAddHoney = false, bool bAddLemon = false);
+FCup* Cup = MakeCupOfTea(Tea, false, true, true);
+ 
+// Instead use
+enum class ETeaFlags
+{
+    None,
+    Milk  = 0x01,
+    Sugar = 0x02,
+    Honey = 0x04,
+    Lemon = 0x08
+};
+ENUM_CLASS_FLAGS(ETeaFlags)
+ 
+FCup* MakeCupOfTea(FTea* Tea, ETeaFlags Flags = ETeaFlags::None);
+```
+
+<a name="4.7"></a>
 <a name="cpp-enums"></a>
-### 4.6 Enums
+### 4.7 Enums
 
 An enumeration (`Enum`) is often used to store a finite amount of options, such as a state.
 
 In Unreal Engine Enums should often use the `UENUM()` macro to be exposed to Blueprints.
 
-<a name="4.6.1"></a>
+Enums that are exposed to Blueprints, must be of type `uint8`.
+
+<a name="4.7.1"></a>
 <a name="cpp-enums-naming"></a>
-#### 4.6.1 Naming
+#### 4.7.1 Naming
 
-Enums should always be prefixed with 'E'.
+Enums should always be prefixed with `E`.
 
-<a name="4.6.1.1"></a>
+<a name="4.7.1.1"></a>
 <a name="cpp-enums-naming-value-prefix"></a>
-##### 4.6.1.1 Enum Values Prefix
+##### 4.7.1.1 Enum Values Prefix
 
 It is common (not always) to prefix each value in the Enum with an abbreviation of the Enum name.
 
@@ -1298,9 +1358,9 @@ This rule is important in case you are not using a class enum, in which case the
 
 In case you do use a class enum, then the only advantage of this rule is that it's easier to find the enum in an IDE by writing the abbreviation. But this is less relevant with modern IDEs such as JetBrains Rider that finds classes by the abbreviation anyway.
 
-<a name="4.6.2"></a>
+<a name="4.7.2"></a>
 <a name="cpp-enums-displayname"></a>
-#### 4.6.2 Display Name
+#### 4.7.2 Display Name
 
 Favor using (especially for unclear enum values) the `UMETA()` macro and adding a `DisplayName` for a friendly clear display name in Blueprints.
 
@@ -1316,11 +1376,41 @@ enum class EMaterialBakeMethod : uint8
 };
 ```
 
-TODO: Since there is no such thing as an Interface in C++  we should move this to a section under Classes
+<a name="4.7.3"></a>
+<a name="cpp-enums-flags"></a>
+#### 4.7.3 Enums as Flags
 
-<a name="4.7"></a>
+Enum classes used as flags should use `ENUM_CLASS_FLAGS(EnumType)` macro to automatically define all their bitwise operators.
+
+Example:
+```
+enum class EFlags
+{
+  None = 0x00,
+  Flag1 = 0x01,
+  Flag2 = 0x02,
+  Flag3 = 0x04
+};
+ 
+ENUM_CLASS_FLAGS(EFlags)
+```
+
+This has one exception, which is the usage of flags in an `if` and truth context. Due to that Flag Enums classes should always include a value called `None` set to 0, to be used in comparisons.
+
+Example:
+```
+// Old
+if (Flags & EFlags::Flag1)
+
+// New
+if ((Flags & EFlags::Flag1) != EFlags::None)
+```
+
+<a name="4.8"></a>
 <a name="cpp-interfaces"></a>
-### 4.7 Interfaces
+### 4.8 Interfaces
+
+Interface classes should always be abstract.
 
 When creating an abstract interface class, we need to create two classes, `UInterface` (with `MinimalAPI` specifier prefixed with `U`) and `IInterface` (with the Game's API macro prefixed with `I`).
 
@@ -1343,9 +1433,9 @@ public:
 
 > **_NOTE_:** Both should reside in the same interface file, in this example in `PRSOperatableInterface.h`.
 
-<a name="4.7.1"></a>
+<a name="4.8.1"></a>
 <a name="cpp-interfaces-naming"></a>
-#### 4.7.1 Naming
+#### 4.8.1 Naming
 
 The `UInterface` class should be prefixed with `U`.
 
@@ -1370,19 +1460,25 @@ public:
 };
 ```
 
-<a name="4.8"></a>
-<a name="cpp-delegates-and-events"></a>
-### 4.8 Delegates and Events
+<a name="4.8.2"></a>
+<a name="cpp-interfaces-non-pure-functions"></a>
+#### 4.8.2 Non-pure functions in Interfaces
 
-<a name="4.8.1"></a>
+Interfaces are allowed to contain non-virtual or static functions, as long as they are implemented inline (and leverage `FORCEINLINE`).
+
+<a name="4.9"></a>
+<a name="cpp-delegates-and-events"></a>
+### 4.9 Delegates and Events
+
+<a name="4.9.1"></a>
 <a name="cpp-events-naming"></a>
-#### 4.8.1 Naming
+#### 4.9.1 Naming
 
 In addition to the following rules, all names should also follow the rules here: [C++ Classes Function Names](#cpp-classes-funcs-naming).
 
-<a name="4.8.1.1"></a>
+<a name="4.9.1.1"></a>
 <a name="cpp-events-naming-eventhandlers"></a>
-##### 4.8.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
+##### 4.9.1.1 Delegate Declarations, Events, Event Handlers and Event Dispatchers Should Start With `On`
 
 Delegate Declarations as well as exposed Events should start with `FOn`.
 
@@ -1421,9 +1517,9 @@ Bad examples:
 * `HandleMessage`
 * `HandleDeath`
 
-<a name="4.8.1.2"></a>
+<a name="4.9.1.2"></a>
 <a name="cpp-events-naming-internal-delegates"></a>
-##### 4.8.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
+##### 4.9.1.2 Internal Delegates Should Not Start With `On` and Should End With `Delegate`
 
 Delegates declared inside a class to serve as a wrapper to an Event Handler should not start with `On`. This is because the event handling function they wrap already starts with `On` and most likely has an identical name so this will cause a conflict.
 
@@ -1434,9 +1530,9 @@ For example:
 * `FOnTimelineFloat AttackPostUpdateDelegate;`
 * `FOnTimelineEvent AttackEventDelegate;`
 
-<a name="4.8.2"></a>
+<a name="4.9.2"></a>
 <a name="cpp-events-binding"></a>
-#### 4.8.2 Event Binding
+#### 4.9.2 Event Binding
 
 Binding to other data member's events should be either in the `PostInitializeComponents()` or the `BeginPlay()` function.
 
@@ -1446,23 +1542,61 @@ You should never bind to other data member events in the Constructor, this could
 
 > **_NOTE_:** As a rule, the Constructor should not contain any gameplay-related code, it should be used to for establishing universal details for the class, not for modifying any particular instance of that class.
 
-<a name="4.9"></a>
+<a name="4.10"></a>
 <a name="cpp-typedefs"></a>
-#### 4.9 Typedefs
+#### 4.10 Typedefs
 
 Typedefs should be prefixed by what is appropriate for that type, such as `F` for structs, or `U` for `UObject`.
 
 Example: `typedef TArray<FMytype> FArrayOfMyTypes;`
 
-<a name="4.10"></a>
+<a name="4.11"></a>
 <a name="cpp-macros"></a>
-#### 4.10 Macros
+#### 4.11 Macros
 
 Macro names (as opposed to function names) should be fully capitalized with words separated by underscores, and prefixed with the projects name.
 
 Example for UE macros: `#define UE_AUDIT_SPRITER_IMPORT`
 
 Example for project with an abbreviation of `QD`: `#define QD_SOME_MACRO`
+
+<a name="4.12"></a>
+<a name="cpp-comments"></a>
+#### 4.12 Comments
+
+This section discusses use of comments in the code.
+
+<a name="4.12.1"></a>
+<a name="cpp-comments-thirdparty"></a>
+#### 4.12.1 Third Party Code
+
+Whenever you modify the engine code, make sure to add a comment with a //@UE5 tag, and an explanation of why the change was made.
+
+Example:
+```
+// @third party code - BEGIN PhysX
+#include <physx.h>
+// @third party code - END PhysX
+// @third party code - BEGIN MSDN SetThreadName
+// [http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx]
+// Used to set the thread name in the debugger
+...
+//@third party code - END MSDN SetThreadName
+```
+
+This is done to make the merging process on newer UE versions easier.
+
+<a name="4.13"></a>
+<a name="cpp-namespaces"></a>
+#### 4.13 Namespaces
+
+This section discuss guildlines to follow when using namespaces to organize code.
+
+* Namespaces are not supported by the `UHT (UnrealHeaderTool)` so they shouldn't be used when defining `UCLASS`es, `USTRUCT`s and so on.
+* New APIs (which aren't `UCLASS`es, `USTRUCT`s and so on) should be placed in a common namespace (the code name of the project), and ideally a nested namespace such as `Audio` or `Material` resulting in `QD::Audio::`.
+* Do not use `using` declarations in the global scope, even in a `.cpp` file. Use namespaces only in other namespaces or function bodies.
+* Forward-declared types need to be declared within their respoective namespace.
+* Macros can't be used in namespaces, instead just follow the [C++ Macros](#cpp-macros) nameing rule.
 
 **[⬆ Back to Top](#table-of-contents)**
 

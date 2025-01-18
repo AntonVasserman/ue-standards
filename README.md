@@ -95,6 +95,7 @@ For example, if you want to send someone to the first principle of this style gu
       - [4.6.2.3 Categories](#cpp-classes-data-members-categories)
       - [4.6.2.4 Data Members Access Level](#cpp-classes-data-members-access)
       - [4.6.2.5 Advanced Display](#cpp-classes-data-members-advanced)
+      - [4.6.2.6 Interface Data Members](#cpp-classes-data-members-interface)
     - [4.6.3 cpp-classes-component-data-members](#cpp-classes-component-data-members)
       - [4.6.3.1 Naming](#cpp-classes-component-data-members-naming)
       - [4.6.3.2 Garbage Collection](#cpp-classes-component-data-members-gc)
@@ -1108,6 +1109,18 @@ All data members should be marked as `protected` or `private` according to their
 ##### 4.6.2.5 Advanced Display
 
 If a data member should be editable but often untouched, add the `Advanced Display` specifier. This makes the data member hidden unless the advanced display arrow is clicked.
+
+<a name="4.6.2.6"></a>
+<a name="cpp-classes-data-members-interface"></a>
+#### 4.6.2.6 Interface Data Members
+
+An interface data member (whose type leverages `UInterface`) should be stored using `TScriptInterface<T>` of that interface type.
+
+This allows for easier use and safe copying of the interface pointer as well as the `UObject` that implements it.
+
+References:
+[Determine Whether a Class Implements an Interface](https://dev.epicgames.com/documentation/en-us/unreal-engine/interfaces-in-unreal-engine#determinewhetheraclassimplementsaninterface)
+[Safely Store Object and Interface Pointers](https://dev.epicgames.com/documentation/en-us/unreal-engine/interfaces-in-unreal-engine#safelystoreobjectandinterfacepointers)
 
 <a name="4.6.3"></a>
 <a name="cpp-classes-component-data-members"></a>

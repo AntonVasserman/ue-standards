@@ -42,7 +42,7 @@ For example, if you want to send someone to the first principle of this style gu
     - [2.2.7 Paper 2D](#anc-paper2d)
     - [2.2.8 Paper ZD](#anc-paperzd)
     - [2.2.9 Physics](#anc-physics)
-    - [2.2.10 Sounds](#anc-sounds)
+    - [2.2.10 Audio](#anc-audio)
     - [2.2.11 Textures](#anc-textures)
       - [2.2.11.1 Texture Packing](#anc-textures-packing)
     - [2.2.12 User Interface](#anc-ui)
@@ -335,6 +335,7 @@ Depending on how your asset variants are made, you can chain together variant na
 | Static Mesh (02)        | SM_Rock_02                                                 |
 | Static Mesh (03)        | SM_Rock_03                                                 |
 
+TODO: Add examples to all from: https://unrealdirective.com/resources/asset-naming-conventions?domains=Animation
 <a name="asset-name-modifiers"></a>
 <a name="2.2"></a>
 ### 2.2 Asset Name Modifiers
@@ -352,6 +353,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Animation Blueprint     | ABP_       |            |                                  |
 | Animation Composite     | AC_        |            |                                  |
 | Animation Montage       | AM_        |            |                                  |
+| Animation Notify        | AN_        |            |                                  |
 | Animation Sequence      | AS_        |            |                                  |
 | Blend Space             | BS_        |            |                                  |
 | Blend Space 1D          | BS_        | _1D        |                                  |
@@ -373,9 +375,9 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | AI Controller           | AIC_         |            |                                  |
 | Behavior Tree           | BT_          |            |                                  |
 | Blackboard              | BB_          |            |                                  |
-| Decorator               | BTDecorator_ |            |                                  |
+| Decorator               | BTD_         |            |                                  |
 | Environment Query       | EQS_         |            |                                  |
-| EnvQueryContext         | EQS_         | Context    |                                  |
+| EnvQueryContext         | EQS_         | _Context   |                                  |
 | Service                 | BTService_   |            |                                  |
 | Task                    | BTTask_      |            |                                  |
 
@@ -395,16 +397,23 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Tutorial Blueprint         | TBP_       |            |                                  |
 | Widget Blueprint           | WBP_       |            |                                  |
 
+TODO: Maybe split between effects and Niagara
+
 <a name="anc-effects"></a>
 <a name="2.2.4"></a>
 ### 2.2.4 Effects
 
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Niagara Emitter         | FXE_       |            |                                  |
-| Niagara System          | FXS_       |            |                                  |
-| Niagara Function        | FXF_       |            |                                  |
-| Particle System         | PS_        |            |                                  |
+| Asset Type                            | Prefix     | Suffix     | Notes                            |
+| ------------------------------------- | ---------- | ---------- | -------------------------------- |
+| Niagara Dynamic Input Script          | NDIS_      |            |                                  |
+| Niagara Effect Type                   | NET_       |            |                                  |
+| Niagara Emitter                       | NE_        |            |                                  |
+| Niagara Function Script               | NFS_       |            |                                  |
+| Niagara Module Script                 | NMS_       |            |                                  |
+| Niagara Parameter Collection          | NPC_       |            |                                  |
+| Niagara Parameter Collection Instance | NPCI_      |            |                                  |
+| Niagara System                        | NS_        |            |                                  |
+| Particle System                       | PS_        |            |                                  |
 
 <a name="anc-inputs"></a>
 <a name="2.2.5"></a>
@@ -420,15 +429,21 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 <a name="2.2.6"></a>
 ### 2.2.6 Materials
 
+TODO: Decide which is for Post Process Material
+
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
 | Material                      | M_         |            |                                  |
+| Material (Decal)              | M_, MI_    | _Decal     |                                  |
+| Material(Light Function)      | M_, MI_    | _LF        |                                  |
+| Material(Post Process)        | M_, MI_    | _PP        |                                  |
+| Material(User Interface)      | M_, MI_    | _UI        |                                  |
+| Material(Volume)              | M_, MI_    | _Vol       |                                  |
 | Material Function             | MF_        |            |                                  |
 | Material Instance             | MI_        |            |                                  |
 | Material Parameter Collection | MPC_       |            |                                  |
 | Subsurface Profile            | SP_        |            |                                  |
 | Post Process Material         | PPM_       |            |                                  |
-| Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-paper2d"></a>
 <a name="2.2.7"></a>
@@ -459,13 +474,14 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
+| Destructible Mesh       | DM_        |            |                                  |
 | Physical Material       | PM_        |            |                                  |
 | Physics Asset           | PHYS_      |            |                                  |
-| Destructible Mesh       | DM_        |            |                                  |
 
-<a name="anc-sounds"></a>
+TODO: Move in hierarchy
+<a name="anc-audio"></a>
 <a name="2.2.10"></a>
-### 2.2.10 Sounds
+### 2.2.10 Audio
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -483,29 +499,38 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Sound Cue               | A_         | _Cue       |                                  |
 | Sound Mix               | Mix_       |            |                                  |
 | Sound Wave              | A_         |            |                                  |
+| Soundscape Color        | SC_        |            |                                  |
+| Soundscape Palette      | SP_        |            |                                  |
 
 <a name="anc-textures"></a>
 <a name="2.2.11"></a>
 ### 2.2.11 Textures
 
+TODO: Decide on Displacement vs Diffuse/Albedo???
+
 | Asset Type                          | Prefix        | Suffix     | Notes                            |
 | ----------------------------------- | ------------- | ---------- | -------------------------------- |
-| Texture                             | T_            |            |                                  |
-| Texture (Diffuse/Albedo/Base Color) | T_            | _D         |                                  |
-| Texture (Normal)                    | T_            | _N         |                                  |
-| Texture (Roughness)                 | T_            | _R         |                                  |
-| Texture (Alpha/Opacity)             | T_            | _A         |                                  |
-| Texture (Ambient Occlusion)         | T_            | _O         |                                  |
-| Texture (Bump)                      | T_            | _B         |                                  |
-| Texture (Emissive)                  | T_            | _E         |                                  |
-| Texture (Mask)                      | T_            | _M         |                                  |
-| Texture (Specular)                  | T_            | _S         |                                  |
-| Texture (Metallic)                  | T_            | _M         |                                  |
-| Texture (Packed)                    | T_            | _*         | See notes below about [packing](#anc-textures-packing). |
-| Texture Cube                        | TC_           |            |                                  |
+| Cube Render Target                  | RTC_          |            |                                  |
 | Media Texture                       | MT_           |            |                                  |
 | Render Target                       | RT_           |            |                                  |
-| Cube Render Target                  | RTC_          |            |                                  |
+| Texture                             | T_            |            |                                  |
+| Texture (Alpha/Opacity)             | T_            | _A         |                                  |
+| Texture (Ambient Occlusion)         | T_            | _AO        |                                  |
+| Texture (Base Color)                | T_            | _BC        |                                  |
+| Texture (Bump)                      | T_            | _B         |                                  |
+| Texture (Diffuse/Albedo)            | T_            | _D         |                                  |
+| Texture (Displacement)              | T_            | _D         |                                  |
+| Texture (Emissive)                  | T_            | _E         |                                  |
+| Texture (Flow Map)                  | T_            | _F         |                                  |
+| Texture (Height)                    | T_            | _H         |                                  |
+| Texture (Light Map)                 | T_            | _L         |                                  |
+| Texture (Mask)                      | T_            | _Mask      |                                  |
+| Texture (Metallic)                  | T_            | _M         |                                  |
+| Texture (Normal)                    | T_            | _N         |                                  |
+| Texture (Packed)                    | T_            | _*         | See notes below about [packing](#anc-textures-packing). |
+| Texture (Roughness)                 | T_            | _R         |                                  |
+| Texture (Specular)                  | T_            | _S         |                                  |
+| Texture Cube                        | TC_           |            |                                  |
 | Texture Light Profile               | TLP           |            |                                  |
 
 <a name="anc-textures-packing"></a>
@@ -523,9 +548,11 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Font                    | Font_      |            |                                  |
-| Slate Brush             | Brush_     |            |                                  |
-| Slate Widget Style      | Style_     |            |                                  |
+| Editor Utility Widget Blueprint | EUW_       |            |                                  |
+| Font                            | Font_      |            |                                  |
+| Slate Brush                     | SB_        |            |                                  |
+| Slate Widget Style              | SWS_       |            |                                  |
+| Widget Blueprint                | WBP_       |            |                                  |
 
 <a name="anc-misc"></a>
 <a name="2.2.13"></a>
@@ -534,25 +561,28 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Asset Type                 | Prefix     | Suffix     | Notes                            |
 | -------------------------- | ---------- | ---------- | -------------------------------- |
 | Animated Vector Field      | VFA_       |            |                                  |
+| Blink Media Player         | BMP_       |            |                                  |
 | Camera Anim                | CA_        |            |                                  |
 | Color Curve                | Curve_     | _Color     |                                  |
+| Curve Atlas                | Curve_     | _Atlas     |                                  |
 | Curve Table                | Curve_     | _Table     |                                  |
-| Data Asset                 | *_         |            | Prefix should be based on class. |
+| Data Asset                 | DA_*_      |            | Prefix should be based on class. |
+| Data Registry              | DR_        |            |                                  |
 | Data Table                 | DT_        |            |                                  |
 | File Media Source          | FMS_       |            |                                  |
 | Float Curve                | Curve_     | _Float     |                                  |
 | Foliage Type               | FT_        |            |                                  |
-| Force Feedback Effect      | FFE_       |            |                                  |
 | HDRI                       | HDR_       |            |                                  |
 | Landscape Grass Type       | LG_        |            |                                  |
 | Landscape Layer            | LL_        |            |                                  |
 | Level / Map                | LVL_       |            | [Should be in a folder called Maps.](#3.4) |
-| Level Instance             | LVLI_      |            |                                  |
 | Level (Audio)              | LVL_       | _Audio     |                                  |
 | Level (Gameplay)           | LVL_       | _Gameplay  |                                  |
 | Level (Geometry)           | LVL_       | _Geo       |                                  |
 | Level (Lighting)           | LVL_       | _Lighting  |                                  |
 | Level (Persistent)         | LVL_       | _P         |                                  |
+| Level (World Partition)    | LVL_       | _WP        |                                  |
+| Level Instance             | LVLI_      |            |                                  |
 | Level Snapshot             | SNAP_      |            |                                  |
 | Matinee Data               | Matinee_   |            |                                  |
 | NDisplay Configuration     | NDC_       |            |                                  |
@@ -566,6 +596,42 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Substance Instance Factory | SIF_       |            |                                  |
 | Touch Interface Setup      | TI_        |            |                                  |
 | Vector Curve               | Curve_     | _Vector    |                                  |
+
+TODO
+<a name="anc-gas"></a>
+<a name="2.2.13"></a>
+### 2.2.13 Gameplay Ability System
+
+| Asset Type                   | Prefix     | Suffix     | Notes                            |
+| ---------------------------- | ---------- | ---------- | -------------------------------- |
+| Ability Set                  | AS_        |            |                                  |
+| Game Phase Ability           | Phase_     |            |                                  |
+| Gameplay Abilities           | GA_        |            |                                  |
+| Gameplay Cue Notifies        | GCN_       |            |                                  |
+| Gameplay Effects             | GE_        |            |                                  |
+| Latent Gameplay Cue Notifies | GCNI_      |            |                                  |
+
+TODO
+<a name="anc-plugin"></a>
+<a name="2.2.13"></a>
+### 2.2.13 Plugin
+
+| Asset Type                | Prefix     | Suffix     | Notes                            |
+| ------------------------- | ---------- | ---------- | -------------------------------- |
+| Asset Placement Palette   | APP_       |            |                                  |
+| Substance Graph Instance  | SGI_       |            |                                  |
+| Substance Instance Factor | SIF_       |            |                                  |
+
+TODO
+<a name="anc-pcg"></a>
+<a name="2.2.13"></a>
+### 2.2.13 Procedural
+
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Procedural Content Generation | PCG_       |            |                                  |
+
+Reference: [Unreal Directive - Asset Naming Conventions](https://unrealdirective.com/resources/asset-naming-conventions)
 
 **[⬆ Back to Top](#table-of-contents)**
 

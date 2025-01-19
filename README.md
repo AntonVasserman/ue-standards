@@ -35,18 +35,19 @@ For example, if you want to send someone to the first principle of this style gu
   - [2.2 Asset Name Modifiers](#asset-name-modifiers)
     - [2.2.1 Animations](#anc-animations)
     - [2.2.2 Artificial Intelligence](#anc-ai)
-    - [2.2.3 Blueprints](#anc-bp)
-    - [2.2.4 Effects](#anc-effects)
-    - [2.2.5 Inputs](#anc-inputs)
-    - [2.2.6 Materials](#anc-materials)
-    - [2.2.7 Paper 2D](#anc-paper2d)
-    - [2.2.8 Paper ZD](#anc-paperzd)
-    - [2.2.9 Physics](#anc-physics)
-    - [2.2.10 Audio](#anc-audio)
-    - [2.2.11 Textures](#anc-textures)
-      - [2.2.11.1 Texture Packing](#anc-textures-packing)
-    - [2.2.12 User Interface](#anc-ui)
-    - [2.2.13 Miscellaneous](#anc-misc)
+    - [2.2.3 Audio](#anc-audio)
+    - [2.2.4 Blueprints](#anc-bp)
+    - [2.2.5 Gameplay Ability System](#anc-gas)
+    - [2.2.6 Inputs](#anc-inputs)
+    - [2.2.7 Materials](#anc-materials)
+    - [2.2.8 Niagara](#anc-niagara)
+    - [2.2.9 Paper 2D](#anc-paper2d)
+    - [2.2.10 Paper ZD](#anc-paperzd)
+    - [2.2.11 Physics](#anc-physics)
+    - [2.2.12 Textures](#anc-textures)
+      - [2.2.12.1 Texture Packing](#anc-textures-packing)
+    - [2.2.13 User Interface](#anc-ui)
+    - [2.2.14 Miscellaneous](#anc-misc)
 - [3. Content Directory Structure](#structure)
   - [3e1 Example Project Content Structure](#3e1)
   - [3.1 Folder Names](#structure-folder-names)
@@ -335,7 +336,6 @@ Depending on how your asset variants are made, you can chain together variant na
 | Static Mesh (02)        | SM_Rock_02                                                 |
 | Static Mesh (03)        | SM_Rock_03                                                 |
 
-TODO: Add examples to all from: https://unrealdirective.com/resources/asset-naming-conventions?domains=Animation
 <a name="asset-name-modifiers"></a>
 <a name="2.2"></a>
 ### 2.2 Asset Name Modifiers
@@ -381,107 +381,9 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Service                 | BTService_   |            |                                  |
 | Task                    | BTTask_      |            |                                  |
 
-<a name="anc-bp"></a>
-<a name="2.2.3"></a>
-### 2.2.3 Blueprints
-
-| Asset Type                 | Prefix     | Suffix     | Notes                            |
-| -------------------------- | ---------- | ---------- | -------------------------------- |
-| Blueprint                  | BP_        |            |                                  |
-| Blueprint Component        | BP_        | Component  | I.e. BP_InventoryComponent       |
-| Blueprint Function Library | BPFL_      |            |                                  |
-| Blueprint Interface        | BPI_       |            |                                  |
-| Blueprint Macro Library    | BPML_      |            | Do not use macro libraries if possible. |
-| Enumeration                | E          |            | No underscore.                   |
-| Structure                  | F or S     |            | No underscore.                   |
-| Tutorial Blueprint         | TBP_       |            |                                  |
-| Widget Blueprint           | WBP_       |            |                                  |
-
-TODO: Maybe split between effects and Niagara
-
-<a name="anc-effects"></a>
-<a name="2.2.4"></a>
-### 2.2.4 Effects
-
-| Asset Type                            | Prefix     | Suffix     | Notes                            |
-| ------------------------------------- | ---------- | ---------- | -------------------------------- |
-| Niagara Dynamic Input Script          | NDIS_      |            |                                  |
-| Niagara Effect Type                   | NET_       |            |                                  |
-| Niagara Emitter                       | NE_        |            |                                  |
-| Niagara Function Script               | NFS_       |            |                                  |
-| Niagara Module Script                 | NMS_       |            |                                  |
-| Niagara Parameter Collection          | NPC_       |            |                                  |
-| Niagara Parameter Collection Instance | NPCI_      |            |                                  |
-| Niagara System                        | NS_        |            |                                  |
-| Particle System                       | PS_        |            |                                  |
-
-<a name="anc-inputs"></a>
-<a name="2.2.5"></a>
-### 2.2.5 Inputs
-
-| Asset Type                    | Prefix     | Suffix     | Notes                            |
-| ----------------------------- | ---------- | ---------- | -------------------------------- |
-| Force Feedback Effect         | FFE_       |            |                                  |
-| Input Action                  | IA_        |            |                                  |
-| Input Mapping Context         | IMC_       |            |                                  |
-
-<a name="anc-materials"></a>
-<a name="2.2.6"></a>
-### 2.2.6 Materials
-
-TODO: Decide which is for Post Process Material
-
-| Asset Type                    | Prefix     | Suffix     | Notes                            |
-| ----------------------------- | ---------- | ---------- | -------------------------------- |
-| Material                      | M_         |            |                                  |
-| Material (Decal)              | M_, MI_    | _Decal     |                                  |
-| Material(Light Function)      | M_, MI_    | _LF        |                                  |
-| Material(Post Process)        | M_, MI_    | _PP        |                                  |
-| Material(User Interface)      | M_, MI_    | _UI        |                                  |
-| Material(Volume)              | M_, MI_    | _Vol       |                                  |
-| Material Function             | MF_        |            |                                  |
-| Material Instance             | MI_        |            |                                  |
-| Material Parameter Collection | MPC_       |            |                                  |
-| Subsurface Profile            | SP_        |            |                                  |
-| Post Process Material         | PPM_       |            |                                  |
-
-<a name="anc-paper2d"></a>
-<a name="2.2.7"></a>
-### 2.2.7 Paper 2D
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Paper Flipbook          | PFB_       |            |                                  |
-| Sprite                  | SPR_       |            |                                  |
-| Sprite Atlas Group      | SPRG_      |            |                                  |
-| Sprite Sheet            | SS_        |            |                                  |
-| Tile Map                | TM_        |            |                                  |
-| Tile Set                | TS_        |            |                                  |
-
-<a name="anc-paperzd"></a>
-<a name="2.2.8"></a>
-### 2.2.8 Paper ZD
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Animation Blueprint     | ABP_       | _2D        |                                  |
-| Animation Sequence      | AS_        | _2D        |                                  |
-| Animation Source        | ASRC_      |            |                                  |
-
-<a name="anc-physics"></a>
-<a name="2.2.9"></a>
-### 2.2.9 Physics
-
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Destructible Mesh       | DM_        |            |                                  |
-| Physical Material       | PM_        |            |                                  |
-| Physics Asset           | PHYS_      |            |                                  |
-
-TODO: Move in hierarchy
 <a name="anc-audio"></a>
-<a name="2.2.10"></a>
-### 2.2.10 Audio
+<a name="2.2.3"></a>
+### 2.2.3 Audio
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -502,11 +404,113 @@ TODO: Move in hierarchy
 | Soundscape Color        | SC_        |            |                                  |
 | Soundscape Palette      | SP_        |            |                                  |
 
-<a name="anc-textures"></a>
-<a name="2.2.11"></a>
-### 2.2.11 Textures
+<a name="anc-bp"></a>
+<a name="2.2.4"></a>
+### 2.2.4 Blueprints
 
-TODO: Decide on Displacement vs Diffuse/Albedo???
+| Asset Type                 | Prefix     | Suffix     | Notes                            |
+| -------------------------- | ---------- | ---------- | -------------------------------- |
+| Blueprint                  | BP_        |            |                                  |
+| Blueprint Component        | BP_        | Component  | I.e. BP_InventoryComponent       |
+| Blueprint Function Library | BPFL_      |            |                                  |
+| Blueprint Interface        | BPI_       |            |                                  |
+| Blueprint Macro Library    | BPML_      |            | Do not use macro libraries if possible. |
+| Enumeration                | E          |            | No underscore.                   |
+| Structure                  | F or S     |            | No underscore.                   |
+| Tutorial Blueprint         | TBP_       |            |                                  |
+| Widget Blueprint           | WBP_       |            |                                  |
+
+<a name="anc-gas"></a>
+<a name="2.2.5"></a>
+### 2.2.5 Gameplay Ability System
+
+| Asset Type                   | Prefix     | Suffix     | Notes                            |
+| ---------------------------- | ---------- | ---------- | -------------------------------- |
+| Ability Set                  | AS_        |            |                                  |
+| Game Phase Ability           | Phase_     |            |                                  |
+| Gameplay Abilities           | GA_        |            |                                  |
+| Gameplay Cue Notifies        | GCN_       |            |                                  |
+| Gameplay Effects             | GE_        |            |                                  |
+| Latent Gameplay Cue Notifies | GCNI_      |            |                                  |
+
+<a name="anc-inputs"></a>
+<a name="2.2.6"></a>
+### 2.2.6 Inputs
+
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Force Feedback Effect         | FFE_       |            |                                  |
+| Input Action                  | IA_        |            |                                  |
+| Input Mapping Context         | IMC_       |            |                                  |
+
+<a name="anc-materials"></a>
+<a name="2.2.7"></a>
+### 2.2.7 Materials
+
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Material                      | M_         |            |                                  |
+| Material (Decal)              | M_, MI_    | _Decal     |                                  |
+| Material (Light Function)     | M_, MI_    | _LF        |                                  |
+| Material (Post Process)       | M_, MI_    | _PP        |                                  |
+| Material (User Interface)     | M_, MI_    | _UI        |                                  |
+| Material (Volume)             | M_, MI_    | _Vol       |                                  |
+| Material Function             | MF_        |            |                                  |
+| Material Instance             | MI_        |            |                                  |
+| Material Parameter Collection | MPC_       |            |                                  |
+| Subsurface Profile            | SP_        |            |                                  |
+
+<a name="anc-niagara"></a>
+<a name="2.2.8"></a>
+### 2.2.8 Niagara
+
+| Asset Type                            | Prefix     | Suffix     | Notes                            |
+| ------------------------------------- | ---------- | ---------- | -------------------------------- |
+| Niagara Dynamic Input Script          | NDIS_      |            |                                  |
+| Niagara Effect Type                   | NET_       |            |                                  |
+| Niagara Emitter                       | NE_        |            |                                  |
+| Niagara Function Script               | NFS_       |            |                                  |
+| Niagara Module Script                 | NMS_       |            |                                  |
+| Niagara Parameter Collection          | NPC_       |            |                                  |
+| Niagara Parameter Collection Instance | NPCI_      |            |                                  |
+| Niagara System                        | NS_        |            |                                  |
+
+<a name="anc-paper2d"></a>
+<a name="2.2.9"></a>
+### 2.2.9 Paper 2D
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Paper Flipbook          | PFB_       |            |                                  |
+| Sprite                  | SPR_       |            |                                  |
+| Sprite Atlas Group      | SPRG_      |            |                                  |
+| Sprite Sheet            | SS_        |            |                                  |
+| Tile Map                | TM_        |            |                                  |
+| Tile Set                | TS_        |            |                                  |
+
+<a name="anc-paperzd"></a>
+<a name="2.2.10"></a>
+### 2.2.10 Paper ZD
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Animation Blueprint     | ABP_       | _2D        |                                  |
+| Animation Sequence      | AS_        | _2D        |                                  |
+| Animation Source        | ASRC_      |            |                                  |
+
+<a name="anc-physics"></a>
+<a name="2.2.11"></a>
+### 2.2.11 Physics
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Destructible Mesh       | DM_        |            |                                  |
+| Physical Material       | PM_        |            |                                  |
+| Physics Asset           | PHYS_      |            |                                  |
+
+<a name="anc-textures"></a>
+<a name="2.2.12"></a>
+### 2.2.12 Textures
 
 | Asset Type                          | Prefix        | Suffix     | Notes                            |
 | ----------------------------------- | ------------- | ---------- | -------------------------------- |
@@ -519,7 +523,7 @@ TODO: Decide on Displacement vs Diffuse/Albedo???
 | Texture (Base Color)                | T_            | _BC        |                                  |
 | Texture (Bump)                      | T_            | _B         |                                  |
 | Texture (Diffuse/Albedo)            | T_            | _D         |                                  |
-| Texture (Displacement)              | T_            | _D         |                                  |
+| Texture (Displacement)              | T_            | _DP        |                                  |
 | Texture (Emissive)                  | T_            | _E         |                                  |
 | Texture (Flow Map)                  | T_            | _F         |                                  |
 | Texture (Height)                    | T_            | _H         |                                  |
@@ -534,8 +538,8 @@ TODO: Decide on Displacement vs Diffuse/Albedo???
 | Texture Light Profile               | TLP           |            |                                  |
 
 <a name="anc-textures-packing"></a>
-<a name="2.2.11.1"></a>
-#### 2.2.11.1 Texture Packing
+<a name="2.2.12.1"></a>
+#### 2.2.12.1 Texture Packing
 It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack (in lexicographic order) the given suffix letters from above together, e.g. `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
@@ -543,8 +547,8 @@ It is common practice to pack multiple layers of texture data into one texture. 
 Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
 
 <a name="anc-ui"></a>
-<a name="2.2.12"></a>
-### 2.2.12 User Interface
+<a name="2.2.13"></a>
+### 2.2.13 User Interface
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -555,81 +559,50 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Widget Blueprint                | WBP_       |            |                                  |
 
 <a name="anc-misc"></a>
-<a name="2.2.13"></a>
-### 2.2.13 Miscellaneous
+<a name="2.2.14"></a>
+### 2.2.14 Miscellaneous
 
-| Asset Type                 | Prefix     | Suffix     | Notes                            |
-| -------------------------- | ---------- | ---------- | -------------------------------- |
-| Animated Vector Field      | VFA_       |            |                                  |
-| Blink Media Player         | BMP_       |            |                                  |
-| Camera Anim                | CA_        |            |                                  |
-| Color Curve                | Curve_     | _Color     |                                  |
-| Curve Atlas                | Curve_     | _Atlas     |                                  |
-| Curve Table                | Curve_     | _Table     |                                  |
-| Data Asset                 | DA_*_      |            | Prefix should be based on class. |
-| Data Registry              | DR_        |            |                                  |
-| Data Table                 | DT_        |            |                                  |
-| File Media Source          | FMS_       |            |                                  |
-| Float Curve                | Curve_     | _Float     |                                  |
-| Foliage Type               | FT_        |            |                                  |
-| HDRI                       | HDR_       |            |                                  |
-| Landscape Grass Type       | LG_        |            |                                  |
-| Landscape Layer            | LL_        |            |                                  |
-| Level / Map                | LVL_       |            | [Should be in a folder called Maps.](#3.4) |
-| Level (Audio)              | LVL_       | _Audio     |                                  |
-| Level (Gameplay)           | LVL_       | _Gameplay  |                                  |
-| Level (Geometry)           | LVL_       | _Geo       |                                  |
-| Level (Lighting)           | LVL_       | _Lighting  |                                  |
-| Level (Persistent)         | LVL_       | _P         |                                  |
-| Level (World Partition)    | LVL_       | _WP        |                                  |
-| Level Instance             | LVLI_      |            |                                  |
-| Level Snapshot             | SNAP_      |            |                                  |
-| Matinee Data               | Matinee_   |            |                                  |
-| NDisplay Configuration     | NDC_       |            |                                  |
-| Object Library             | OL_        |            |                                  |
-| OCIO Profile               | OCIO_      |            |                                  |
-| Redirector                 |            |            | These should be fixed up ASAP.   |
-| Remote Conrtol Preset      | RCP_       |            |                                  |
-| Static Mesh                | SM_        |            |                                  |
-| Static Vector Field        | VF_        |            |                                  |
-| Substance Graph Instance   | SGI_       |            |                                  |
-| Substance Instance Factory | SIF_       |            |                                  |
-| Touch Interface Setup      | TI_        |            |                                  |
-| Vector Curve               | Curve_     | _Vector    |                                  |
-
-TODO
-<a name="anc-gas"></a>
-<a name="2.2.13"></a>
-### 2.2.13 Gameplay Ability System
-
-| Asset Type                   | Prefix     | Suffix     | Notes                            |
-| ---------------------------- | ---------- | ---------- | -------------------------------- |
-| Ability Set                  | AS_        |            |                                  |
-| Game Phase Ability           | Phase_     |            |                                  |
-| Gameplay Abilities           | GA_        |            |                                  |
-| Gameplay Cue Notifies        | GCN_       |            |                                  |
-| Gameplay Effects             | GE_        |            |                                  |
-| Latent Gameplay Cue Notifies | GCNI_      |            |                                  |
-
-TODO
-<a name="anc-plugin"></a>
-<a name="2.2.13"></a>
-### 2.2.13 Plugin
-
-| Asset Type                | Prefix     | Suffix     | Notes                            |
-| ------------------------- | ---------- | ---------- | -------------------------------- |
-| Asset Placement Palette   | APP_       |            |                                  |
-| Substance Graph Instance  | SGI_       |            |                                  |
-| Substance Instance Factor | SIF_       |            |                                  |
-
-TODO
-<a name="anc-pcg"></a>
-<a name="2.2.13"></a>
-### 2.2.13 Procedural
-
-| Asset Type                    | Prefix     | Suffix     | Notes                            |
-| ----------------------------- | ---------- | ---------- | -------------------------------- |
-| Procedural Content Generation | PCG_       |            |                                  |
+| Asset Type                    | Prefix     | Suffix     | Notes                                               |
+| ----------------------------- | ---------- | ---------- | --------------------------------------------------- |
+| Animated Vector Field         | VFA_       |            |                                                     |
+| Asset Placement Palette       | APP_       |            | Belongs to the _Asset Placement Editor Mode_ Plugin |
+| Blink Media Player            | BMP_       |            |                                                     |
+| Camera Anim                   | CA_        |            |                                                     |
+| Color Curve                   | Curve_     | _Color     |                                                     |
+| Curve Atlas                   | Curve_     | _Atlas     |                                                     |
+| Curve Table                   | Curve_     | _Table     |                                                     |
+| Data Asset                    | DA_*_      |            | Prefix should be based on class.                    |
+| Data Registry                 | DR_        |            |                                                     |
+| Data Table                    | DT_        |            |                                                     |
+| File Media Source             | FMS_       |            |                                                     |
+| Float Curve                   | Curve_     | _Float     |                                                     |
+| Foliage Type                  | FT_        |            |                                                     |
+| HDRI                          | HDR_       |            |                                                     |
+| Landscape Grass Type          | LG_        |            |                                                     |
+| Landscape Layer               | LL_        |            |                                                     |
+| Level / Map                   | LVL_       |            | [Should be in a folder called Maps.](#3.4)          |
+| Level (Audio)                 | LVL_       | _Audio     |                                                     |
+| Level (Gameplay)              | LVL_       | _Gameplay  |                                                     |
+| Level (Geometry)              | LVL_       | _Geo       |                                                     |
+| Level (Lighting)              | LVL_       | _Lighting  |                                                     |
+| Level (Persistent)            | LVL_       | _P         |                                                     |
+| Level (World Partition)       | LVL_       | _WP        |                                                     |
+| Level Instance                | LVLI_      |            |                                                     |
+| Level Snapshot                | SNAP_      |            |                                                     |
+| Matinee Data                  | Matinee_   |            |                                                     |
+| NDisplay Configuration        | NDC_       |            |                                                     |
+| Object Library                | OL_        |            |                                                     |
+| OCIO Profile                  | OCIO_      |            |                                                     |
+| Particle System               | PS_        |            |                                                     |
+| Procedural Content Generation | PCG_       |            |                                                     |
+| Redirector                    |            |            | These should be fixed up ASAP.                      |
+| Remote Conrtol Preset         | RCP_       |            |                                                     |
+| Static Mesh                   | SM_        |            |                                                     |
+| Static Vector Field           | VF_        |            |                                                     |
+| Substance Graph Instance      | SGI_       |            | Belongs to the _Substance in UE5_ Plugin            |
+| Substance Instance Factory    | SIF_       |            | Belongs to the _Substance in UE5_ Plugin            |
+| Touch Interface Setup         | TI_        |            |                                                     |
+| Vector Curve                  | Curve_     | _Vector    |                                                     |
 
 Reference: [Unreal Directive - Asset Naming Conventions](https://unrealdirective.com/resources/asset-naming-conventions)
 

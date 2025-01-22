@@ -187,7 +187,7 @@ For example, if you want to send someone to the first principle of this style gu
 
 The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
-> **_NOTE_:** With that being said, the Levels/Maps folder will be named `Maps` (to align with most projects and conventions) while the Levels will be prefixed with `L_` (as opposed to the UE Standard that is `LVL_`).
+> **_NOTE_:** With that being said, the Levels/Maps folder will be named `Maps` (to align with most projects and conventions) while the Levels will be prefixed with `L_` (following later UE Standards that can be seen in the [Lyra Sample Game](https://dev.epicgames.com/documentation/en-us/unreal-engine/lyra-sample-game-in-unreal-engine)).
 
 <a name="terms-identifiers"></a>
 ##### Identifiers

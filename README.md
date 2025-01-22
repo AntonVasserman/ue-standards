@@ -187,7 +187,7 @@ For example, if you want to send someone to the first principle of this style gu
 
 The word 'map' generally refers to what the average person calls a 'level' and may be used interchangeably. See this term's history [here](https://en.wikipedia.org/wiki/Level_(video_gaming)).
 
-> **_NOTE_:** With that being said, the Levels/Maps folder will be named `Maps` (to align with most projects and conventions) while the Levels will be prefixed with `LVL_` (to align with UE Standards).
+> **_NOTE_:** With that being said, the Levels/Maps folder will be named `Maps` (to align with most projects and conventions) while the Levels will be prefixed with `L_` (as opposed to the UE Standard that is `LVL_`).
 
 <a name="terms-identifiers"></a>
 ##### Identifiers
@@ -580,14 +580,14 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | HDRI                          | HDR_       |            |                                                     |
 | Landscape Grass Type          | LG_        |            |                                                     |
 | Landscape Layer               | LL_        |            |                                                     |
-| Level / Map                   | LVL_       |            | [Should be in a folder called Maps.](#3.4)          |
-| Level (Audio)                 | LVL_       | _Audio     |                                                     |
-| Level (Gameplay)              | LVL_       | _Gameplay  |                                                     |
-| Level (Geometry)              | LVL_       | _Geo       |                                                     |
-| Level (Lighting)              | LVL_       | _Lighting  |                                                     |
-| Level (Persistent)            | LVL_       | _P         |                                                     |
-| Level (World Partition)       | LVL_       | _WP        |                                                     |
-| Level Instance                | LVLI_      |            |                                                     |
+| Level / Map                   | L_       |            | [Should be in a folder called Maps.](#3.4)          |
+| Level (Audio)                 | L_       | _Audio     |                                                     |
+| Level (Gameplay)              | L_       | _Gameplay  |                                                     |
+| Level (Geometry)              | L_       | _Geo       |                                                     |
+| Level (Lighting)              | L_       | _Lighting  |                                                     |
+| Level (Persistent)            | L_       | _P         |                                                     |
+| Level (World Partition)       | L_       | _WP        |                                                     |
+| Level Instance                | LI_      |            |                                                     |
 | Level Snapshot                | SNAP_      |            |                                                     |
 | Matinee Data                  | Matinee_   |            |                                                     |
 | NDisplay Configuration        | NDC_       |            |                                                     |
@@ -660,8 +660,8 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |   |-- Weather
         |-- <a href="#3.4">Maps</a>
         |   |-- Gyms
-        |   |-- Level_0
-        |   |-- Level_1
+        |   |-- L_0
+        |   |-- L_1
         |-- <a href="#3.8">MaterialLibrary</a>
         |   |-- Debug
         |   |-- Metal
@@ -1968,7 +1968,7 @@ If a project is to be sold on Fab, it must follow these rules.
 
 If your project contains assets that should be visualized or demoed, you must have a map within your project that contains the name "Overview".
 
-For example, `LVL_InteractionComponent_Overview`.
+For example, `L_InteractionComponent_Overview`.
 
 <a name="8.4.2"></a>
 <a name="levels-mp-rules-demo"></a>
@@ -1978,7 +1978,7 @@ If your project contains assets that should be demoed or come with some sort of 
 
 If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
 
-For example, `LVL_InteractionComponent_Overview_Demo`, `LVL_ExplosionKit_Demo`.
+For example, `L_InteractionComponent_Overview_Demo`, `L_ExplosionKit_Demo`.
 
 **[⬆ Back to Top](#table-of-contents)**
 

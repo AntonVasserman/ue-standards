@@ -10,11 +10,12 @@
 
 Every section of this style guide is numbered for both easy reference and easy linking.
 
-You can link to any section directly by simply append a hash tag and the section number to the end of https://github.com/AntonVasserman/ue5-standards.
+You can link to any section directly by simply append a hash tag and the section number to the end of https://github.com/AntonVasserman/ue-standards.
 
-For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in https://github.com/AntonVasserman/ue5-standards#0.1.
+For example, if you want to send someone to the first principle of this style guide you would append `#0.1`, resulting in https://github.com/AntonVasserman/ue-standards#0.1.
 
 ## Table of contents
+- [Why Standards Are Important?](#why-standards)
 - [Important Terminology](#important-terminology)
   - [Levels/Maps](#terms-level-map)
   - [Identifiers](#terms-identifiers)
@@ -180,6 +181,18 @@ For example, if you want to send someone to the first principle of this style gu
   - [9.3 Textures Should Be No Bigger than 8192](#textures-max-size)
   - [9.4 Textures Should Be Grouped Correctly](#textures-group)
 
+<a name="why-standards"></a>
+## Why Standards Are Important?
+
+As Epic Games puts it in [Coding Standard](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine):
+
+- 80% of the lifetime cost of a piece of software goes to maintenance.
+- Hardly any software is maintained for its whole life by the original author.
+- Code conventions improve the readability of software, allowing engineers to understand new code quickly and thoroughly.
+- If we decide to expose source code to mod community developers, we want it to be easily understood.
+- Many of the UE conventions are required for cross-compiler compatibility.
+
+<a name="important-terminology"></a>
 ## Important Terminology
 
 <a name="terms-level-map"></a>
@@ -775,6 +788,11 @@ It is very easy for a team member to accidentally use assets that are not ready 
 If these modular assets were placed in a Developer folder, the world builder should never have had a reason to use them and the whole issue would never happen. The Content Browser has specific View Options that will hide Developer folders (they are hidden by default) making it impossible to accidentally use Developer assets under normal use.
 
 Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially 'promoting' the assets from experimental to production.
+
+> **_NOTE_:** If you can't find the Developers folder, in the Content Browser open up _Settings_ and select _Show Developers Content_.
+
+> **_NOTE_:** Since the Developers folder can contain a lot of broken things that might break the build (as those are experimental) it is recommended to block the Developers folder from the Packaged build.
+> To do that, in the toolbar click on _Platforms_ and select _Packaging Settings_. In the _Project - Packaging_ under _Packaging_ go to _Advanced_ -> _Directories to never cook_, add a new item and point it to the Develpers folder.
 
 <a name="3.4"></a>
 <a name="structure-maps"></a>

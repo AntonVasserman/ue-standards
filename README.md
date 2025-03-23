@@ -39,16 +39,17 @@ For example, if you want to send someone to the first principle of this style gu
     - [2.2.3 Audio](#anc-audio)
     - [2.2.4 Blueprints](#anc-bp)
     - [2.2.5 Gameplay Ability System](#anc-gas)
-    - [2.2.6 Inputs](#anc-inputs)
-    - [2.2.7 Materials](#anc-materials)
-    - [2.2.8 Niagara](#anc-niagara)
-    - [2.2.9 Paper 2D](#anc-paper2d)
-    - [2.2.10 Paper ZD](#anc-paperzd)
-    - [2.2.11 Physics](#anc-physics)
-    - [2.2.12 Textures](#anc-textures)
-      - [2.2.12.1 Texture Packing](#anc-textures-packing)
-    - [2.2.13 User Interface](#anc-ui)
-    - [2.2.14 Miscellaneous](#anc-misc)
+    - [2.2.6 Gameplay Camera System](#anc-gameplaycameras)
+    - [2.2.7 Inputs](#anc-inputs)
+    - [2.2.8 Materials](#anc-materials)
+    - [2.2.9 Niagara](#anc-niagara)
+    - [2.2.10 Paper 2D](#anc-paper2d)
+    - [2.2.11 Paper ZD](#anc-paperzd)
+    - [2.2.12 Physics](#anc-physics)
+    - [2.2.13 Textures](#anc-textures)
+      - [2.2.13.1 Texture Packing](#anc-textures-packing)
+    - [2.2.14 User Interface](#anc-ui)
+    - [2.2.15 Miscellaneous](#anc-misc)
 - [3. Content Directory Structure](#structure)
   - [3e1 Example Project Content Structure](#3e1)
   - [3.1 Folder Names](#structure-folder-names)
@@ -63,13 +64,12 @@ For example, if you want to send someone to the first principle of this style gu
     - [3.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained](#3.2.4)
   - [3.3 Use Developers Folder For Local Testing](#structure-developers)
   - [3.4 All Map<sup>*</sup> Files Belong In A Folder Called Maps](#structure-maps)
-  - [3.5 Use A `Core` Folder For Critical Blueprints And Other Assets](#structure-core)
-  - [3.6 Do Not Create Folders Called `Assets` or `AssetTypes`](#structure-assettypes)
-    - [3.6.1 Creating a folder named `Assets` is redundant](#3.6.1)
-    - [3.6.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant](#3.6.2)
-  - [3.7 Very Large Asset Sets Get Their Own Folder Layout](#structure-large-sets)
-  - [3.8 `MaterialLibrary`](#structure-material-library)
-  - [3.9 No Empty Folders](#structure-no-empty-folders)
+  - [3.5 Do Not Create Folders Called `Assets` or `AssetTypes`](#structure-assettypes)
+    - [3.5.1 Creating a folder named `Assets` is redundant](#3.5.1)
+    - [3.5.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant](#3.5.2)
+  - [3.6 Very Large Asset Sets Get Their Own Folder Layout](#structure-large-sets)
+  - [3.7 `MaterialLibrary`](#structure-material-library)
+  - [3.8 No Empty Folders](#structure-no-empty-folders)
 - [4. C++](#cpp)
   - [4.1 Compiling](#cpp-compiling)
   - [4.2 Variables](#cpp-vars)
@@ -446,9 +446,19 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Gameplay Effects             | GE_        |            |                                  |
 | Latent Gameplay Cue Notifies | GCNI_      |            |                                  |
 
-<a name="anc-inputs"></a>
+<a name="anc-gameplaycameras"></a>
 <a name="2.2.6"></a>
-### 2.2.6 Inputs
+### 2.2.6 Gameplay Camera System
+
+| Asset Type                | Prefix     | Suffix     | Notes                            |
+| ------------------------- | ---------- | ---------- | -------------------------------- |
+| Camera Asset              | CA_        |            |                                  |
+| Camera Rig Prefab         | CRP_       |            |                                  |
+| Camera Director Evaluator | CDE_       |            |                                  |
+
+<a name="anc-inputs"></a>
+<a name="2.2.7"></a>
+### 2.2.7 Inputs
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
@@ -457,8 +467,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Input Mapping Context         | IMC_       |            |                                  |
 
 <a name="anc-materials"></a>
-<a name="2.2.7"></a>
-### 2.2.7 Materials
+<a name="2.2.8"></a>
+### 2.2.8 Materials
 
 | Asset Type                    | Prefix     | Suffix     | Notes                            |
 | ----------------------------- | ---------- | ---------- | -------------------------------- |
@@ -474,8 +484,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Subsurface Profile            | SP_        |            |                                  |
 
 <a name="anc-niagara"></a>
-<a name="2.2.8"></a>
-### 2.2.8 Niagara
+<a name="2.2.9"></a>
+### 2.2.9 Niagara
 
 | Asset Type                            | Prefix     | Suffix     | Notes                            |
 | ------------------------------------- | ---------- | ---------- | -------------------------------- |
@@ -489,8 +499,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Niagara System                        | NS_        |            |                                  |
 
 <a name="anc-paper2d"></a>
-<a name="2.2.9"></a>
-### 2.2.9 Paper 2D
+<a name="2.2.10"></a>
+### 2.2.10 Paper 2D
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -502,8 +512,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Tile Set                | TS_        |            |                                  |
 
 <a name="anc-paperzd"></a>
-<a name="2.2.10"></a>
-### 2.2.10 Paper ZD
+<a name="2.2.11"></a>
+### 2.2.11 Paper ZD
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -512,8 +522,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Animation Source        | ASRC_      |            |                                  |
 
 <a name="anc-physics"></a>
-<a name="2.2.11"></a>
-### 2.2.11 Physics
+<a name="2.2.12"></a>
+### 2.2.12 Physics
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -522,8 +532,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Physics Asset           | PHYS_      |            |                                  |
 
 <a name="anc-textures"></a>
-<a name="2.2.12"></a>
-### 2.2.12 Textures
+<a name="2.2.13"></a>
+### 2.2.13 Textures
 
 | Asset Type                          | Prefix        | Suffix     | Notes                            |
 | ----------------------------------- | ------------- | ---------- | -------------------------------- |
@@ -551,8 +561,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Texture Light Profile               | TLP           |            |                                  |
 
 <a name="anc-textures-packing"></a>
-<a name="2.2.12.1"></a>
-#### 2.2.12.1 Texture Packing
+<a name="2.2.13.1"></a>
+#### 2.2.13.1 Texture Packing
 It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack (in lexicographic order) the given suffix letters from above together, e.g. `_ERO`.
 
 > It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo's alpha channel and as this is common practice, adding `A` to the `_D` suffix is optional.
@@ -560,8 +570,8 @@ It is common practice to pack multiple layers of texture data into one texture. 
 Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo's alpha channel as a texture with an alpha channel incurs more overhead than one without.
 
 <a name="anc-ui"></a>
-<a name="2.2.13"></a>
-### 2.2.13 User Interface
+<a name="2.2.14"></a>
+### 2.2.14 User Interface
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -572,8 +582,8 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Widget Blueprint                | WBP_       |            |                                  |
 
 <a name="anc-misc"></a>
-<a name="2.2.14"></a>
-### 2.2.14 Miscellaneous
+<a name="2.2.15"></a>
+### 2.2.15 Miscellaneous
 
 | Asset Type                    | Prefix     | Suffix     | Notes                                                       |
 | ----------------------------- | ---------- | ---------- | ----------------------------------------------------------- |
@@ -590,6 +600,7 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | File Media Source             | FMS_       |            |                                                             |
 | Float Curve                   | Curve_     | _Float     |                                                             |
 | Foliage Type                  | FT_        |            |                                                             |
+| Geometry Collection           | GC_        |            |                                                             |
 | HDRI                          | HDR_       |            |                                                             |
 | Landscape Grass Type          | LG_        |            |                                                             |
 | Landscape Layer               | LL_        |            |                                                             |
@@ -650,24 +661,18 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |-- Characters
         |   |-- Bob
         |   |-- Common
-        |   |   |-- <a href="#3.7">Animations</a>
+        |   |   |-- Animations
         |   |   |   |-- Cinematic
         |   |   |   |-- Locomotion
         |   |   |-- Audio
         |   |-- Jack
         |   |-- Steve
         |   |-- <a href="#3.1.3">Zoe</a>
-        |-- <a href="#3.5">Core</a>
-        |   |-- Characters
-        |   |-- Controllers
-        |   |-- Engine
-        |   |-- <a href="#3.1.2">GameModes</a>
-        |   |   |-- GameStates
-        |   |-- Inputs
-        |   |   |-- Actions
-        |   |-- Interactables
-        |   |-- Pickups
-        |   |-- Weapons
+        |-- Controllers
+        |-- GameMode
+        |-- GameState
+        |-- Input
+        |   |-- Actions
         |-- Effects
         |   |-- Electrical
         |   |-- Fire
@@ -676,20 +681,21 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
         |   |-- Gyms
         |   |-- L_0
         |   |-- L_1
-        |-- <a href="#3.8">MaterialLibrary</a>
+        |-- <a href="#3.7">MaterialLibrary</a>
         |   |-- Debug
         |   |-- Metal
         |   |-- Paint
         |   |-- Utility
         |   |-- Weathering
+        |-- Interactables
         |-- Placeables
         |   |-- Pickups
         |-- Weapons
-            |-- Common
-            |-- Pistols
-            |   |-- DesertEagle
-            |   |-- RocketPistol
-            |-- Rifles
+        |   |-- Common
+        |   |-- Pistols
+        |   |   |-- DesertEagle
+        |   |   |-- RocketPistol
+        |   |-- Rifles
 </pre>
 
 The reasons for this structure are listed in the following sub-sections.
@@ -808,26 +814,16 @@ This also simplifies the job of cooking for engineers. Wrangling levels for a bu
 If Gym maps are used, put them under `/Content/Project/Maps/Gyms` (Consider setting a special color to this folder, as it has unique purpose, I personally set it to `404040FF` (0.25, 0.25, 0.25)).
 
 <a name="3.5"></a>
-<a name="structure-core"></a>
-### 3.5 Use A `Core` Folder For Critical Blueprints And Other Assets
-
-Use `/Content/Project/Core` folder for assets that are absolutely fundamental to a project's workings. For example, base `GameMode`, `Character`, `PlayerController`, `GameState`, `PlayerState`, and related Blueprints should live here.
-
-This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
-
-For example, if your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
-
-<a name="3.6"></a>
 <a name="structure-assettypes"></a>
-### 3.6 Do Not Create Folders Called `Assets` or `AssetTypes`
+### 3.5 Do Not Create Folders Called `Assets` or `AssetTypes`
 
-<a name="3.6.1"></a>
-#### 3.6.1 Creating a folder named `Assets` is redundant
+<a name="3.5.1"></a>
+#### 3.5.1 Creating a folder named `Assets` is redundant
 
 All assets are assets.
 
-<a name="3.6.2"></a>
-#### 3.6.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant
+<a name="3.5.2"></a>
+#### 3.5.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant
 
 All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.
 
@@ -837,21 +833,21 @@ Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static
 
 Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a `Materials` folder.
 
-<a name="3.7"></a>
+<a name="3.6"></a>
 <a name="structure-large-sets"></a>
-### 3.7 Very Large Asset Sets Get Their Own Folder Layout
+### 3.6 Very Large Asset Sets Get Their Own Folder Layout
 
-This can be seen as a pseudo-exception to [3.6](#3.6).
+This can be seen as a pseudo-exception to [3.5](#3.5).
 
 There are certain asset types that have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.
 
 For example, animations that are shared across multiple characters should lay in `Characters/Common/Animations` and may have sub-folders such as `Locomotion` or `Cinematic`.
 
-> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#3.8).
+> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#3.7).
 
-<a name="3.8"></a>
+<a name="3.7"></a>
 <a name="structure-material-library"></a>
-### 3.8 `MaterialLibrary`
+### 3.7 `MaterialLibrary`
 
 If your project makes use of master materials, layered materials, or any form of reusable materials or textures that do not belong to any subset of assets, these assets should be located in `Content/Project/MaterialLibrary`.
 
@@ -863,9 +859,9 @@ The `MaterialLibrary` doesn't have to consist of purely materials. Shared utilit
 
 Any testing or debug materials should be within `MaterialLibrary/Debug`. This allows debug materials to be easily stripped from a project before shipping and makes it incredibly apparent if production assets are using them if reference errors are shown.
 
-<a name="3.9"></a>
+<a name="3.8"></a>
 <a name="structure-no-empty-folders"></a>
-### 3.9 No Empty Folders
+### 3.8 No Empty Folders
 
 There simply shouldn't be any empty folders. They clutter the content browser.
 

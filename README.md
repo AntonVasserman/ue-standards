@@ -334,7 +334,7 @@ Depending on how your asset variants are made, you can chain together variant na
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
 | Material                | M_Bob                                                      |
-| Skeletal Mesh           | SK_Bob                                                     |
+| Skeletal Mesh           | SKM_Bob                                                     |
 | Texture (Diffuse/Albedo)| T_Bob_D                                                    |
 | Texture (Normal)        | T_Bob_N                                                    |
 | Texture (Evil Diffuse)  | T_Bob_Evil_D                                               |
@@ -357,7 +357,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 <a name="anc-animations"></a>
 <a name="2.2.1"></a>
-#### 2.2.1 Animations
+### 2.2.1 Animations
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
@@ -376,8 +376,8 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Morph Target            | MT_        |            |                                  |
 | Rig                     | Rig_       |            |                                  |
 | Sequencer Edits         | EDIT_      |            |                                  |
-| Skeletal Mesh           | SK_        |            |                                  |
-| Skeleton                | SKEL_      |            |                                  |
+| Skeletal Mesh           | SKM_       |            |                                  |
+| Skeleton                | SK_        |            |                                  |
 
 <a name="anc-ai"></a>
 <a name="2.2.2"></a>

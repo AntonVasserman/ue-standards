@@ -35,6 +35,7 @@ For example, if you want to send someone to the first principle of this style gu
     - [2.1 Examples](#2.1-examples)
   - [2.2 Asset Name Modifiers](#asset-name-modifiers)
     - [2.2.1 Animations](#anc-animations)
+      - [2.2.1.1 Motion Matching](#anc-animations-mm)
     - [2.2.2 Artificial Intelligence](#anc-ai)
     - [2.2.3 Audio](#anc-audio)
     - [2.2.4 Blueprints](#anc-bp)
@@ -378,6 +379,16 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Sequencer Edits         | EDIT_      |            |                                  |
 | Skeletal Mesh           | SKM_       |            |                                  |
 | Skeleton                | SK_        |            |                                  |
+
+<a name="anc-animations-mm"></a>
+<a name="2.2.1.1"></a>
+#### 2.2.1.1 Motion Matching
+
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Pose Search Database          | PSD_       |            |                                  |
+| Pose Search Normalization Set | PSN_       |            |                                  |
+| Pose Search Schema            | PSS_       |            |                                  |
 
 <a name="anc-ai"></a>
 <a name="2.2.2"></a>
